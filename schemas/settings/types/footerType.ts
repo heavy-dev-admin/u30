@@ -1,0 +1,41 @@
+import { defineArrayMember, defineField } from 'sanity'
+
+export const footerType = defineField({
+  name: 'footer',
+  title: 'Footer',
+  type: 'object',
+  group: 'footer',
+  fields: [
+    defineField({
+      name: 'footerMenu',
+      title: 'Menu',
+      type: 'array',
+      of: [
+        defineArrayMember({
+          type: 'reference',
+          to: [{ type: 'page' }],
+        }),
+      ],
+    }),
+    defineField({
+      name: 'footerHeader',
+      title: 'Header',
+      type: 'string',
+    }),
+    defineField({
+      name: 'footerContactButtonText',
+      title: 'Contact Button Text',
+      type: 'string',
+    }),
+    defineField({
+      name: 'footerEmailContact',
+      title: 'Email for Contact',
+      type: 'string',
+      validation: (Rule) =>
+        Rule.regex(/^[^\s@]+@[^\s@]+\.[^\s@]+$/, {
+          name: 'email',
+          invert: false,
+        }).error('Must be a valid email address'),
+    }),
+  ],
+})
