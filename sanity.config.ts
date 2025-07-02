@@ -22,6 +22,10 @@ import homepageType from 'schemas/pages/homepage'
 import clientQuotesSectionType from 'schemas/sections/clientQuotesSection'
 import clientsSectionType from 'schemas/sections/clientsSection'
 import settingsType from 'schemas/settings'
+import { pageType } from 'schemas/settings/document/page'
+import { linkExternalType } from 'schemas/settings/global/linkExternalType'
+import { linkInternalType } from 'schemas/settings/global/linkInternalType'
+
 
 const title =
   process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE || 'Next.js Blog with Sanity.io'
