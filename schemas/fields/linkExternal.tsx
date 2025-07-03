@@ -1,7 +1,7 @@
 import { EarthGlobeIcon } from '@sanity/icons'
 import { defineField } from 'sanity'
 
-export const linkExternalType = defineField({
+export default defineField({
   title: 'External Link',
   name: 'linkExternal',
   type: 'object',
@@ -25,7 +25,7 @@ export const linkExternalType = defineField({
       name: 'url',
       title: 'URL',
       type: 'url',
-      validation: (Rule) => Rule.required().uri({scheme: ['http', 'https']}),
+      validation: (rule) => rule.required().uri({scheme: ['http', 'https']}),
     }),
     defineField({
       title: 'Open in a new window?',

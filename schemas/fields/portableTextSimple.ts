@@ -1,6 +1,6 @@
 import { defineArrayMember, defineField } from 'sanity'
 
-export const portableTextSimpleType = defineField({
+export default defineField({
   name: 'portableTextSimple',
   type: 'array',
   of: [

@@ -1,6 +1,6 @@
 import { defineField } from 'sanity'
 
-export const footerType = defineField({
+export default defineField({
   name: 'footer',
   title: 'Footer',
   type: 'object',
@@ -20,7 +20,7 @@ export const footerType = defineField({
       name: 'contactURL',
       title: 'Contact URL',
       type: 'url',
-      validation: (Rule) => Rule.required().uri({scheme: ['http', 'https']}),
+      validation: (rule) => rule.required().uri({scheme: ['http', 'https']}),
     }),
     defineField({
       name: 'footerHeader',
@@ -36,11 +36,7 @@ export const footerType = defineField({
       name: 'footerEmailContact',
       title: 'Email for Contact',
       type: 'string',
-      validation: (Rule) =>
-        Rule.regex(/^[^\s@]+@[^\s@]+\.[^\s@]+$/, {
-          name: 'email',
-          invert: false,
-        }).error('Must be a valid email address'),
+      validation: (rule) => rule.required().email(),
     }),
   ],
 })

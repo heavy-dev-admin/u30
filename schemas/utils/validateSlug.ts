@@ -1,8 +1,8 @@
 import { MAX_CHARACTERS_LENGTH } from 'constant'
 import { SlugRule } from 'sanity'
 
-export const validateSlug = (Rule: SlugRule) => {
-  return Rule.required().custom((value) => {
+export const validateSlug = (rule: SlugRule) => {
+  return rule.required().custom((value) => {
     const currentSlug = value && value.current
     if (!currentSlug) {
       return true

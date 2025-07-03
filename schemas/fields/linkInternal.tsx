@@ -2,7 +2,7 @@ import { LinkIcon } from '@sanity/icons'
 import { PAGE_REFERENCES } from 'constant'
 import { defineField } from 'sanity'
 
-export const linkInternalType = defineField({
+export default defineField({
   title: 'Internal Link',
   name: 'linkInternal',
   type: 'object',
@@ -26,7 +26,7 @@ export const linkInternalType = defineField({
       name: 'reference',
       type: 'reference',
       weak: true,
-      validation: (Rule) => Rule.required(),
+      validation: (rule) => rule.required(),
       to: PAGE_REFERENCES,
     }),
   ],

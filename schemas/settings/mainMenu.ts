@@ -1,6 +1,6 @@
 import { defineField } from 'sanity'
 
-export const mainMenuType = defineField({
+export default defineField({
   name: 'menu',
   title: 'Menu',
   type: 'object',
@@ -19,7 +19,7 @@ export const mainMenuType = defineField({
       name: 'contactURL',
       title: 'Contact URL',
       type: 'url',
-      validation: (Rule) => Rule.required().uri({scheme: ['http', 'https']}),
+      validation: (rule) => rule.required().uri({scheme: ['http', 'https']}),
     }),
   ],
 })

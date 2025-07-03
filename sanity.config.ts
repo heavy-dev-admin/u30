@@ -18,6 +18,12 @@ import { presentationTool } from 'sanity/presentation'
 import { structureTool } from 'sanity/structure'
 import { unsplashImageAsset } from 'sanity-plugin-asset-source-unsplash'
 import clientType from 'schemas/documents/client'
+import pageType from 'schemas/documents/page'
+import linkExternalField from 'schemas/fields/linkExternal'
+import linkInternalField from 'schemas/fields/linkInternal'
+import portableTextSimpleType from 'schemas/fields/portableTextSimple'
+import seoPageField from 'schemas/fields/seoPage'
+import aboutPageType from 'schemas/pages/about'
 import homepageType from 'schemas/pages/homepage'
 import clientQuotesSectionType from 'schemas/sections/clientQuotesSection'
 import clientsSectionType from 'schemas/sections/clientsSection'
@@ -33,11 +39,11 @@ export default defineConfig({
   title,
   schema: {
     // If you want more content types, you can add them to this array
-    types: [clientType, settingsType, homepageType, clientsSectionType, clientQuotesSectionType],
+    types: [linkInternalField, linkExternalField, clientType, homepageType, clientsSectionType, clientQuotesSectionType, settingsType, pageType, portableTextSimpleType, aboutPageType, seoPageField],
   },
   plugins: [
     structureTool({
-      structure: settingsStructure([settingsType, homepageType]),
+      structure: settingsStructure([settingsType, homepageType, aboutPageType]),
       // `defaultDocumentNode` is responsible for adding a “Preview” tab to the document pane
       defaultDocumentNode: previewDocumentNode(),
     }),
