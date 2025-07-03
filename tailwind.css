@@ -1,26 +1,24 @@
 @import 'tailwindcss';
 @plugin "@tailwindcss/typography";
 
+@font-face {
+  font-family: 'GT Pressura';
+  src: url('/fonts/GT-Pressura-Regular.woff2') format('woff2');
+  font-weight: 500;
+  font-style: medium;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'GT Pressura';
+  src: url('/fonts/GT-Pressura-Bold.woff2') format('woff2');
+  font-weight: 900;
+  font-style: black;
+  font-display: swap;
+}
+
 @theme {
-  --color-accent-1: #fafafa;
-  --color-accent-2: #eaeaea;
-  --color-accent-7: #333;
-  --color-success: #0070f3;
-  --color-cyan: #79ffe1;
-  --color-blue-500: #2276fc;
-  --color-yellow-100: #fef7da;
-
-  --tracking-tighter: -0.04em;
-
-  --leading-tight: 1.2;
-
-  --text-5xl: 2.5rem;
-  --text-6xl: 2.75rem;
-  --text-7xl: 4.5rem;
-  --text-8xl: 6.25rem;
-
-  --shadow-small: 0 5px 10px rgba(0, 0, 0, 0.12);
-  --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.12);
+  --font-sans: 'GT Pressura', sans-serif;
 }
 
 /*
@@ -38,5 +36,49 @@
   ::backdrop,
   ::file-selector-button {
     border-color: var(--color-gray-200, currentColor);
+  }
+
+  html {
+    font-family: var(--font-sans);
+  }
+
+  h1, .h1 {
+    @apply text-[38px] leading-[42px] -tracking-[0.76px] font-black md:text-[64px] md:leading-[62px] md:-tracking-[1.28px];
+  }
+
+  h2, .h2 {
+    @apply text-[40px] leading-12 -tracking-[0.8px] font-medium md:text-[64px] md:leading-[62px] md:-tracking-[1.28px];
+  }
+
+  h3, .h3 {
+    @apply text-[32px] leading-8.5 -tracking-[0.64px] font-black md:text-[48px] md:leading-[46px] md:-tracking-[0.96px];
+  }
+
+  h4, .h4 {
+    @apply text-[22px] leading-6 -tracking-[0.44px] font-black md:text-[32px] md:leading-8.5 md:-tracking-[0.68px];
+  }
+
+  h5, .h5 {
+    @apply text-[22px] leading-6 -tracking-[0.44px] font-medium md:text-[34px] md:leading-8.5 md:-tracking-[0.68px];
+  }
+
+  h6, .h6 {
+    @apply text-[16px] leading-4 font-black;
+  }
+
+  .text-button {
+    @apply text-[14px] leading-4 font-black;
+  }
+
+  .text-body-small {
+    @apply text-[16px] leading-5.5 font-medium;
+  }
+
+  .text-body {
+    @apply text-[18px] leading-6 font-medium md:text-[20px];
+  }
+
+  .text-body-large {
+    @apply text-[22px] leading-7 font-medium md:text-[26px] md:leading-8.5;
   }
 }
