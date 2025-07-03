@@ -17,8 +17,10 @@ import { defineConfig } from 'sanity'
 import { presentationTool } from 'sanity/presentation'
 import { structureTool } from 'sanity/structure'
 import { unsplashImageAsset } from 'sanity-plugin-asset-source-unsplash'
-import authorType from 'schemas/author'
-import postType from 'schemas/post'
+import clientType from 'schemas/documents/client'
+import homepageType from 'schemas/pages/homepage'
+import clientQuotesSectionType from 'schemas/sections/clientQuotesSection'
+import clientsSectionType from 'schemas/sections/clientsSection'
 import settingsType from 'schemas/settings'
 
 const title =
@@ -31,11 +33,11 @@ export default defineConfig({
   title,
   schema: {
     // If you want more content types, you can add them to this array
-    types: [authorType, postType, settingsType],
+    types: [clientType, settingsType, homepageType, clientsSectionType, clientQuotesSectionType],
   },
   plugins: [
     structureTool({
-      structure: settingsStructure(settingsType),
+      structure: settingsStructure([settingsType, homepageType]),
       // `defaultDocumentNode` is responsible for adding a “Preview” tab to the document pane
       defaultDocumentNode: previewDocumentNode(),
     }),
