@@ -23,9 +23,7 @@ export default async function og(req: NextRequest, res: NextResponse) {
       apiVersion,
       useCdn: false,
     })
-    const settings = (await client.fetch<Settings>(settingsQuery, {
-      version: apiVersion,
-    })) || {}
+    const settings = (await client.fetch<Settings>(settingsQuery)) || {}
     title = settings?.ogImage?.title
   }
 

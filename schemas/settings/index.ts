@@ -1,9 +1,8 @@
 import { CogIcon } from '@sanity/icons'
 import { defineType } from 'sanity'
-
-import { footerType } from './types/footerType'
-import { mainMenuType } from './types/mainMenuType'
-import { seoType } from './types/seoType'
+import { footerType } from 'schemas/settings/types/footerType'
+import { mainMenuType } from 'schemas/settings/types/mainMenuType'
+import { seoType } from 'schemas/settings/types/seoType'
 
 export default defineType({
   name: 'settings',

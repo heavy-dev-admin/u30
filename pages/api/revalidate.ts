@@ -196,7 +196,7 @@ async function queryStaleAuthorRoutes(
     groq`*[_type == "author" && _id == $id] {
     "slug": *[_type == "post" && references(^._id)].slug.current
   }["slug"][]`,
-    { id, version: apiVersion },
+    { id },
   )
 
   if (slugs.length > 0) {
@@ -213,7 +213,7 @@ async function queryStalePostRoutes(
 ): Promise<StaleRoute[]> {
   let slugs = await client.fetch(
     groq`*[_type == "post" && _id == $id].slug.current`,
-    { id, version: apiVersion },
+    { id },
   )
 
   slugs = await mergeWithMoreStories(client, slugs)

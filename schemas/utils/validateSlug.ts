@@ -1,6 +1,5 @@
-import {SlugRule} from 'sanity'
-
-const MAX_LENGTH = 96
+import { MAX_CHARACTERS_LENGTH } from 'constant'
+import { SlugRule } from 'sanity'
 
 export const validateSlug = (Rule: SlugRule) => {
   return Rule.required().custom((value) => {
@@ -9,8 +8,8 @@ export const validateSlug = (Rule: SlugRule) => {
       return true
     }
 
-    if (currentSlug.length >= MAX_LENGTH) {
-      return `Must be less than ${MAX_LENGTH} characters`
+    if (currentSlug.length >= MAX_CHARACTERS_LENGTH) {
+      return `Must be less than ${MAX_CHARACTERS_LENGTH} characters`
     }
 
     return true

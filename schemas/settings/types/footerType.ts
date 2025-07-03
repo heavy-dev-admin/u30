@@ -1,4 +1,4 @@
-import { defineArrayMember, defineField } from 'sanity'
+import { defineField } from 'sanity'
 
 export const footerType = defineField({
   name: 'footer',
@@ -10,12 +10,13 @@ export const footerType = defineField({
       name: 'footerMenu',
       title: 'Menu',
       type: 'array',
-      of: [
-        defineArrayMember({
-          type: 'reference',
-          to: [{ type: 'page' }],
-        }),
-      ],
+      of: [{type: 'linkInternal'}]
+    }),
+    defineField({
+      name: 'contactURL',
+      title: 'Contact URL',
+      type: 'url',
+      validation: (Rule) => Rule.required().uri({scheme: ['http', 'https']}),
     }),
     defineField({
       name: 'footerHeader',

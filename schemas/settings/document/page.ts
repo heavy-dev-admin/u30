@@ -1,23 +1,16 @@
-import {DocumentIcon} from '@sanity/icons'
-import {defineField} from 'sanity'
-import {validateSlug} from 'schemas/utils/validateSlug'
+import { DocumentIcon } from '@sanity/icons'
+import { GROUPS } from 'constant'
+import { defineField } from 'sanity'
+
+import { seoPageType } from '../types/seoPage'
 
 export const pageType = defineField({
   name: 'page',
   title: 'Page',
   type: 'document',
   icon: DocumentIcon,
+  groups: GROUPS,
   fields: [
-    defineField({
-      name: 'title',
-      type: 'string',
-      validation: (Rule) => Rule.required(),
-    }),
-    defineField({
-      name: 'slug',
-      type: 'slug',
-      options: {source: 'title'},
-      validation: validateSlug,
-    })
+    seoPageType
   ]
 })

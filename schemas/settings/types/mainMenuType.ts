@@ -1,4 +1,4 @@
-import {defineField} from 'sanity'
+import { defineField } from 'sanity'
 
 export const mainMenuType = defineField({
   name: 'menu',
@@ -13,7 +13,13 @@ export const mainMenuType = defineField({
     defineField({
       name: 'links',
       type: 'array',
-      of: [{type: 'linkInternal'}, {type: 'linkExternal'}],
-    })
+      of: [{type: 'linkInternal'}]
+    }),
+    defineField({
+      name: 'contactURL',
+      title: 'Contact URL',
+      type: 'url',
+      validation: (Rule) => Rule.required().uri({scheme: ['http', 'https']}),
+    }),
   ],
 })
