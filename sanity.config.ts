@@ -3,6 +3,7 @@
  * This config is used to set up Sanity Studio that's mounted on the `/pages/studio/[[...index]].tsx` route
  */
 
+import { colorInput } from '@sanity/color-input'
 import { visionTool } from '@sanity/vision'
 import {
   apiVersion,
@@ -26,6 +27,8 @@ import seoPageField from 'schemas/fields/seoPage'
 import aboutPageType from 'schemas/pages/about'
 import careerType from 'schemas/pages/career'
 import homepageType from 'schemas/pages/homepage'
+import workBlockType from 'schemas/fields/workBlock'
+import workType from 'schemas/pages/work'
 import clientQuotesSectionType from 'schemas/sections/clientQuotesSection'
 import clientsSectionType from 'schemas/sections/clientsSection'
 import settingsType from 'schemas/settings'
@@ -52,12 +55,20 @@ export default defineConfig({
       portableTextSimpleType,
       aboutPageType,
       seoPageField,
-      careerType
+      workBlockType,
+      clientType,
+      careerType,
+      workType,
     ],
   },
   plugins: [
     structureTool({
-      structure: settingsStructure([settingsType, homepageType, careerType]),
+      structure: settingsStructure([
+        settingsType,
+        homepageType,
+        careerType,
+        workType,
+      ]),
       // `defaultDocumentNode` is responsible for adding a “Preview” tab to the document pane
       defaultDocumentNode: previewDocumentNode(),
     }),
@@ -73,6 +84,7 @@ export default defineConfig({
     settingsPlugin({ type: settingsType.name }),
     // Add an image asset source for Unsplash
     unsplashImageAsset(),
+    colorInput(),
     // Vision lets you query your content with GROQ in the studio
     // https://www.sanity.io/docs/the-vision-plugin
     process.env.NODE_ENV !== 'production' &&
