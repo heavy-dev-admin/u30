@@ -130,7 +130,7 @@ async function queryStaleRoutes(
 
   // Handle possible deletions
   if (body._type === 'post') {
-    const exists = await client.fetch(groq`*[_id == $id][0]`, { id: body._id, version: apiVersion })
+    const exists = await client.fetch(groq`*[_id == $id][0]`, { id: body._id })
     if (!exists) {
       const staleRoutes: StaleRoute[] = ['/']
       if ((body.slug as any)?.current) {
@@ -141,7 +141,7 @@ async function queryStaleRoutes(
         groq`count(
           *[_type == "post"] | order(date desc, _updatedAt desc) [0...3] [dateTime(date) > dateTime($date)]
         )`,
-        { date: body.date, version: apiVersion },
+        { date: body.date },
       )
       // If there's less than 3 posts with a newer date, we need to revalidate everything
       if (moreStories < 3) {
