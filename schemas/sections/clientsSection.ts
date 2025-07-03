@@ -1,4 +1,4 @@
-import { defineField, defineType } from 'sanity'
+import { defineArrayMember, defineField, defineType } from 'sanity'
 
 export default defineType({
   name: 'clientsSection',
@@ -14,9 +14,12 @@ export default defineType({
     defineField({
       name: 'clients',
       title: 'Clients',
-      type: 'reference',
-      to: [
-        { type: 'client' }
+      type: 'array',
+      of: [
+        defineArrayMember({
+          type: 'reference',
+          to: [{ type: 'client' }],
+        }),
       ],
       validation: (rule) => rule.required(),
     }),
@@ -28,7 +31,7 @@ export default defineType({
       options: {
         list: [
           { title: 'Ticker', value: 'ticker' },
-          { title: 'Grid', value: 'grid' }
+          { title: 'Grid', value: 'grid' },
         ],
         layout: 'radio',
         direction: 'horizontal',

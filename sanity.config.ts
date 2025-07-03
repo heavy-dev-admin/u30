@@ -28,6 +28,7 @@ import aboutPageType from 'schemas/pages/about'
 import careerType from 'schemas/pages/career'
 import homepageType from 'schemas/pages/homepage'
 import workBlockType from 'schemas/fields/workBlock'
+import industriesType from 'schemas/pages/industries'
 import workType from 'schemas/pages/work'
 import clientQuotesSectionType from 'schemas/sections/clientQuotesSection'
 import clientsSectionType from 'schemas/sections/clientsSection'
@@ -59,6 +60,7 @@ export default defineConfig({
       clientType,
       careerType,
       workType,
+      industriesType,
     ],
   },
   plugins: [
@@ -68,6 +70,7 @@ export default defineConfig({
         homepageType,
         careerType,
         workType,
+        industriesType,
       ]),
       // `defaultDocumentNode` is responsible for adding a “Preview” tab to the document pane
       defaultDocumentNode: previewDocumentNode(),
