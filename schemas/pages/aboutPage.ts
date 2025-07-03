@@ -49,7 +49,7 @@ export default defineType({
       type: 'image',
       group: 'seoPage',
     }),
-    {
+    defineField({
       name: 'layout',
       title: 'Layout',
       type: 'string',
@@ -62,7 +62,7 @@ export default defineType({
         layout: 'radio',
       },
       initialValue: 'primary',
-    },
+    }),
     defineField({
       name: 'title',
       title: 'Title',

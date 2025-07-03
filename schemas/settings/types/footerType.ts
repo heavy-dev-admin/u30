@@ -5,6 +5,10 @@ export const footerType = defineField({
   title: 'Footer',
   type: 'object',
   group: 'footer',
+  options: {
+    collapsed: false,
+    collapsible: true,
+  },
   fields: [
     defineField({
       name: 'footerMenu',
