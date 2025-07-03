@@ -1,7 +1,6 @@
-import {LinkIcon} from '@sanity/icons'
-import {defineField} from 'sanity'
-
-import {PAGE_REFERENCES} from '../../../constant'
+import { LinkIcon } from '@sanity/icons'
+import { PAGE_REFERENCES } from 'constant'
+import { defineField } from 'sanity'
 
 export const linkInternalType = defineField({
   title: 'Internal Link',

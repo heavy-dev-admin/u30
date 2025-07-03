@@ -45,22 +45,16 @@ export function getClient(preview?: { token: string }): SanityClient {
 export const getSanityImageConfig = () => getClient()
 
 export async function getSettings(client: SanityClient): Promise<Settings> {
-  return (await client.fetch(settingsQuery, {
-    version: apiVersion,
-  })) || {}
+  return (await client.fetch(settingsQuery)) || {}
 }
 
 export async function getAllPosts(client: SanityClient): Promise<Post[]> {
-  return (await client.fetch(indexQuery, {
-    version: apiVersion,
-  })) || []
+  return (await client.fetch(indexQuery)) || []
 }
 
 export async function getAllPostsSlugs(): Promise<Pick<Post, 'slug'>[]> {
   const client = getClient()
-  const slugs = (await client.fetch<string[]>(postSlugsQuery, {
-    version: apiVersion,
-  })) || []
+  const slugs = (await client.fetch<string[]>(postSlugsQuery)) || []
   return slugs.map((slug) => ({ slug }))
 }
 
@@ -68,12 +62,12 @@ export async function getPostBySlug(
   client: SanityClient,
   slug: string,
 ): Promise<Post> {
-  return (await client.fetch(postBySlugQuery, { slug, version: apiVersion })) || ({} as any)
+  return (await client.fetch(postBySlugQuery, { slug })) || ({} as any)
 }
 
 export async function getPostAndMoreStories(
   client: SanityClient,
   slug: string,
 ): Promise<{ post: Post; morePosts: Post[] }> {
-  return await client.fetch(postAndMoreStoriesQuery, { slug, version: apiVersion })
+  return await client.fetch(postAndMoreStoriesQuery, { slug })
 }

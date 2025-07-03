@@ -1,5 +1,5 @@
-import {EarthGlobeIcon} from '@sanity/icons'
-import {defineField} from 'sanity'
+import { EarthGlobeIcon } from '@sanity/icons'
+import { defineField } from 'sanity'
 
 export const linkExternalType = defineField({
   title: 'External Link',
