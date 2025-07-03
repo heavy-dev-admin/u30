@@ -18,6 +18,13 @@
 }
 
 @theme {
+  --color-dark-green: #024834;
+  --color-green: #85C441;
+  --color-light-green: #CEE074;
+  --color-pink: #F7ACBB;
+  --color-cream: #FFF6EC;
+  --color-beige: #EAE2CC;
+
   --font-sans: 'GT Pressura', sans-serif;
 }
 

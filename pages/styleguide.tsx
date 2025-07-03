@@ -68,6 +68,52 @@ export default function Styleguide() {
           </div>
         </div>
       </div>
+
+      <h2 className="h2 font-sans mt-12 mb-6 uppercase">Colors</h2>
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+        <div className="flex items-center gap-3 ">
+          <span className="rounded-full border w-12 h-12 flex bg-dark-green"></span>
+          <div>
+            <pre className="[font-size:12px]">Dark Green</pre>
+            <pre className="[font-size:12px]">#024834</pre>
+          </div>
+        </div>
+        <div className="flex items-center gap-3 ">
+          <span className="rounded-full border w-12 h-12 flex bg-green"></span>
+          <div>
+            <pre className="[font-size:12px]">Green</pre>
+            <pre className="[font-size:12px]">#85C441</pre>
+          </div>
+        </div>
+        <div className="flex items-center gap-3 ">
+          <span className="rounded-full border w-12 h-12 flex bg-light-green"></span>
+          <div>
+            <pre className="[font-size:12px]">Light Green</pre>
+            <pre className="[font-size:12px]">#CEE074</pre>
+          </div>
+        </div>
+        <div className="flex items-center gap-3 ">
+          <span className="rounded-full border w-12 h-12 flex bg-pink"></span>
+          <div>
+            <pre className="[font-size:12px]">Pink</pre>
+            <pre className="[font-size:12px]">#F7ACBB</pre>
+          </div>
+        </div>
+        <div className="flex items-center gap-3 ">
+          <span className="rounded-full border w-12 h-12 flex bg-cream"></span>
+          <div>
+            <pre className="[font-size:12px]">Cream</pre>
+            <pre className="[font-size:12px]">#FFF6EC</pre>
+          </div>
+        </div>
+        <div className="flex items-center gap-3 ">
+          <span className="rounded-full border w-12 h-12 flex bg-beige"></span>
+          <div>
+            <pre className="[font-size:12px]">Beige</pre>
+            <pre className="[font-size:12px]">#EAE2CC</pre>
+          </div>
+        </div>
+      </div>
     </div>
   )
 }
