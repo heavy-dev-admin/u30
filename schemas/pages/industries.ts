@@ -1,17 +1,33 @@
-import { ListIcon } from '@sanity/icons'
+import { ComposeIcon, ListIcon, SearchIcon } from '@sanity/icons'
 import { defineArrayMember, defineField, defineType } from 'sanity'
+import seoPageField from 'schemas/fields/seoPage'
 
 export default defineType({
   name: 'industries',
   title: 'Industries',
   type: 'document',
   icon: ListIcon,
+  groups: [
+    {
+      name: 'seoPage',
+      title: 'SEO',
+      icon: SearchIcon,
+    },
+    {
+      default: true,
+      name: 'sections',
+      title: 'Sections',
+      icon: ComposeIcon,
+    },
+  ],
   fields: [
+    seoPageField,
     defineField({
       name: 'hero',
       description: 'Hero section settings',
       title: 'Hero section',
       type: 'object',
+      group: 'sections',
       options: {
         collapsible: true,
       },
@@ -25,7 +41,7 @@ export default defineType({
         defineField({
           name: 'description',
           title: 'Description',
-          type: 'text',
+          type: 'portableTextSimple',
         }),
       ],
     }),
@@ -33,6 +49,7 @@ export default defineType({
       name: 'industries',
       title: 'Industries section',
       type: 'array',
+      group: 'sections',
       of: [
         {
           name: 'industry',
@@ -65,6 +82,7 @@ export default defineType({
       name: 'flexibleSections',
       title: 'Flexible Sections',
       type: 'array',
+      group: 'sections',
       of: [
         defineArrayMember({
           type: 'reference',

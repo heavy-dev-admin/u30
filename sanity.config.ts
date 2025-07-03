@@ -24,10 +24,10 @@ import linkExternalField from 'schemas/fields/linkExternal'
 import linkInternalField from 'schemas/fields/linkInternal'
 import portableTextSimpleType from 'schemas/fields/portableTextSimple'
 import seoPageField from 'schemas/fields/seoPage'
-import aboutPageType from 'schemas/pages/about'
+import workBlockType from 'schemas/fields/workBlock'
+import aboutType from 'schemas/pages/about'
 import careerType from 'schemas/pages/career'
 import homepageType from 'schemas/pages/homepage'
-import workBlockType from 'schemas/fields/workBlock'
 import industriesType from 'schemas/pages/industries'
 import workType from 'schemas/pages/work'
 import clientQuotesSectionType from 'schemas/sections/clientQuotesSection'
@@ -45,19 +45,23 @@ export default defineConfig({
   schema: {
     // If you want more content types, you can add them to this array
     types: [
+      // fields
       linkInternalField,
       linkExternalField,
+      workBlockType,
+      portableTextSimpleType,
+      // documents
       clientType,
-      homepageType,
+      pageType,
+      // sections
       clientsSectionType,
       clientQuotesSectionType,
+      // settings
       settingsType,
-      pageType,
-      portableTextSimpleType,
-      aboutPageType,
+      // pages
+      homepageType,
+      aboutType,
       seoPageField,
-      workBlockType,
-      clientType,
       careerType,
       workType,
       industriesType,
@@ -71,6 +75,7 @@ export default defineConfig({
         careerType,
         workType,
         industriesType,
+        aboutType,
       ]),
       // `defaultDocumentNode` is responsible for adding a “Preview” tab to the document pane
       defaultDocumentNode: previewDocumentNode(),

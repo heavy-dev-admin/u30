@@ -1,64 +1,73 @@
-import { ComposeIcon, SearchIcon, UserIcon } from '@sanity/icons'
+import { ComposeIcon, InfoOutlineIcon, SearchIcon } from '@sanity/icons'
 import { defineArrayMember, defineField, defineType } from 'sanity'
 import seoPageField from 'schemas/fields/seoPage'
 
 export default defineType({
-  name: 'aboutPage',
+  name: 'about',
   title: 'About Page',
   type: 'document',
-  icon: UserIcon,
+  icon: InfoOutlineIcon,
   groups: [
     {
       name: 'seoPage',
       title: 'SEO',
-      icon: SearchIcon
+      icon: SearchIcon,
     },
     {
-    default: true,
-    name: 'sections',
-    title: 'Sections',
-    icon: ComposeIcon
-  }],
+      default: true,
+      name: 'sections',
+      title: 'Sections',
+      icon: ComposeIcon,
+    },
+  ],
   fields: [
     seoPageField,
     defineField({
-      name: 'layout',
-      title: 'Layout',
-      type: 'string',
+      name: 'hero',
+      description: 'Hero section settings',
+      title: 'Hero section',
+      type: 'object',
       group: 'sections',
       options: {
-        list: [
-          { title: 'primary', value: 'side-by-side' },
-          { title: 'secondary', value: 'stacked' },
-        ],
-        layout: 'radio',
+        collapsible: true,
       },
-      initialValue: 'side-by-side',
-    }),
-    defineField({
-      name: 'title',
-      title: 'Title',
-      type: 'string',
-      group: 'sections',
-    }),
-    defineField({
-      name: 'description',
-      title: 'Description',
-      type: 'portableTextSimple',
-      group: 'sections',
-    }),
-    defineField({
-      name: 'image',
-      title: 'Image',
-      type: 'image',
-      group: 'sections',
       fields: [
-        {
-          name: 'alt',
+        defineField({
+          name: 'layout',
+          title: 'Layout',
           type: 'string',
-          title: 'Alternative text',
-          description: 'Important for SEO and accessiblity.',
-        },
+          options: {
+            list: [
+              { title: 'Primary', value: 'primary' },
+              { title: 'Secondary', value: 'secondary' },
+            ],
+            layout: 'radio',
+          },
+          initialValue: 'side-by-side',
+        }),
+        defineField({
+          name: 'title',
+          title: 'Title',
+          type: 'string',
+        }),
+        defineField({
+          name: 'description',
+          title: 'Description',
+          type: 'portableTextSimple',
+        }),
+        defineField({
+          name: 'image',
+          title: 'Image',
+          type: 'image',
+          fields: [
+            {
+              name: 'alt',
+              type: 'string',
+              title: 'Alternative text',
+              description: 'Important for SEO and accessiblity.',
+            },
+          ],
+        }),
       ],
     }),
     defineField({
@@ -69,10 +78,7 @@ export default defineType({
       of: [
         defineArrayMember({
           type: 'reference',
-          to: [
-            { type: 'clientsSection' },
-            { type: 'clientQuotesSection' },
-          ],
+          to: [{ type: 'clientsSection' }, { type: 'clientQuotesSection' }],
         }),
       ],
     }),
