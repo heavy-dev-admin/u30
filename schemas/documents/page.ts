@@ -11,14 +11,14 @@ export default defineField({
     {
       name: 'seoPage',
       title: 'SEO',
-      icon: SearchIcon
+      icon: SearchIcon,
     },
     {
       default: true,
       name: 'content',
       title: 'Content',
-      icon: BlockContentIcon
-    }
+      icon: BlockContentIcon,
+    },
   ],
   fields: [
     seoPageField,
@@ -26,28 +26,25 @@ export default defineField({
       name: 'title',
       title: 'Title',
       type: 'string',
-      group: 'content'
+      group: 'content',
     }),
     defineField({
       name: 'body',
       title: 'Body',
       type: 'portableTextSimple',
-      group: 'content'
+      group: 'content',
     }),
     defineField({
-      name: 'sections',
-      title: 'Sections',
+      name: 'flexibleSections',
+      title: 'Flexible Sections',
       type: 'array',
       of: [
         defineArrayMember({
           type: 'reference',
-          to: [
-            { type: 'clientsSection' },
-            { type: 'clientQuotesSection' },
-          ],
+          to: [{ type: 'clientsSection' }, { type: 'clientQuotesSection' }],
         }),
       ],
-      group: 'content'
+      group: 'content',
     }),
-  ]
+  ],
 })

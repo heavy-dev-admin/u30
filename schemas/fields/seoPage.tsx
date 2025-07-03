@@ -1,5 +1,5 @@
-import { defineField } from "sanity";
-import { validateSlug } from "schemas/utils/validateSlug";
+import { defineField } from 'sanity'
+import { validateSlug } from 'schemas/utils/validateSlug'
 
 export default defineField({
   name: 'seoPage',
@@ -12,7 +12,9 @@ export default defineField({
       title: 'Title',
       type: 'string',
       validation: (rule) =>
-        rule.max(50).warning('Longer titles may be truncated by search engines'),
+        rule
+          .max(50)
+          .warning('Longer titles may be truncated by search engines'),
     }),
     defineField({
       name: 'description',
@@ -23,7 +25,9 @@ export default defineField({
       name: 'slug',
       title: 'Slug',
       type: 'slug',
-      options: {source: 'title'},
+      options: {
+        source: 'title',
+      },
       validation: validateSlug,
     }),
     defineField({
@@ -38,6 +42,6 @@ export default defineField({
           description: 'Important for SEO and accessiblity.',
         },
       ],
-    })
-  ]
+    }),
+  ],
 })
