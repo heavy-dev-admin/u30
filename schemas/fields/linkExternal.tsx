@@ -7,7 +7,7 @@ export default defineField({
   type: 'object',
   icon: EarthGlobeIcon,
   components: {
-    annotation: (props) => (
+    annotation: (props: any) => (
       <span>
         <EarthGlobeIcon
           style={{

@@ -17,7 +17,7 @@ export default defineField({
       of: [{type: 'linkInternal'}]
     }),
     defineField({
-      name: 'contactURL',
+      name: 'contactUrl',
       title: 'Contact URL',
       type: 'url',
       validation: (rule) => rule.required().uri({scheme: ['http', 'https']}),

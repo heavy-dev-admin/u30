@@ -57,7 +57,7 @@ export default defineField({
       name: 'image',
       title: 'Image',
       type: 'image',
-      description: 'This image display for block type image only',
+      description: 'This image will be displayed when the block type is set to "Image".',
       fields: [
         {
           name: 'alt',

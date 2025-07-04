@@ -1,9 +1,9 @@
 import { BlockContentIcon, DocumentIcon, SearchIcon } from '@sanity/icons'
-import { defineField } from 'sanity'
+import { defineField, defineType } from 'sanity'
 import flexibleSectionsField from 'schemas/fields/flexibleSections'
 import seoPageField from 'schemas/fields/seoPage'
 
-export default defineField({
+export default defineType({
   name: 'page',
   title: 'Page',
   type: 'document',

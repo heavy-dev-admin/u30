@@ -6,15 +6,22 @@ import {
   useCdn,
 } from 'lib/sanity.api'
 import {
-  indexQuery,
-  type Post,
-  postAndMoreStoriesQuery,
-  postBySlugQuery,
-  postSlugsQuery,
-  type Settings,
+  aboutPageQuery,
+  careerPageQuery,
+  homepageQuery,
+  industriesPageQuery,
   settingsQuery,
+  workPageQuery,
 } from 'lib/sanity.queries'
 import { createClient, type SanityClient } from 'next-sanity'
+import {
+  AboutSettings,
+  CareerSettings,
+  HomepageSettings,
+  IndustriesSettings,
+  WorkSettings,
+} from 'types/pages'
+import type { Settings } from 'types/settings'
 
 export function getClient(preview?: { token: string }): SanityClient {
   const client = createClient({
@@ -45,29 +52,35 @@ export function getClient(preview?: { token: string }): SanityClient {
 export const getSanityImageConfig = () => getClient()
 
 export async function getSettings(client: SanityClient): Promise<Settings> {
-  return (await client.fetch(settingsQuery)) || {}
+  return await client.fetch(settingsQuery)
 }
 
-export async function getAllPosts(client: SanityClient): Promise<Post[]> {
-  return (await client.fetch(indexQuery)) || []
-}
-
-export async function getAllPostsSlugs(): Promise<Pick<Post, 'slug'>[]> {
-  const client = getClient()
-  const slugs = (await client.fetch<string[]>(postSlugsQuery)) || []
-  return slugs.map((slug) => ({ slug }))
-}
-
-export async function getPostBySlug(
+export async function getHomepageSettings(
   client: SanityClient,
-  slug: string,
-): Promise<Post> {
-  return (await client.fetch(postBySlugQuery, { slug })) || ({} as any)
+): Promise<HomepageSettings> {
+  return await client.fetch(homepageQuery)
 }
 
-export async function getPostAndMoreStories(
+export async function getAboutSettings(
   client: SanityClient,
-  slug: string,
-): Promise<{ post: Post; morePosts: Post[] }> {
-  return await client.fetch(postAndMoreStoriesQuery, { slug })
+): Promise<AboutSettings> {
+  return await client.fetch(aboutPageQuery)
+}
+
+export async function getCareerSettings(
+  client: SanityClient,
+): Promise<CareerSettings> {
+  return await client.fetch(careerPageQuery)
+}
+
+export async function getIndustriesSettings(
+  client: SanityClient,
+): Promise<IndustriesSettings> {
+  return await client.fetch(industriesPageQuery)
+}
+
+export async function getWorkSettings(
+  client: SanityClient,
+): Promise<WorkSettings> {
+  return await client.fetch(workPageQuery)
 }

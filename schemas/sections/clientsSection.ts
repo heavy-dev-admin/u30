@@ -21,7 +21,7 @@ export default defineType({
           to: [{ type: 'client' }],
         }),
       ],
-      validation: (rule) => rule.required(),
+      validation: (rule) => rule.required().min(1),
     }),
     defineField({
       name: 'layout',

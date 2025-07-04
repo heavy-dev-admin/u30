@@ -7,7 +7,7 @@ export default defineField({
   title: 'Internal Link',
   type: 'reference',
   components: {
-    annotation: (props) => (
+    annotation: (props: any) => (
       <span>
         <LinkIcon
           style={{
