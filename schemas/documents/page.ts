@@ -1,5 +1,6 @@
 import { BlockContentIcon, DocumentIcon, SearchIcon } from '@sanity/icons'
-import { defineArrayMember, defineField } from 'sanity'
+import { defineField } from 'sanity'
+import flexibleSectionsField from 'schemas/fields/flexibleSections'
 import seoPageField from 'schemas/fields/seoPage'
 
 export default defineField({
@@ -15,7 +16,7 @@ export default defineField({
     },
     {
       default: true,
-      name: 'content',
+      name: 'sections',
       title: 'Content',
       icon: BlockContentIcon,
     },
@@ -26,25 +27,14 @@ export default defineField({
       name: 'title',
       title: 'Title',
       type: 'string',
-      group: 'content',
+      group: 'sections',
     }),
     defineField({
       name: 'body',
       title: 'Body',
       type: 'portableTextSimple',
-      group: 'content',
+      group: 'sections',
     }),
-    defineField({
-      name: 'flexibleSections',
-      title: 'Flexible Sections',
-      type: 'array',
-      of: [
-        defineArrayMember({
-          type: 'reference',
-          to: [{ type: 'clientsSection' }, { type: 'clientQuotesSection' }],
-        }),
-      ],
-      group: 'content',
-    }),
+    flexibleSectionsField,
   ],
 })

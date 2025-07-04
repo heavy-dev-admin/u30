@@ -4,6 +4,13 @@ export default defineType({
   name: 'clientQuotesSection',
   title: 'Client Quote Section',
   type: 'document',
+  preview: {
+    prepare() {
+      return {
+        title: 'Client Quote Section'
+      }
+    }
+  },
   fields: [
     defineField({
       name: 'quotes',

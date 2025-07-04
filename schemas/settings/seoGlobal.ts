@@ -14,14 +14,18 @@ export default defineField({
       name: 'siteTitle',
       type: 'string',
       validation: (rule) =>
-        rule.max(50).warning('Longer titles may be truncated by search engines'),
+        rule
+          .max(50)
+          .warning('Longer titles may be truncated by search engines'),
     }),
     defineField({
       name: 'description',
       type: 'text',
       rows: 2,
       validation: (rule) =>
-        rule.max(150).warning('Longer descriptions may be truncated by search engines'),
+        rule
+          .max(150)
+          .warning('Longer descriptions may be truncated by search engines'),
     }),
     defineField({
       name: 'favicon',
@@ -31,7 +35,7 @@ export default defineField({
           name: 'alt',
           type: 'string',
           title: 'Alternative text',
-          description: 'Important for SEO and accessiblity.',
+          description: 'Important for SEO and accessibility.',
         },
       ],
     }),
@@ -43,9 +47,9 @@ export default defineField({
           name: 'alt',
           type: 'string',
           title: 'Alternative text',
-          description: 'Important for SEO and accessiblity.',
+          description: 'Important for SEO and accessibility.',
         },
       ],
-    })
+    }),
   ],
 })

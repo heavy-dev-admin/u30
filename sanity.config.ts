@@ -20,11 +20,12 @@ import { structureTool } from 'sanity/structure'
 import { unsplashImageAsset } from 'sanity-plugin-asset-source-unsplash'
 import clientType from 'schemas/documents/client'
 import pageType from 'schemas/documents/page'
+import flexibleSectionsField from 'schemas/fields/flexibleSections'
 import linkExternalField from 'schemas/fields/linkExternal'
 import linkInternalField from 'schemas/fields/linkInternal'
-import portableTextSimpleType from 'schemas/fields/portableTextSimple'
+import portableTextSimpleField from 'schemas/fields/portableTextSimple'
 import seoPageField from 'schemas/fields/seoPage'
-import workBlockType from 'schemas/fields/workBlock'
+import workBlockField from 'schemas/fields/workBlock'
 import aboutType from 'schemas/pages/about'
 import careerType from 'schemas/pages/career'
 import homepageType from 'schemas/pages/homepage'
@@ -32,6 +33,9 @@ import industriesType from 'schemas/pages/industries'
 import workType from 'schemas/pages/work'
 import clientQuotesSectionType from 'schemas/sections/clientQuotesSection'
 import clientsSectionType from 'schemas/sections/clientsSection'
+import richTextSectionType from 'schemas/sections/richTextSection'
+import simpleCtaSectionType from 'schemas/sections/simpleCtaSection'
+import twoUpSectionType from 'schemas/sections/twoUpSection'
 import settingsType from 'schemas/settings'
 
 const title =
@@ -48,20 +52,24 @@ export default defineConfig({
       // fields
       linkInternalField,
       linkExternalField,
-      workBlockType,
-      portableTextSimpleType,
+      workBlockField,
+      portableTextSimpleField,
+      seoPageField,
+      flexibleSectionsField,
       // documents
       clientType,
       pageType,
       // sections
       clientsSectionType,
       clientQuotesSectionType,
+      twoUpSectionType,
+      richTextSectionType,
+      simpleCtaSectionType,
       // settings
       settingsType,
       // pages
       homepageType,
       aboutType,
-      seoPageField,
       careerType,
       workType,
       industriesType,

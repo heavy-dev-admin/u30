@@ -21,8 +21,8 @@ export default defineType({
       title: 'Main Menu'
     },
     {
-      name: "footer",
-      title: "Footer"
+      name: 'footer',
+      title: 'Footer'
     }
   ],
   fields: [

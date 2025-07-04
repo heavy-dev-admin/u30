@@ -1,18 +1,35 @@
+import { ComposeIcon } from '@sanity/icons'
 import { HomeIcon } from '@sanity/icons'
-import { defineArrayMember, defineField, defineType } from 'sanity'
+import { defineField, defineType } from 'sanity'
+import flexibleSectionsField from 'schemas/fields/flexibleSections'
 
 export default defineType({
   name: 'homepage',
   title: 'Homepage',
   type: 'document',
   icon: HomeIcon,
-  preview: { select: { title: 'title', subtitle: 'description' } },
+  preview: {
+    prepare() {
+      return {
+        title: 'Homepage',
+      }
+    },
+  },
+  groups: [
+    {
+      default: true,
+      name: 'sections',
+      title: 'Sections',
+      icon: ComposeIcon,
+    },
+  ],
   fields: [
     defineField({
       name: 'hero',
       description: 'Hero section settings',
       title: 'Hero section',
       type: 'object',
+      group: 'sections',
       options: {
         collapsible: true,
       },
@@ -37,7 +54,7 @@ export default defineType({
               name: 'alt',
               type: 'string',
               title: 'Alternative text',
-              description: 'Important for SEO and accessiblity.',
+              description: 'Important for SEO and accessibility.',
             },
           ],
           validation: (rule) => rule.required(),
@@ -49,6 +66,7 @@ export default defineType({
       description: '4 Rights section settings',
       title: '4 Rights section',
       type: 'object',
+      group: 'sections',
       options: {
         collapsible: true,
         collapsed: true,
@@ -88,7 +106,7 @@ export default defineType({
                       name: 'alt',
                       type: 'string',
                       title: 'Alternative text',
-                      description: 'Important for SEO and accessiblity.',
+                      description: 'Important for SEO and accessibility.',
                     },
                   ],
                   validation: (rule) => rule.required(),
@@ -105,19 +123,6 @@ export default defineType({
         }),
       ],
     }),
-    defineField({
-      name: 'flexibleSections',
-      title: 'Flexible Sections',
-      type: 'array',
-      of: [
-        defineArrayMember({
-          type: 'reference',
-          to: [
-            { type: 'clientsSection' },
-            { type: 'clientQuotesSection' },
-          ],
-        }),
-      ],
-    }),
+    flexibleSectionsField,
   ],
 })

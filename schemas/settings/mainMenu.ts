@@ -12,6 +12,7 @@ export default defineField({
   fields: [
     defineField({
       name: 'links',
+      title: 'Links',
       type: 'array',
       of: [{type: 'linkInternal'}]
     }),

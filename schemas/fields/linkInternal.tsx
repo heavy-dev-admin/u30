@@ -3,10 +3,9 @@ import { PAGE_REFERENCES } from 'constant'
 import { defineField } from 'sanity'
 
 export default defineField({
-  title: 'Internal Link',
   name: 'linkInternal',
-  type: 'object',
-  icon: LinkIcon,
+  title: 'Internal Link',
+  type: 'reference',
   components: {
     annotation: (props) => (
       <span>
@@ -21,13 +20,9 @@ export default defineField({
       </span>
     ),
   },
-  fields: [
-    defineField({
-      name: 'reference',
-      type: 'reference',
-      weak: true,
-      validation: (rule) => rule.required(),
-      to: PAGE_REFERENCES,
-    }),
-  ],
+  validation: (rule) => rule.required(),
+  to: PAGE_REFERENCES,
+  options: {
+    disableNew: true,
+  },
 })
