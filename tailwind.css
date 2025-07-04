@@ -46,7 +46,7 @@
   }
 
   html {
-    font-family: var(--font-sans);
+    @apply font-sans;
   }
 
   h1, .h1 {
@@ -58,7 +58,7 @@
   }
 
   h3, .h3 {
-    @apply text-[32px] leading-8.5 -tracking-[0.64px] font-black md:text-[48px] md:leading-11.5 md:-tracking-[0.96px];
+    @apply text-[32px] leading-8.5 -tracking-[0.64px] font-black md:text-5xl md:leading-11.5 md:-tracking-[0.96px];
   }
 
   h4, .h4 {
@@ -70,32 +70,36 @@
   }
 
   h6, .h6 {
-    @apply text-[16px] leading-4 font-black;
+    @apply text-base leading-4 font-black;
   }
 
   .text-button {
-    @apply text-[14px] leading-4 font-black;
+    @apply text-sm leading-4 font-black;
   }
 
   .text-body-small {
-    @apply text-[16px] leading-5.5 font-medium;
+    @apply text-base leading-5.5 font-medium;
   }
 
   .text-body {
-    @apply text-[18px] leading-6 font-medium md:text-[20px];
+    @apply text-lg leading-6 font-medium md:text-xl;
   }
 
   .text-body-large {
     @apply text-[22px] leading-7 font-medium md:text-[26px] md:leading-8.5;
   }
+
+  .text-display {
+    @apply text-[52px] leading-12 -tracking-[1.04px] font-black md:text-[88px] md:leading-21.5 md:-tracking-[1.76px];
+  }
 }
 
 @layer components {
   .button {
-    @apply text-[14px] px-5 leading-4 font-black font-sans cursor-pointer uppercase min-h-[42px] bg-green text-dark-green rounded-lg border-none outline-none shadow-none flex items-center justify-center transition-all duration-300 ease-in-out hover:bg-light-green focus:bg-light-green;
+    @apply text-sm px-5 leading-4 font-black cursor-pointer uppercase min-h-10.5 bg-green text-dark-green rounded-lg border-none outline-none shadow-none flex items-center justify-center transition-all duration-300 ease-in-out hover:bg-light-green focus:bg-light-green;
   }
 
   .button-large {
-    @apply text-[40px] leading-10.5 -tracking-[0.8px] min-h-[100px] normal-case font-black font-sans cursor-pointer bg-green text-dark-green rounded-lg border-none outline-none shadow-none flex items-center justify-center transition-all duration-300 ease-in-out hover:bg-light-green focus:bg-light-green md:text-[64px] md:leading-15.5 md:-tracking-[1.28px] md:min-h-[150px];
+    @apply text-[40px] leading-10.5 -tracking-[0.8px] min-h-25 normal-case font-black cursor-pointer bg-green text-dark-green rounded-lg border-none outline-none shadow-none flex items-center justify-center transition-all duration-300 ease-in-out hover:bg-light-green focus:bg-light-green md:text-[64px] md:leading-15.5 md:-tracking-[1.28px] md:min-h-37.5;
   }
 }

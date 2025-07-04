@@ -1,6 +1,8 @@
 import '../tailwind.css'
 
 import { VisualEditing } from '@sanity/visual-editing/next-pages-router'
+import Footer from 'components/Footer'
+import Header from 'components/Header'
 import { AppProps } from 'next/app'
 import dynamic from 'next/dynamic'
 
@@ -18,14 +20,16 @@ export default function App({
   const { draftMode, token } = pageProps
   return (
     <>
-      {draftMode ? (
-        <PreviewProvider token={token}>
+      <Header />
+        {draftMode ? (
+          <PreviewProvider token={token}>
+            <Component {...pageProps} />
+          </PreviewProvider>
+        ) : (
           <Component {...pageProps} />
-        </PreviewProvider>
-      ) : (
-        <Component {...pageProps} />
-      )}
+        )}
       {draftMode && <VisualEditing />}
+      <Footer />
     </>
   )
 }

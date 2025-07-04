@@ -1,7 +1,7 @@
 export default function Styleguide() {
   return (
     <div className="container mx-auto my-8 px-4 md:px-8">
-      <h2 className="h2 font-sans mt-12 mb-6 uppercase">Typography</h2>
+      <h2 className="h2 mt-12 mb-6 uppercase">Typography</h2>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
         <div className="flex flex-col gap-10">
           <div className="flex flex-col gap-2">
@@ -69,56 +69,56 @@ export default function Styleguide() {
         </div>
       </div>
 
-      <h2 className="h2 font-sans mt-12 mb-6 uppercase">Colors</h2>
+      <h2 className="h2 mt-12 mb-6 uppercase">Colors</h2>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
         <div className="flex items-center gap-3 ">
           <span className="rounded-full border w-12 h-12 flex bg-dark-green"></span>
           <div>
-            <pre className="[font-size:12px]">Dark Green</pre>
-            <pre className="[font-size:12px]">#024834</pre>
+            <pre className="text-xs">Dark Green</pre>
+            <pre className="text-xs">#024834</pre>
           </div>
         </div>
         <div className="flex items-center gap-3 ">
           <span className="rounded-full border w-12 h-12 flex bg-green"></span>
           <div>
-            <pre className="[font-size:12px]">Green</pre>
-            <pre className="[font-size:12px]">#85C441</pre>
+            <pre className="text-xs">Green</pre>
+            <pre className="text-xs">#85C441</pre>
           </div>
         </div>
         <div className="flex items-center gap-3 ">
           <span className="rounded-full border w-12 h-12 flex bg-light-green"></span>
           <div>
-            <pre className="[font-size:12px]">Light Green</pre>
-            <pre className="[font-size:12px]">#CEE074</pre>
+            <pre className="text-xs">Light Green</pre>
+            <pre className="text-xs">#CEE074</pre>
           </div>
         </div>
         <div className="flex items-center gap-3 ">
           <span className="rounded-full border w-12 h-12 flex bg-pink"></span>
           <div>
-            <pre className="[font-size:12px]">Pink</pre>
-            <pre className="[font-size:12px]">#F7ACBB</pre>
+            <pre className="text-xs">Pink</pre>
+            <pre className="text-xs">#F7ACBB</pre>
           </div>
         </div>
         <div className="flex items-center gap-3 ">
           <span className="rounded-full border w-12 h-12 flex bg-cream"></span>
           <div>
-            <pre className="[font-size:12px]">Cream</pre>
-            <pre className="[font-size:12px]">#FFF6EC</pre>
+            <pre className="text-xs">Cream</pre>
+            <pre className="text-xs">#FFF6EC</pre>
           </div>
         </div>
         <div className="flex items-center gap-3 ">
           <span className="rounded-full border w-12 h-12 flex bg-beige"></span>
           <div>
-            <pre className="[font-size:12px]">Beige</pre>
-            <pre className="[font-size:12px]">#EAE2CC</pre>
+            <pre className="text-xs">Beige</pre>
+            <pre className="text-xs">#EAE2CC</pre>
           </div>
         </div>
       </div>
 
-      <h2 className="h2 font-sans mt-12 mb-6 uppercase">Buttons</h2>
+      <h2 className="h2 mt-12 mb-6 uppercase">Buttons</h2>
       <div className="flex flex-col gap-4">
         <button type="button" className="button w-fit">Button</button>
-        <button type="button" className="button-large w-[400px]">Button Large</button>
+        <button type="button" className="button-large w-full max-w-100">Button Large</button>
       </div>
     </div>
   )
