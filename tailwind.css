@@ -50,15 +50,15 @@
   }
 
   h1, .h1 {
-    @apply text-[38px] leading-[42px] -tracking-[0.76px] font-black md:text-[64px] md:leading-[62px] md:-tracking-[1.28px];
+    @apply text-[38px] leading-10.5 -tracking-[0.76px] font-black md:text-[64px] md:leading-15.5 md:-tracking-[1.28px];
   }
 
   h2, .h2 {
-    @apply text-[40px] leading-12 -tracking-[0.8px] font-medium md:text-[64px] md:leading-[62px] md:-tracking-[1.28px];
+    @apply text-[40px] leading-12 -tracking-[0.8px] font-medium md:text-[64px] md:leading-15.5 md:-tracking-[1.28px];
   }
 
   h3, .h3 {
-    @apply text-[32px] leading-8.5 -tracking-[0.64px] font-black md:text-[48px] md:leading-[46px] md:-tracking-[0.96px];
+    @apply text-[32px] leading-8.5 -tracking-[0.64px] font-black md:text-[48px] md:leading-11.5 md:-tracking-[0.96px];
   }
 
   h4, .h4 {
@@ -87,5 +87,15 @@
 
   .text-body-large {
     @apply text-[22px] leading-7 font-medium md:text-[26px] md:leading-8.5;
+  }
+}
+
+@layer components {
+  .button {
+    @apply text-[14px] px-5 leading-4 font-black font-sans cursor-pointer uppercase min-h-[42px] bg-green text-dark-green rounded-lg border-none outline-none shadow-none flex items-center justify-center transition-all duration-300 ease-in-out hover:bg-light-green focus:bg-light-green;
+  }
+
+  .button-large {
+    @apply text-[40px] leading-10.5 -tracking-[0.8px] min-h-[100px] normal-case font-black font-sans cursor-pointer bg-green text-dark-green rounded-lg border-none outline-none shadow-none flex items-center justify-center transition-all duration-300 ease-in-out hover:bg-light-green focus:bg-light-green md:text-[64px] md:leading-15.5 md:-tracking-[1.28px] md:min-h-[150px];
   }
 }

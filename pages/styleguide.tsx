@@ -1,6 +1,6 @@
 export default function Styleguide() {
   return (
-    <div className="container mx-auto my-8">
+    <div className="container mx-auto my-8 px-4 md:px-8">
       <h2 className="h2 font-sans mt-12 mb-6 uppercase">Typography</h2>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
         <div className="flex flex-col gap-10">
@@ -113,6 +113,12 @@ export default function Styleguide() {
             <pre className="[font-size:12px]">#EAE2CC</pre>
           </div>
         </div>
+      </div>
+
+      <h2 className="h2 font-sans mt-12 mb-6 uppercase">Buttons</h2>
+      <div className="flex flex-col gap-4">
+        <button type="button" className="button w-fit">Button</button>
+        <button type="button" className="button-large w-[400px]">Button Large</button>
       </div>
     </div>
   )
