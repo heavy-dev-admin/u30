@@ -11,10 +11,12 @@ export type LinkInternal = {
   _key: string
   _ref: string
   _type: 'linkInternal'
-  seoTitle: string
-  slug: {
-    _type: 'slug'
-    current: string
+  seoPage: {
+    title: string
+    slug: {
+      _type: 'slug'
+      current: string
+    }
   }
 }
 

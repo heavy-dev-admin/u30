@@ -1,11 +1,12 @@
 import { readToken } from 'lib/sanity.api'
 import { getClient, getSettings } from 'lib/sanity.client'
 import { GetStaticPropsContext } from 'next'
-import { SharedPageProps } from 'pages/_app'
 import { Settings } from 'types/settings'
 
-export interface PageProps extends SharedPageProps {
-  settings: Settings
+export interface SharedPageProps {
+  draftMode: boolean
+  token: string
+  settings?: Settings
 }
 
 export interface Query {

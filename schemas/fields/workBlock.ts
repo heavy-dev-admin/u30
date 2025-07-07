@@ -31,7 +31,7 @@ export default defineField({
       title: 'Slug',
       type: 'slug',
       options: {
-        source: 'title',
+        source: 'workBlock.title',
       },
       validation: validateSlug,
     }),

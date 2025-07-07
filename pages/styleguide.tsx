@@ -1,10 +1,10 @@
-import StyleguideButtons from 'components/Styleguide/StyleguideButtons'
-import StyleguideClientLogos from 'components/Styleguide/StyleguideClientLogos'
-import StyleguideColor from 'components/Styleguide/StyleguideColor'
-import StyleguideGallery from 'components/Styleguide/StyleguideGallery'
-import StyleguideIcons from 'components/Styleguide/StyleguideIcons'
-import StyleguideTypography from 'components/Styleguide/StyleguideTypography'
-import { getSharedStaticProps, PageProps, Query } from 'lib/shared-props'
+import StyleguideButtons from 'components/styleguide/StyleguideButtons'
+import StyleguideClientLogos from 'components/styleguide/StyleguideClientLogos'
+import StyleguideColor from 'components/styleguide/StyleguideColor'
+import StyleguideGallery from 'components/styleguide/StyleguideGallery'
+import StyleguideIcons from 'components/styleguide/StyleguideIcons'
+import StyleguideTypography from 'components/styleguide/StyleguideTypography'
+import { getSharedStaticProps, Query, SharedPageProps } from 'lib/shared-props'
 import { GetStaticProps } from 'next'
 
 export default function Styleguide() {
@@ -20,4 +20,4 @@ export default function Styleguide() {
   )
 }
 
-export const getStaticProps: GetStaticProps<PageProps, Query> = getSharedStaticProps
+export const getStaticProps: GetStaticProps<SharedPageProps, Query> = getSharedStaticProps
