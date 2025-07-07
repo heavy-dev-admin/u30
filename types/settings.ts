@@ -8,12 +8,16 @@ export type Settings = {
     shareImage?: Image
   },
   menu: {
+    logo?: Image
     contactUrl?: string
     links: LinkInternal[]
   },
   footer: {
+    footerLogo?: Image
     contactUrl?: string
     footerEmailContact?: string
     footerMenu: LinkInternal[]
+    footerHeader: string
+    footerContactButtonText: string
   }
 }

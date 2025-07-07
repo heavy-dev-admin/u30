@@ -1,6 +1,26 @@
 import groq from 'groq'
 
-export const settingsQuery = groq`*[_type == "settings"][0]{...}`
+export const settingsQuery = groq`*[_type == "settings"][0]{
+  ...,
+  menu {
+    ...,
+    links[]->{
+      ...,
+      _type == "linkInternal" => {
+        ...
+      }
+    }
+  },
+  footer {
+    ...,
+    footerMenu[]->{
+      ...,
+      _type == "linkInternal" => {
+        ...
+      }
+    }
+  }
+}`
 
 export const homepageQuery = groq`*[_type == "homepage"][0]{
   ...,

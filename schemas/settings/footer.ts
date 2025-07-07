@@ -11,6 +11,18 @@ export default defineField({
   },
   fields: [
     defineField({
+      name: 'footerLogo',
+      title: 'Logo',
+      type: 'image',
+      fields: [
+        defineField({
+          name: 'alt',
+          title: 'Alt',
+          type: 'string',
+        }),
+      ],
+    }),
+    defineField({
       name: 'footerMenu',
       title: 'Menu',
       type: 'array',

@@ -11,6 +11,18 @@ export default defineField({
   },
   fields: [
     defineField({
+      name: 'logo',
+      title: 'Logo',
+      type: 'image',
+      fields: [
+        defineField({
+          name: 'alt',
+          title: 'Alt',
+          type: 'string',
+        }),
+      ],
+    }),
+    defineField({
       name: 'links',
       title: 'Links',
       type: 'array',
