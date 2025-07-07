@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-export default function ImageGallery() {
+export default function StyleguideGallery() {
   const imageGalllery = [
     {
       title: 'Image 1',
@@ -25,8 +25,8 @@ export default function ImageGallery() {
   ]
 
   return (
-    <div className="flex flex-col gap-4">
-      <p className="text-[48px] leading-14 -tracking-[0.96px] pb-10 font-medium md:pb-14">Photography</p>
+    <div className="flex flex-col gap-8 mt-12">
+      <h2 className="h2 mt-12 mb-6 uppercase">Photography</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-[9px]">
         {imageGalllery.map((image, index) => (
           <Image

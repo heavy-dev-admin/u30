@@ -5,7 +5,7 @@
   font-family: 'GT Pressura';
   src: url('/fonts/GT-Pressura-Regular.woff2') format('woff2');
   font-weight: 500;
-  font-style: medium;
+  font-style: normal;
   font-display: swap;
 }
 
@@ -13,7 +13,7 @@
   font-family: 'GT Pressura';
   src: url('/fonts/GT-Pressura-Bold.woff2') format('woff2');
   font-weight: 900;
-  font-style: black;
+  font-style: normal;
   font-display: swap;
 }
 

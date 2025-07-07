@@ -1,133 +1,21 @@
-import ImageGallery from 'components/ImageGallery'
+import StyleguideButtons from 'components/Styleguide/StyleguideButtons'
+import StyleguideClientLogos from 'components/Styleguide/StyleguideClientLogos'
+import StyleguideColor from 'components/Styleguide/StyleguideColor'
+import StyleguideGallery from 'components/Styleguide/StyleguideGallery'
+import StyleguideIcons from 'components/Styleguide/StyleguideIcons'
+import StyleguideTypography from 'components/Styleguide/StyleguideTypography'
 import { getSharedStaticProps, PageProps, Query } from 'lib/shared-props'
 import { GetStaticProps } from 'next'
 
 export default function Styleguide() {
   return (
     <div className="bg-cream text-dark-green relative pb-6 px-4 md:px-6.5">
-      <h2 className="h2 pt-12 pb-6 uppercase">Typography</h2>
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-        <div className="flex flex-col gap-10">
-          <div className="flex flex-col gap-2">
-            <p className="h1">
-              Right way to share it
-            </p>
-            <p className="text-body">H1</p>
-          </div>
-          <div className="flex flex-col gap-2">
-            <p className="h2">
-              Right way to share it
-            </p>
-            <p className="text-body">H2</p>
-          </div>
-          <div className="flex flex-col gap-2">
-            <p className="h3">
-              Right way to share it
-            </p>
-            <p className="text-body">H3</p>
-          </div>
-          <div className="flex flex-col gap-2">
-            <p className="h4">
-              Right way to share it
-            </p>
-            <p className="text-body">H4</p>
-          </div>
-          <div className="flex flex-col gap-2">
-            <p className="h5">
-              Right way to share it
-            </p>
-            <p className="text-body">H5</p>
-          </div>
-          <div className="flex flex-col gap-2">
-            <p className="h6">
-              Right way to share it
-            </p>
-            <p className="text-body">H6</p>
-          </div>
-        </div>
-        <div className="flex flex-col gap-10">
-          <div className="flex flex-col gap-2">
-            <p className="text-body-large">
-              Right way to share it
-            </p>
-            <p className="text-body">Text Body Large</p>
-          </div>
-          <div className="flex flex-col gap-2">
-            <p className="text-body">
-              Right way to share it
-            </p>
-            <p className="text-body">Text Body</p>
-          </div>
-          <div className="flex flex-col gap-2">
-            <p className="text-body-small">
-              Right way to share it
-            </p>
-            <p className="text-body">Text Body Small</p>
-          </div>
-          <div className="flex flex-col gap-2">
-            <p className="text-button">
-              Right way to share it
-            </p>
-            <p className="text-body">Text Button</p>
-          </div>
-        </div>
-      </div>
-
-      <h2 className="h2 mt-12 mb-6 uppercase">Colors</h2>
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-        <div className="flex items-center gap-3 ">
-          <span className="rounded-full border w-12 h-12 flex bg-dark-green"></span>
-          <div>
-            <pre className="text-xs">Dark Green</pre>
-            <pre className="text-xs">#024834</pre>
-          </div>
-        </div>
-        <div className="flex items-center gap-3 ">
-          <span className="rounded-full border w-12 h-12 flex bg-green"></span>
-          <div>
-            <pre className="text-xs">Green</pre>
-            <pre className="text-xs">#85C441</pre>
-          </div>
-        </div>
-        <div className="flex items-center gap-3 ">
-          <span className="rounded-full border w-12 h-12 flex bg-light-green"></span>
-          <div>
-            <pre className="text-xs">Light Green</pre>
-            <pre className="text-xs">#CEE074</pre>
-          </div>
-        </div>
-        <div className="flex items-center gap-3 ">
-          <span className="rounded-full border w-12 h-12 flex bg-pink"></span>
-          <div>
-            <pre className="text-xs">Pink</pre>
-            <pre className="text-xs">#F7ACBB</pre>
-          </div>
-        </div>
-        <div className="flex items-center gap-3 ">
-          <span className="rounded-full border w-12 h-12 flex bg-cream"></span>
-          <div>
-            <pre className="text-xs">Cream</pre>
-            <pre className="text-xs">#FFF6EC</pre>
-          </div>
-        </div>
-        <div className="flex items-center gap-3 ">
-          <span className="rounded-full border w-12 h-12 flex bg-beige"></span>
-          <div>
-            <pre className="text-xs">Beige</pre>
-            <pre className="text-xs">#EAE2CC</pre>
-          </div>
-        </div>
-      </div>
-
-      <h2 className="h2 mt-12 mb-6 uppercase">Buttons</h2>
-      <div className="flex flex-col gap-4">
-        <button type="button" className="button w-fit">Button</button>
-        <button type="button" className="button-large w-full max-w-100">Button Large</button>
-      </div>
-
-      <div className="mt-12">
-        <ImageGallery />
-      </div>
+      <StyleguideTypography />
+      <StyleguideColor />
+      <StyleguideButtons />
+      <StyleguideGallery />
+      <StyleguideIcons />
+      <StyleguideClientLogos />
     </div>
   )
 }

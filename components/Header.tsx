@@ -1,10 +1,8 @@
 'use client'
-
+import { SanityImage } from 'components/SanityImage'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { Settings } from 'types/settings'
-
-import { SanityImage } from './SanityImage'
 
 export default function Header({ settings }: { settings: Settings }) {
   const { logo, links: navItems, contactUrl } = settings.menu
@@ -39,7 +37,7 @@ export default function Header({ settings }: { settings: Settings }) {
             <Link
               key={item.seoTitle}
               href={item.slug.current} 
-              className={`button bg-beige rounded-none hover:bg-green ${index === 0 ? 'rounded-tl-lg rounded-bl-lg' : ''} ${index === navItems.length - 1 ? 'rounded-tr-lg rounded-br-lg' : ''}`}
+              className={`button bg-beige rounded-none hover:bg-green ${index === 0 ? 'rounded-l-lg' : ''} ${index === navItems.length - 1 ? 'rounded-r-lg' : ''}`}
             >
               {item.seoTitle}
             </Link>
