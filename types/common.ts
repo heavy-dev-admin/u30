@@ -109,7 +109,10 @@ export type IndustryItem = {
 export type WorkBlockItem = {
   type: 'solid' | 'image'
   title?: string
-  slug?: string
+  slug?: {
+    _type: 'slug'
+    current: string
+  }
   icon?: Image
   backgroundColor?: string
   image?: Image

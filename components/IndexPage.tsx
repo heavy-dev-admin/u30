@@ -1,4 +1,3 @@
-import Layout from 'components/Layout'
 import { Suspense } from 'react'
 import type { Settings } from 'types/settings'
 

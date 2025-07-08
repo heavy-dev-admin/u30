@@ -17,26 +17,20 @@ export default function Footer({ settings }: { settings: Settings }) {
     <footer className="bg-dark-green text-cream px-4 md:px-6.5">
       <div className="flex flex-col gap-4 pt-10 pb-[71px] md:pt-8 md:pb-23.5 md:gap-6">
         <h3 className="text-body-large">{footerHeader}</h3>
-        <Link href={contactUrl} className="button-large w-full">
-          {footerContactButtonText}
-        </Link>
+        {contactUrl && footerContactButtonText && (
+          <Link href={contactUrl} className="button-large w-full">
+            {footerContactButtonText}
+          </Link>
+        )}
       </div>
       <div className="flex flex-col gap-4 pb-4 md:pb-6.5 md:gap-6 md:flex-row md:justify-between md:items-end">
         <div className="w-full flex justify-between order-2 md:w-auto md:order-1">
-          <Link
-            href="/"
-            className="h-11 w-auto [&_img]:h-[43px] [&_img]:w-auto"
-          >
-            {footerLogo && (
-              <SanityImage asset={footerLogo.asset} alt={footerLogo?.alt} />
-            )}
+          <Link href="/" className="h-11 w-auto [&_img]:h-[43px] [&_img]:w-auto">
+            {footerLogo && <SanityImage asset={footerLogo.asset} alt={footerLogo?.alt} />}
           </Link>
           <div className="flex flex-col md:hidden">
             <p className="text-body-small">Client Inquiries:</p>
-            <Link
-              href={`mailto:${footerEmailContact}`}
-              className="text-body-small"
-            >
+            <Link href={`mailto:${footerEmailContact}`} className="text-body-small">
               {footerEmailContact}
             </Link>
           </div>
@@ -54,12 +48,14 @@ export default function Footer({ settings }: { settings: Settings }) {
         </div>
         <div className="flex-col hidden order-3 md:flex">
           <p className="text-body-small">Client Inquiries:</p>
-          <Link
-            href={`mailto:${footerEmailContact}`}
-            className="text-body-small transition-colors duration-300 ease-in-out hover:text-green"
-          >
-            {footerEmailContact}
-          </Link>
+          {footerEmailContact && (
+            <Link
+              href={`mailto:${footerEmailContact}`}
+              className="text-body-small transition-colors duration-300 ease-in-out hover:text-green"
+            >
+              {footerEmailContact}
+            </Link>
+          )}
         </div>
       </div>
     </footer>

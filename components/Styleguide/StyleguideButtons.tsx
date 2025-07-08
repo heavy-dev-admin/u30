@@ -6,7 +6,7 @@ export default function StyleguideButtons() {
         <button type="button" className="button w-fit">
           Button
         </button>
-        <button type="button" className="button-large w-full max-w-100">
+        <button type="button" className="button-large w-full lg:max-w-1/2">
           Button Large
         </button>
       </div>
