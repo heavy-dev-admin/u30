@@ -1,6 +1,6 @@
 import IndexPage from 'components/IndexPage'
 import PreviewIndexPage from 'components/PreviewIndexPage'
-import { getSharedStaticProps,Query, SharedPageProps } from 'lib/shared-props'
+import { getSharedStaticProps, Query, SharedPageProps } from 'lib/shared-props'
 import { GetStaticProps } from 'next'
 
 export default function Page(props: SharedPageProps) {

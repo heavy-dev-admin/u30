@@ -7,9 +7,9 @@ export default defineType({
   preview: {
     prepare() {
       return {
-        title: 'Client Quote Section'
+        title: 'Client Quote Section',
       }
-    }
+    },
   },
   fields: [
     defineField({

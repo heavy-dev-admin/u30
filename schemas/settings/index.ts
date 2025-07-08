@@ -13,20 +13,16 @@ export default defineType({
   groups: [
     {
       name: 'seo',
-      title: 'SEO'
+      title: 'SEO',
     },
     {
       name: 'mainMenu',
-      title: 'Main Menu'
+      title: 'Main Menu',
     },
     {
       name: 'footer',
-      title: 'Footer'
-    }
+      title: 'Footer',
+    },
   ],
-  fields: [
-    seoGlobalType,
-    mainMenuType,
-    footerType
-  ],
+  fields: [seoGlobalType, mainMenuType, footerType],
 })

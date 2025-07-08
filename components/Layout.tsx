@@ -14,9 +14,9 @@ export default function Layout({
   settings: Settings
 }) {
   return (
-    <div className="min-h-screen">
+    <div className="flex flex-col min-h-screen">
       {settings && <Header settings={settings} />}
-      <main>{children}</main>
+      <main className="relative flex-1">{children}</main>
       {settings && <Footer settings={settings} />}
     </div>
   )

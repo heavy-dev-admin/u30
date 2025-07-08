@@ -13,9 +13,7 @@ export interface Query {
   [key: string]: string
 }
 
-export async function getSharedStaticProps(
-  ctx: GetStaticPropsContext<Query>
-) {
+export async function getSharedStaticProps(ctx: GetStaticPropsContext<Query>) {
   const { draftMode = false } = ctx
   const client = getClient(draftMode ? { token: readToken } : undefined)
   const settings = await getSettings(client)

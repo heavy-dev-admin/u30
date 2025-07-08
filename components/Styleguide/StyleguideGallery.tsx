@@ -21,7 +21,7 @@ export default function StyleguideGallery() {
     {
       title: 'Image 5',
       image: '/images/image-grid-5.png',
-    }
+    },
   ]
 
   return (

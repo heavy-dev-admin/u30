@@ -8,9 +8,9 @@ export default defineType({
   preview: {
     prepare() {
       return {
-        title: 'Rich Text Section'
+        title: 'Rich Text Section',
       }
-    }
+    },
   },
   fields: [portableTextSimpleField],
 })

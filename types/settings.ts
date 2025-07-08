@@ -6,12 +6,12 @@ export type Settings = {
     description?: string
     favicon?: Image
     shareImage?: Image
-  },
+  }
   menu: {
     logo?: Image
     contactUrl?: string
     links: LinkInternal[]
-  },
+  }
   footer: {
     footerLogo?: Image
     contactUrl?: string

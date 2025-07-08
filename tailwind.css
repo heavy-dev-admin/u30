@@ -19,11 +19,11 @@
 
 @theme {
   --color-dark-green: #024834;
-  --color-green: #85C441;
-  --color-light-green: #CEE074;
-  --color-pink: #F7ACBB;
-  --color-cream: #FFF6EC;
-  --color-beige: #EAE2CC;
+  --color-green: #85c441;
+  --color-light-green: #cee074;
+  --color-pink: #f7acbb;
+  --color-cream: #fff6ec;
+  --color-beige: #eae2cc;
 
   --font-sans: 'GT Pressura', sans-serif;
 }
@@ -49,27 +49,33 @@
     @apply font-sans;
   }
 
-  h1, .h1 {
+  h1,
+  .h1 {
     @apply text-[38px] leading-10.5 -tracking-[0.76px] font-black md:text-[64px] md:leading-15.5 md:-tracking-[1.28px];
   }
 
-  h2, .h2 {
+  h2,
+  .h2 {
     @apply text-[40px] leading-12 -tracking-[0.8px] font-medium md:text-[64px] md:leading-15.5 md:-tracking-[1.28px];
   }
 
-  h3, .h3 {
+  h3,
+  .h3 {
     @apply text-[32px] leading-8.5 -tracking-[0.64px] font-black md:text-5xl md:leading-11.5 md:-tracking-[0.96px];
   }
 
-  h4, .h4 {
+  h4,
+  .h4 {
     @apply text-[22px] leading-6 -tracking-[0.44px] font-black md:text-[32px] md:leading-8.5 md:-tracking-[0.68px];
   }
 
-  h5, .h5 {
+  h5,
+  .h5 {
     @apply text-[22px] leading-6 -tracking-[0.44px] font-medium md:text-[34px] md:leading-8.5 md:-tracking-[0.68px];
   }
 
-  h6, .h6 {
+  h6,
+  .h6 {
     @apply text-base leading-4 font-black;
   }
 
