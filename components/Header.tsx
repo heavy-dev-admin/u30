@@ -37,7 +37,7 @@ export default function Header({ settings }: { settings: Settings }) {
             <Link
               key={index}
               href={item.seoPage?.slug?.current || '/'}
-              className={`button bg-beige rounded-none hover:bg-green ${index === 0 ? 'rounded-l-lg' : ''} ${index === navItems.length - 1 ? 'rounded-r-lg' : ''}`}
+              className={`button bg-beige rounded-none capitalize px-2.5 text-base hover:bg-green ${index === 0 ? 'rounded-l-lg pl-4' : ''} ${index === navItems.length - 1 ? 'rounded-r-lg pr-4' : ''}`}
             >
               {item.seoPage?.title}
             </Link>

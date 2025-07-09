@@ -19,8 +19,8 @@ export default function Footer({ settings }: { settings: Settings }) {
       <div className="flex flex-col gap-4 pt-10 pb-[71px] md:pt-8 md:pb-23.5 md:gap-6">
         <h3 className="text-body-large">{footerHeader}</h3>
         {contactUrl && footerContactButtonText && (
-          <Link href={contactUrl} className="button-large w-full">
-            {footerContactButtonText}
+          <Link href={contactUrl}>
+            <button className="button-large w-full">{footerContactButtonText}</button>
           </Link>
         )}
       </div>
