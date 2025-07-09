@@ -34,5 +34,12 @@ export default defineField({
       type: 'url',
       validation: (rule) => rule.required().uri({ scheme: ['http', 'https'] }),
     }),
+    defineField({
+      name: 'contactButtonText',
+      title: 'Contact Button Text',
+      type: 'string',
+      initialValue: 'Contact',
+      validation: (rule) => rule.required(),
+    }),
   ],
 })

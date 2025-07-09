@@ -1,5 +1,6 @@
 'use client'
 import { SanityImage } from 'components/SanityImage'
+import content from 'content/text.json'
 import Link from 'next/link'
 import { Settings } from 'types/settings'
 
@@ -28,12 +29,14 @@ export default function Footer({ settings }: { settings: Settings }) {
           <Link href="/" className="h-11 w-auto [&_img]:h-[43px] [&_img]:w-auto">
             {footerLogo && <SanityImage asset={footerLogo.asset} alt={footerLogo?.alt} />}
           </Link>
-          <div className="flex flex-col md:hidden">
-            <p className="text-body-small">Client Inquiries:</p>
-            <Link href={`mailto:${footerEmailContact}`} className="text-body-small">
-              {footerEmailContact}
-            </Link>
-          </div>
+          {footerEmailContact && (
+            <div className="flex flex-col md:hidden">
+              <p className="text-body-small">{content.clientInquiries}</p>
+              <Link href={`mailto:${footerEmailContact}`} className="text-body-small">
+                {footerEmailContact}
+              </Link>
+            </div>
+          )}
         </div>
         <div className="flex-1 flex flex-col gap-7 mb-[71px] order-1 md:order-2 md:gap-8 md:flex-row md:justify-center md:mb-0">
           {footerMenu?.map((item, index) => (
@@ -47,14 +50,16 @@ export default function Footer({ settings }: { settings: Settings }) {
           ))}
         </div>
         <div className="flex-col hidden order-3 md:flex">
-          <p className="text-body-small">Client Inquiries:</p>
           {footerEmailContact && (
-            <Link
-              href={`mailto:${footerEmailContact}`}
-              className="text-body-small transition-colors duration-300 ease-in-out hover:text-green"
-            >
-              {footerEmailContact}
-            </Link>
+            <>
+              <p className="text-body-small">{content.clientInquiries}</p>
+              <Link
+                href={`mailto:${footerEmailContact}`}
+                className="text-body-small transition-colors duration-300 ease-in-out hover:text-green"
+              >
+                {footerEmailContact}
+              </Link>
+            </>
           )}
         </div>
       </div>

@@ -10,6 +10,7 @@ export type Settings = {
   menu: {
     logo?: Image
     contactUrl?: string
+    contactButtonText: string
     links: LinkInternal[]
   }
   footer: {
