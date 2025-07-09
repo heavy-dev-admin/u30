@@ -27,7 +27,7 @@ export default function Footer({ settings }: { settings: Settings }) {
       <div className="flex flex-col gap-4 pb-4 md:pb-6.5 md:gap-6 md:flex-row md:justify-between md:items-end">
         <div className="w-full flex justify-between order-2 md:w-auto md:order-1">
           <Link href="/" className="h-11 w-auto [&_img]:h-[43px] [&_img]:w-auto">
-            {footerLogo && <SanityImage asset={footerLogo.asset} alt={footerLogo?.alt} />}
+            {footerLogo && <SanityImage asset={footerLogo.asset} alt={footerLogo.alt || ''} />}
           </Link>
           {footerEmailContact && (
             <div className="flex flex-col md:hidden">

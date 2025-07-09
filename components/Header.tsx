@@ -30,9 +30,9 @@ export default function Header({ settings }: { settings: Settings }) {
     <header className="bg-cream p-4 relative md:px-6.5 md:pt-6.5 md:pb-4">
       <div className="flex items-center justify-between w-full relative z-20">
         <Link href="/" className="h-11 w-auto [&_img]:h-[43px] [&_img]:w-auto">
-          {logo && <SanityImage asset={logo.asset} alt={logo.alt} />}
+          {logo && <SanityImage asset={logo.asset} alt={logo.alt || ''} />}
         </Link>
-        <nav className="hidden md:flex">
+        <nav className="hidden md:flex" aria-label="Primary">
           {navItems?.map((item, index) => (
             <Link
               key={index}
