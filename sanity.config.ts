@@ -5,12 +5,7 @@
 
 import { colorInput } from '@sanity/color-input'
 import { visionTool } from '@sanity/vision'
-import {
-  apiVersion,
-  dataset,
-  DRAFT_MODE_ROUTE,
-  projectId,
-} from 'lib/sanity.api'
+import { apiVersion, dataset, DRAFT_MODE_ROUTE, projectId } from 'lib/sanity.api'
 import { locate } from 'plugins/locate'
 import { previewDocumentNode } from 'plugins/previewPane'
 import { settingsPlugin, settingsStructure } from 'plugins/settings'
@@ -38,8 +33,7 @@ import simpleCtaSectionType from 'schemas/sections/simpleCtaSection'
 import twoUpSectionType from 'schemas/sections/twoUpSection'
 import settingsType from 'schemas/settings'
 
-const title =
-  process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE || 'Next.js Blog with Sanity.io'
+const title = process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE || 'Next.js Blog with Sanity.io'
 
 export default defineConfig({
   basePath: '/studio',
@@ -77,14 +71,11 @@ export default defineConfig({
   },
   plugins: [
     structureTool({
-      structure: settingsStructure([
-        settingsType,
-        homepageType,
-        careerType,
-        workType,
-        industriesType,
-        aboutType,
-      ]),
+      structure: settingsStructure(
+        [settingsType],
+        [homepageType, careerType, workType, industriesType, aboutType],
+        [clientType]
+      ),
       // `defaultDocumentNode` is responsible for adding a “Preview” tab to the document pane
       defaultDocumentNode: previewDocumentNode(),
     }),
@@ -103,7 +94,6 @@ export default defineConfig({
     colorInput(),
     // Vision lets you query your content with GROQ in the studio
     // https://www.sanity.io/docs/the-vision-plugin
-    process.env.NODE_ENV !== 'production' &&
-      visionTool({ defaultApiVersion: apiVersion }),
+    process.env.NODE_ENV !== 'production' && visionTool({ defaultApiVersion: apiVersion }),
   ],
 })

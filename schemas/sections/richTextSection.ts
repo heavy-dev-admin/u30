@@ -3,7 +3,7 @@ import portableTextSimpleField from 'schemas/fields/portableTextSimple'
 
 export default defineType({
   name: 'richTextSection',
-  title: 'Rich Text Section',
+  title: 'Rich Text Sections',
   type: 'document',
   preview: {
     prepare() {

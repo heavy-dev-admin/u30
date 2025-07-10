@@ -2,7 +2,7 @@ import { defineField, defineType } from 'sanity'
 
 export default defineType({
   name: 'clientQuotesSection',
-  title: 'Client Quote Section',
+  title: 'Client Quote Sections',
   type: 'document',
   preview: {
     prepare() {

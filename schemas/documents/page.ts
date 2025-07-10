@@ -1,13 +1,13 @@
-import { BlockContentIcon, DocumentIcon, SearchIcon } from '@sanity/icons'
+import { BlockContentIcon, DocumentsIcon, SearchIcon } from '@sanity/icons'
 import { defineField, defineType } from 'sanity'
 import flexibleSectionsField from 'schemas/fields/flexibleSections'
 import seoPageField from 'schemas/fields/seoPage'
 
 export default defineType({
   name: 'page',
-  title: 'Page',
+  title: 'Pages',
   type: 'document',
-  icon: DocumentIcon,
+  icon: DocumentsIcon,
   groups: [
     {
       name: 'seoPage',
