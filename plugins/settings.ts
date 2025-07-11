@@ -73,7 +73,6 @@ export const settingsStructure = (
         ...globalSettingsItems,
         S.divider(),
         ...staticPageItems,
-        S.divider(),
         ...clientItems,
         S.divider(),
         ...dynamicItems,

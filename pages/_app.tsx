@@ -8,10 +8,8 @@ import dynamic from 'next/dynamic'
 
 const PreviewProvider = dynamic(() => import('components/PreviewProvider'))
 
-export default function App({
-  Component,
-  pageProps,
-}: AppProps<SharedPageProps>) {
+export default function App({ Component, pageProps }: AppProps<SharedPageProps>) {
+  console.log('App pageProps:', pageProps)
   const { draftMode, token, settings } = pageProps
 
   return (
