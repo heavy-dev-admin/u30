@@ -3,6 +3,7 @@
  * This config is used to set up Sanity Studio that's mounted on the `/pages/studio/[[...index]].tsx` route
  */
 
+import { colorInput } from '@sanity/color-input'
 import { visionTool } from '@sanity/vision'
 import {
   apiVersion,
@@ -17,8 +18,20 @@ import { defineConfig } from 'sanity'
 import { presentationTool } from 'sanity/presentation'
 import { structureTool } from 'sanity/structure'
 import { unsplashImageAsset } from 'sanity-plugin-asset-source-unsplash'
-import authorType from 'schemas/author'
-import postType from 'schemas/post'
+import clientType from 'schemas/documents/client'
+import pageType from 'schemas/documents/page'
+import linkExternalField from 'schemas/fields/linkExternal'
+import linkInternalField from 'schemas/fields/linkInternal'
+import portableTextSimpleType from 'schemas/fields/portableTextSimple'
+import seoPageField from 'schemas/fields/seoPage'
+import workBlockType from 'schemas/fields/workBlock'
+import aboutType from 'schemas/pages/about'
+import careerType from 'schemas/pages/career'
+import homepageType from 'schemas/pages/homepage'
+import industriesType from 'schemas/pages/industries'
+import workType from 'schemas/pages/work'
+import clientQuotesSectionType from 'schemas/sections/clientQuotesSection'
+import clientsSectionType from 'schemas/sections/clientsSection'
 import settingsType from 'schemas/settings'
 
 const title =
@@ -31,11 +44,39 @@ export default defineConfig({
   title,
   schema: {
     // If you want more content types, you can add them to this array
-    types: [authorType, postType, settingsType],
+    types: [
+      // fields
+      linkInternalField,
+      linkExternalField,
+      workBlockType,
+      portableTextSimpleType,
+      // documents
+      clientType,
+      pageType,
+      // sections
+      clientsSectionType,
+      clientQuotesSectionType,
+      // settings
+      settingsType,
+      // pages
+      homepageType,
+      aboutType,
+      seoPageField,
+      careerType,
+      workType,
+      industriesType,
+    ],
   },
   plugins: [
     structureTool({
-      structure: settingsStructure(settingsType),
+      structure: settingsStructure([
+        settingsType,
+        homepageType,
+        careerType,
+        workType,
+        industriesType,
+        aboutType,
+      ]),
       // `defaultDocumentNode` is responsible for adding a “Preview” tab to the document pane
       defaultDocumentNode: previewDocumentNode(),
     }),
@@ -51,6 +92,7 @@ export default defineConfig({
     settingsPlugin({ type: settingsType.name }),
     // Add an image asset source for Unsplash
     unsplashImageAsset(),
+    colorInput(),
     // Vision lets you query your content with GROQ in the studio
     // https://www.sanity.io/docs/the-vision-plugin
     process.env.NODE_ENV !== 'production' &&

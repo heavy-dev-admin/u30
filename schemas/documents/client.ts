@@ -1,21 +1,21 @@
-import { UserIcon } from '@sanity/icons'
+import { EarthGlobeIcon } from '@sanity/icons'
 import { defineField, defineType } from 'sanity'
 
 export default defineType({
-  name: 'author',
-  title: 'Author',
-  icon: UserIcon,
+  name: 'client',
+  title: 'Client',
+  icon: EarthGlobeIcon,
   type: 'document',
   fields: [
     defineField({
-      name: 'name',
-      title: 'Name',
+      name: 'title',
+      title: 'Title',
       type: 'string',
       validation: (rule) => rule.required(),
     }),
     defineField({
-      name: 'picture',
-      title: 'Picture',
+      name: 'logo',
+      title: 'Logo',
       type: 'image',
       fields: [
         {
@@ -25,7 +25,6 @@ export default defineType({
           description: 'Important for SEO and accessiblity.',
         },
       ],
-      options: { hotspot: true },
       validation: (rule) => rule.required(),
     }),
   ],
