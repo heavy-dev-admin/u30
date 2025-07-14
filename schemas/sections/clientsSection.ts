@@ -2,7 +2,7 @@ import { defineArrayMember, defineField, defineType } from 'sanity'
 
 export default defineType({
   name: 'clientsSection',
-  title: 'Clients Section',
+  title: 'Clients Sections',
   type: 'document',
   fields: [
     defineField({
@@ -21,7 +21,7 @@ export default defineType({
           to: [{ type: 'client' }],
         }),
       ],
-      validation: (rule) => rule.required(),
+      validation: (rule) => rule.required().min(1),
     }),
     defineField({
       name: 'layout',

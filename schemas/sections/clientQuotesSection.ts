@@ -2,8 +2,15 @@ import { defineField, defineType } from 'sanity'
 
 export default defineType({
   name: 'clientQuotesSection',
-  title: 'Client Quote Section',
+  title: 'Client Quote Sections',
   type: 'document',
+  preview: {
+    prepare() {
+      return {
+        title: 'Client Quote Section',
+      }
+    },
+  },
   fields: [
     defineField({
       name: 'quotes',

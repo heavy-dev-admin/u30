@@ -8,11 +8,9 @@
     "lint": "next lint . --ignore-path .gitignore",
     "lint:fix": "npm run format && npm run lint -- --fix",
     "start": "next start",
-    "type-check": "tsc --noEmit"
-  },
-  "prettier": {
-    "semi": false,
-    "singleQuote": true
+    "type-check": "tsc --noEmit",
+    "deploy": "npx vercel --prod",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@sanity/client": "7.0.0",
@@ -44,13 +42,18 @@
     "@types/react": "19.1.2",
     "eslint": "8.57.1",
     "eslint-config-next": "15.3.1",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-plugin-prettier": "^5.5.1",
     "eslint-plugin-simple-import-sort": "12.1.1",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.1.2",
     "postcss": "8.5.3",
-    "prettier": "3.5.3",
+    "prettier": "^3.5.3",
     "prettier-plugin-packagejson": "2.5.10",
     "prettier-plugin-tailwindcss": "0.6.11",
     "tailwindcss": "4.1.5",
-    "typescript": "5.8.3"
+    "typescript": "5.8.3",
+    "vercel": "^44.2.12"
   },
   "overrides": {
     "next-sanity-image": {
@@ -61,5 +64,9 @@
   },
   "engines": {
     "node": ">=20"
+  },
+  "lint-staged": {
+    "**/*.{js,jsx,ts,tsx,css}": "prettier --write --ignore-path .gitignore",
+    "**/*.{js,jsx,ts,tsx}": "eslint --fix"
   }
 }

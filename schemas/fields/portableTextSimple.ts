@@ -6,8 +6,8 @@ export default defineField({
   of: [
     defineArrayMember({
       lists: [
-        {title: 'Bullet', value: 'bullet'},
-        {title: 'Numbered', value: 'number'},
+        { title: 'Bullet', value: 'bullet' },
+        { title: 'Numbered', value: 'number' },
       ],
       marks: {
         decorators: [

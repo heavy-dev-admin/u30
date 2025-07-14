@@ -7,7 +7,7 @@ export default defineField({
   type: 'object',
   icon: EarthGlobeIcon,
   components: {
-    annotation: (props) => (
+    annotation: (props: any) => (
       <span>
         <EarthGlobeIcon
           style={{
@@ -25,7 +25,7 @@ export default defineField({
       name: 'url',
       title: 'URL',
       type: 'url',
-      validation: (rule) => rule.required().uri({scheme: ['http', 'https']}),
+      validation: (rule) => rule.required().uri({ scheme: ['http', 'https'] }),
     }),
     defineField({
       title: 'Open in a new window?',

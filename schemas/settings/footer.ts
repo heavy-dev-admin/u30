@@ -11,16 +11,28 @@ export default defineField({
   },
   fields: [
     defineField({
+      name: 'footerLogo',
+      title: 'Logo',
+      type: 'image',
+      fields: [
+        defineField({
+          name: 'alt',
+          title: 'Alt',
+          type: 'string',
+        }),
+      ],
+    }),
+    defineField({
       name: 'footerMenu',
       title: 'Menu',
       type: 'array',
-      of: [{type: 'linkInternal'}]
+      of: [{ type: 'linkInternal' }],
     }),
     defineField({
-      name: 'contactURL',
+      name: 'contactUrl',
       title: 'Contact URL',
       type: 'url',
-      validation: (rule) => rule.required().uri({scheme: ['http', 'https']}),
+      validation: (rule) => rule.required().uri({ scheme: ['http', 'https'] }),
     }),
     defineField({
       name: 'footerHeader',

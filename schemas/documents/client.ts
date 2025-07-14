@@ -1,10 +1,10 @@
-import { EarthGlobeIcon } from '@sanity/icons'
+import { UsersIcon } from '@sanity/icons'
 import { defineField, defineType } from 'sanity'
 
 export default defineType({
   name: 'client',
-  title: 'Client',
-  icon: EarthGlobeIcon,
+  title: 'Clients',
+  icon: UsersIcon,
   type: 'document',
   fields: [
     defineField({
@@ -22,7 +22,7 @@ export default defineType({
           name: 'alt',
           type: 'string',
           title: 'Alternative text',
-          description: 'Important for SEO and accessiblity.',
+          description: 'Important for SEO and accessibility.',
         },
       ],
       validation: (rule) => rule.required(),

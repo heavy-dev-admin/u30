@@ -31,7 +31,7 @@ export default defineField({
           name: 'alt',
           type: 'string',
           title: 'Alternative text',
-          description: 'Important for SEO and accessiblity.',
+          description: 'Important for SEO and accessibility.',
         },
       ],
     }),
@@ -43,9 +43,9 @@ export default defineField({
           name: 'alt',
           type: 'string',
           title: 'Alternative text',
-          description: 'Important for SEO and accessiblity.',
+          description: 'Important for SEO and accessibility.',
         },
       ],
-    })
+    }),
   ],
 })

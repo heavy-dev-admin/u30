@@ -31,7 +31,7 @@ export default defineField({
       title: 'Slug',
       type: 'slug',
       options: {
-        source: 'title',
+        source: 'workBlock.title',
       },
       validation: validateSlug,
     }),
@@ -44,7 +44,7 @@ export default defineField({
           name: 'alt',
           type: 'string',
           title: 'Alternative text',
-          description: 'Important for SEO and accessiblity.',
+          description: 'Important for SEO and accessibility.',
         },
       ],
     }),
@@ -57,13 +57,13 @@ export default defineField({
       name: 'image',
       title: 'Image',
       type: 'image',
-      description: 'This image display for block type image only',
+      description: 'This image will be displayed when the block type is set to "Image".',
       fields: [
         {
           name: 'alt',
           type: 'string',
           title: 'Alternative text',
-          description: 'Important for SEO and accessiblity.',
+          description: 'Important for SEO and accessibility.',
         },
       ],
     }),

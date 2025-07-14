@@ -10,24 +10,19 @@ export default defineType({
   type: 'document',
   icon: CogIcon,
   preview: { select: { title: 'title', subtitle: 'description' } },
-  // Uncomment below to have edits publish automatically as you type
   groups: [
     {
       name: 'seo',
-      title: 'SEO'
+      title: 'SEO',
     },
     {
       name: 'mainMenu',
-      title: 'Main Menu'
+      title: 'Main Menu',
     },
     {
-      name: "footer",
-      title: "Footer"
-    }
+      name: 'footer',
+      title: 'Footer',
+    },
   ],
-  fields: [
-    seoGlobalType,
-    mainMenuType,
-    footerType
-  ],
+  fields: [seoGlobalType, mainMenuType, footerType],
 })

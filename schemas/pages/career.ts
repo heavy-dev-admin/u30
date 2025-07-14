@@ -1,11 +1,19 @@
 import { CaseIcon, ComposeIcon, SearchIcon } from '@sanity/icons'
-import { defineArrayMember, defineField, defineType } from 'sanity'
+import { defineField, defineType } from 'sanity'
+import flexibleSectionsField from 'schemas/fields/flexibleSections'
 import seoPageField from 'schemas/fields/seoPage'
 
 export default defineType({
   name: 'career',
   title: 'Career',
   type: 'document',
+  preview: {
+    prepare() {
+      return {
+        title: 'Career',
+      }
+    },
+  },
   icon: CaseIcon,
   groups: [
     {
@@ -59,17 +67,6 @@ export default defineType({
         }),
       ],
     }),
-    defineField({
-      name: 'flexibleSections',
-      title: 'Flexible Sections',
-      type: 'array',
-      group: 'sections',
-      of: [
-        defineArrayMember({
-          type: 'reference',
-          to: [{ type: 'clientsSection' }, { type: 'clientQuotesSection' }],
-        }),
-      ],
-    }),
+    flexibleSectionsField,
   ],
 })

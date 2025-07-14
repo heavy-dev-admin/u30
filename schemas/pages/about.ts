@@ -1,11 +1,19 @@
 import { ComposeIcon, InfoOutlineIcon, SearchIcon } from '@sanity/icons'
-import { defineArrayMember, defineField, defineType } from 'sanity'
+import { defineField, defineType } from 'sanity'
+import flexibleSectionsField from 'schemas/fields/flexibleSections'
 import seoPageField from 'schemas/fields/seoPage'
 
 export default defineType({
   name: 'about',
-  title: 'About Page',
+  title: 'About',
   type: 'document',
+  preview: {
+    prepare() {
+      return {
+        title: 'About',
+      }
+    },
+  },
   icon: InfoOutlineIcon,
   groups: [
     {
@@ -43,7 +51,7 @@ export default defineType({
             ],
             layout: 'radio',
           },
-          initialValue: 'side-by-side',
+          initialValue: 'primary',
         }),
         defineField({
           name: 'title',
@@ -64,23 +72,12 @@ export default defineType({
               name: 'alt',
               type: 'string',
               title: 'Alternative text',
-              description: 'Important for SEO and accessiblity.',
+              description: 'Important for SEO and accessibility.',
             },
           ],
         }),
       ],
     }),
-    defineField({
-      name: 'flexibleSections',
-      title: 'Flexible Sections',
-      group: 'sections',
-      type: 'array',
-      of: [
-        defineArrayMember({
-          type: 'reference',
-          to: [{ type: 'clientsSection' }, { type: 'clientQuotesSection' }],
-        }),
-      ],
-    }),
+    flexibleSectionsField,
   ],
 })

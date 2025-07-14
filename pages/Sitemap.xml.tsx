@@ -1,15 +1,6 @@
-import { getAllPosts, getClient } from 'lib/sanity.client'
-
 type SitemapLocation = {
   url: string
-  changefreq?:
-    | 'always'
-    | 'hourly'
-    | 'daily'
-    | 'weekly'
-    | 'monthly'
-    | 'yearly'
-    | 'never'
+  changefreq?: 'always' | 'hourly' | 'daily' | 'weekly' | 'monthly' | 'yearly' | 'never'
   priority: number
   lastmod?: Date
 }
@@ -36,9 +27,7 @@ const createSitemap = (locations: SitemapLocation[]) => {
                     <loc>${baseUrl}${location.url}</loc>
                     <priority>${location.priority}</priority>
                     ${
-                      location.lastmod
-                        ? `<lastmod>${location.lastmod.toISOString()}</lastmod>`
-                        : ''
+                      location.lastmod ? `<lastmod>${location.lastmod.toISOString()}</lastmod>` : ''
                     }
                   </url>`
         })
@@ -52,24 +41,10 @@ export default function SiteMap() {
 }
 
 export async function getServerSideProps({ res }) {
-  const client = getClient()
-
-  // Get list of Post urls
-  const [posts = []] = await Promise.all([getAllPosts(client)])
-  const postUrls: SitemapLocation[] = posts
-    .filter(({ slug = '' }) => slug)
-    .map((post) => {
-      return {
-        url: `/posts/${post.slug}`,
-        priority: 0.5,
-        lastmod: new Date(post._updatedAt),
-      }
-    })
-
   // ... get more routes here
 
   // Return the default urls, combined with dynamic urls above
-  const locations = [...defaultUrls, ...postUrls]
+  const locations = [...defaultUrls]
 
   // Set response to XML
   res.setHeader('Content-Type', 'text/xml')

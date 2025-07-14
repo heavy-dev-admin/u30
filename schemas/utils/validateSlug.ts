@@ -3,7 +3,7 @@ import { SlugRule } from 'sanity'
 
 export const validateSlug = (rule: SlugRule) => {
   return rule.required().custom((value) => {
-    const currentSlug = value && value.current
+    const currentSlug = value?.current
     if (!currentSlug) {
       return true
     }

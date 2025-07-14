@@ -1,26 +1,39 @@
 @import 'tailwindcss';
 @plugin "@tailwindcss/typography";
 
+@font-face {
+  font-family: 'GT Pressura';
+  src:
+    url('/fonts/GT-Pressura-Extended-Medium.woff2') format('woff2'),
+    url('/fonts/GT-Pressura-Extended-Medium.woff') format('woff'),
+    url('/fonts/GT-Pressura-Extended-Medium.ttf') format('truetype'),
+    url('/fonts/GT-Pressura-Extended-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'GT Pressura';
+  src:
+    url('/fonts/GT-Pressura-Extended-Black.woff2') format('woff2'),
+    url('/fonts/GT-Pressura-Extended-Black.woff') format('woff'),
+    url('/fonts/GT-Pressura-Extended-Black.ttf') format('truetype'),
+    url('/fonts/GT-Pressura-Extended-Black.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
-  --color-accent-1: #fafafa;
-  --color-accent-2: #eaeaea;
-  --color-accent-7: #333;
-  --color-success: #0070f3;
-  --color-cyan: #79ffe1;
-  --color-blue-500: #2276fc;
-  --color-yellow-100: #fef7da;
+  --color-dark-green: #024834;
+  --color-green: #85c441;
+  --color-light-green: #cee074;
+  --color-pink: #f7acbb;
+  --color-cream: #fff6ec;
+  --color-beige: #eae2cc;
 
-  --tracking-tighter: -0.04em;
-
-  --leading-tight: 1.2;
-
-  --text-5xl: 2.5rem;
-  --text-6xl: 2.75rem;
-  --text-7xl: 4.5rem;
-  --text-8xl: 6.25rem;
-
-  --shadow-small: 0 5px 10px rgba(0, 0, 0, 0.12);
-  --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.12);
+  --font-sans: 'GT Pressura', sans-serif;
 }
 
 /*
@@ -38,5 +51,69 @@
   ::backdrop,
   ::file-selector-button {
     border-color: var(--color-gray-200, currentColor);
+  }
+
+  html {
+    @apply font-sans;
+  }
+
+  h1,
+  .h1 {
+    @apply text-[38px] leading-10.5 -tracking-[0.76px] font-black md:text-[64px] md:leading-15.5 md:-tracking-[1.28px];
+  }
+
+  h2,
+  .h2 {
+    @apply text-[40px] leading-10.5 -tracking-[0.8px] font-medium md:text-[64px] md:leading-15.5 md:-tracking-[1.28px];
+  }
+
+  h3,
+  .h3 {
+    @apply text-[32px] leading-8.5 -tracking-[0.64px] font-black md:text-5xl md:leading-11.5 md:-tracking-[0.96px];
+  }
+
+  h4,
+  .h4 {
+    @apply text-[22px] leading-6 -tracking-[0.44px] font-black md:text-[34px] md:leading-8.5 md:-tracking-[0.68px];
+  }
+
+  h5,
+  .h5 {
+    @apply text-[22px] leading-6 -tracking-[0.44px] font-medium md:text-[34px] md:leading-8.5 md:-tracking-[0.68px];
+  }
+
+  h6,
+  .h6 {
+    @apply text-base leading-4 font-black;
+  }
+
+  .text-button {
+    @apply text-sm leading-4 font-black uppercase;
+  }
+
+  .text-body-small {
+    @apply text-base leading-5.5 font-medium;
+  }
+
+  .text-body {
+    @apply text-lg leading-6 font-medium md:text-xl;
+  }
+
+  .text-body-large {
+    @apply text-[22px] leading-7 font-medium md:text-[26px] md:leading-8.5;
+  }
+
+  .text-display {
+    @apply text-[52px] leading-13 -tracking-[1.04px] font-black md:text-[88px] md:leading-21.5 md:-tracking-[1.76px];
+  }
+}
+
+@layer components {
+  .button {
+    @apply text-sm px-5 leading-4 font-black cursor-pointer uppercase min-h-10.5 bg-green text-dark-green rounded-lg border-none outline-none shadow-none flex items-center justify-center transition-all duration-300 ease-in-out hover:bg-light-green focus:bg-light-green;
+  }
+
+  .button-large {
+    @apply text-[40px] leading-10.5 -tracking-[0.8px] min-h-25 normal-case font-medium cursor-pointer bg-green text-dark-green rounded-lg border-none outline-none shadow-none flex items-center justify-center transition-all duration-300 ease-in-out hover:bg-light-green focus:bg-light-green md:text-[64px] md:leading-15.5 md:-tracking-[1.28px] md:min-h-37.5 md:pt-10 md:pb-12;
   }
 }
