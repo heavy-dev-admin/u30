@@ -1,16 +1,27 @@
 import IndexPage from 'components/IndexPage'
-import PreviewIndexPage from 'components/PreviewIndexPage'
+import { getClient, getHomepageSettings } from 'lib/sanity.client'
 import { getSharedStaticProps, Query, SharedPageProps } from 'lib/shared-props'
-import { GetStaticProps } from 'next'
+import { GetStaticProps, GetStaticPropsContext } from 'next'
+import type { HomepageSettings } from 'types/pages'
 
-export default function Page(props: SharedPageProps) {
-  const { settings, draftMode } = props
+type PageProps = SharedPageProps & { homepageSettings: HomepageSettings }
 
-  if (draftMode) {
-    return <PreviewIndexPage settings={settings} />
-  }
+export default function Page(props: PageProps) {
+  const { homepageSettings } = props
 
-  return <IndexPage settings={settings} />
+  return <IndexPage {...homepageSettings} />
 }
 
-export const getStaticProps: GetStaticProps<SharedPageProps, Query> = getSharedStaticProps
+export const getStaticProps: GetStaticProps = async (ctx: GetStaticPropsContext<Query>) => {
+  const sharedProps = await getSharedStaticProps(ctx)
+
+  const client = getClient()
+  const homepageSettings = await getHomepageSettings(client)
+
+  return {
+    props: {
+      ...sharedProps.props,
+      homepageSettings,
+    },
+  }
+}

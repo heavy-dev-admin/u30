@@ -1,12 +1,12 @@
-import { Suspense } from 'react'
-import type { Settings } from 'types/settings'
+import Hero from 'components/Hero'
+import { HomepageSettings } from 'types/pages'
 
-export interface IndexPageProps {
-  preview?: boolean
-  loading?: boolean
-  settings?: Settings
-}
+export default function IndexPage(props: HomepageSettings) {
+  const { hero } = props
 
-export default function IndexPage(props: IndexPageProps) {
-  return <div></div>
+  return (
+    <div>
+      <Hero hero={hero} />
+    </div>
+  )
 }

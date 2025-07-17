@@ -7,10 +7,11 @@ interface Props {
   asset: SanityImageSource
   alt: string
   caption?: string
+  className?: string
 }
 
 export const SanityImage = (props: Props) => {
-  const { asset, alt, caption } = props
+  const { asset, alt, caption, className } = props
   const imageProps = useNextSanityImage(getSanityImageConfig(), asset)
 
   if (!imageProps) return null
@@ -21,6 +22,7 @@ export const SanityImage = (props: Props) => {
         {...imageProps}
         alt={alt}
         sizes="(max-width: 800px) 100vw, 800px"
+        className={className}
       />
       {caption && (
         <figcaption className="mt-2 text-center italic text-sm text-gray-500 dark:text-gray-400 text-pretty">
