@@ -1,15 +1,24 @@
-import IndexPage from 'components/IndexPage'
 import { getClient, getHomepageSettings } from 'lib/sanity.client'
 import { getSharedStaticProps, Query, SharedPageProps } from 'lib/shared-props'
 import { GetStaticProps, GetStaticPropsContext } from 'next'
+import FourRights from 'sections/FourRights'
+import Hero from 'sections/Hero'
 import type { HomepageSettings } from 'types/pages'
 
 type PageProps = SharedPageProps & { homepageSettings: HomepageSettings }
 
 export default function Page(props: PageProps) {
   const { homepageSettings } = props
+  const { hero, fourRights } = homepageSettings
 
-  return <IndexPage {...homepageSettings} />
+  return (
+    <div>
+      <Hero {...hero} />
+      <FourRights {...fourRights} />
+      <Hero {...hero} />
+      <Hero {...hero} />
+    </div>
+  )
 }
 
 export const getStaticProps: GetStaticProps = async (ctx: GetStaticPropsContext<Query>) => {

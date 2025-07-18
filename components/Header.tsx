@@ -1,7 +1,7 @@
 'use client'
 import { SanityImage } from 'components/SanityImage'
 import content from 'content/text.json'
-import useScroll from 'hooks/useScroll'
+import useScrollDirection from 'hooks/useScrollDirection'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { Settings } from 'types/settings'
@@ -11,7 +11,7 @@ export default function Header({ settings }: { settings: Settings }) {
 
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
-  const scrollDirection = useScroll()
+  const scrollDirection = useScrollDirection()
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)

@@ -52,6 +52,9 @@ export default defineField({
       name: 'backgroundColor',
       title: 'Background Color',
       type: 'color',
+      options: {
+        disableAlpha: true,
+      },
     }),
     defineField({
       name: 'image',

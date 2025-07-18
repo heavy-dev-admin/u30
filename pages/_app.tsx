@@ -1,4 +1,7 @@
 import '../tailwind.css'
+import 'swiper/css'
+import 'swiper/css/pagination'
+import 'swiper/css/navigation'
 
 import { VisualEditing } from '@sanity/visual-editing/next-pages-router'
 import Layout from 'components/Layout'

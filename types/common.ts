@@ -98,7 +98,10 @@ export type FlexibleSection =
 export type FourRightItem = {
   label: string
   emblem: Image
-  detail: string
+  detail?: string
+  backgroundColor?: {
+    hex: string
+  }
 }
 
 export type IndustryItem = {
