@@ -1,4 +1,5 @@
 import React from 'react'
+import ClientQuilt from 'sections/ClientQuilt'
 import ClientQuotes from 'sections/ClientQuotes'
 import { FlexibleSection } from 'types/common'
 
@@ -9,6 +10,9 @@ export default function FlexibleSections(sectionData: FlexibleSection[]) {
     switch (section._type) {
       case 'clientQuotesSection': {
         return <ClientQuotes {...section} />
+      }
+      case 'clientsSection': {
+        return <ClientQuilt {...section} />
       }
     }
 

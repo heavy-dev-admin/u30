@@ -26,6 +26,12 @@ export const homepageQuery = groq`*[_type == "homepage"][0]{
   ...,
   flexibleSections[]->{
     ...,
+    _type == "clientsSection" => {
+      ...,
+      clients[]->{
+        ...
+      }
+    },
     _type == "clientQuotesSection" => {
       quotes[]{
         ...,
