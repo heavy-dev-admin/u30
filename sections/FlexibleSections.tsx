@@ -1,0 +1,29 @@
+import React from 'react'
+import ClientQuotes from 'sections/ClientQuotes'
+import { FlexibleSection } from 'types/common'
+
+export default function FlexibleSections(sectionData: FlexibleSection[]) {
+  const sections = Object.values(sectionData)
+
+  const renderSection = (section: FlexibleSection) => {
+    switch (section._type) {
+      case 'clientQuotesSection': {
+        return <ClientQuotes {...section} />
+      }
+    }
+
+    return null
+  }
+
+  return (
+    <>
+      {sections.map((section, index) => {
+        return (
+          <React.Fragment key={`${section._type}_${index}`}>
+            {renderSection(section)}
+          </React.Fragment>
+        )
+      })}
+    </>
+  )
+}

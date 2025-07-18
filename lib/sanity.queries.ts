@@ -25,7 +25,15 @@ export const settingsQuery = groq`*[_type == "settings"][0]{
 export const homepageQuery = groq`*[_type == "homepage"][0]{
   ...,
   flexibleSections[]->{
-    ...
+    ...,
+    _type == "clientQuotesSection" => {
+      quotes[]{
+        ...,
+        client->{
+          ...
+        }
+      }
+    }
   }
 }`
 
