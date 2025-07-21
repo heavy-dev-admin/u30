@@ -5,7 +5,7 @@ export default function Hero(props: HomepageSettings['hero']) {
   const { title, subtitle, heroImage } = props
 
   return (
-    <div className="flex flex-col px-3 py-10 bg-cream gap-12.5 md:px-6.5 lg:flex-row lg:justify-between lg:items-center lg:gap-[66px] lg:pt-0 lg:pb-6.5">
+    <div className="flex flex-col px-4 py-10 bg-cream gap-12.5 md:px-6.5 lg:flex-row lg:justify-between lg:items-center lg:gap-[66px] lg:pt-0 lg:pb-6.5">
       <div className="max-w-136 px-1 lg:px-0">
         <h2 className="h1 font-black text-dark-green">{title}</h2>
         <p className="mt-4 text-body font-medium text-dark-green lg:mt-10 lg:text-[26px] lg:leading-8.5">

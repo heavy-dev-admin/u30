@@ -34,7 +34,7 @@ export default function ClientQuotes(props: ClientQuoteSectionSettings) {
   const { quotes } = props
 
   return (
-    <section className="w-full pt-14 pb-15 px-3 bg-cream overflow-hidden md:px-6.5 lg:pb-38.5">
+    <section className="w-full pt-14 pb-15 px-4 bg-cream overflow-hidden md:px-6.5 lg:pb-38.5">
       <Swiper
         modules={[Autoplay]}
         spaceBetween={12}

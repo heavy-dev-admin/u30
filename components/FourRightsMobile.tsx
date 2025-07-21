@@ -34,7 +34,7 @@ export default function FourRightsMobile(props: HomepageSettings['fourRights']) 
 
   return (
     <div className="pt-12 pb-30 bg-dark-green lg:hidden">
-      <div className="px-3 md:px-6.5">
+      <div className="px-4 md:px-6.5">
         <div className="text-button text-cream">{sectionSubtitle}</div>
         <h2 className="h3 text-cream font-black mt-13 w-65 md:w-1/2">{sectionTitle}</h2>
       </div>
@@ -48,7 +48,7 @@ export default function FourRightsMobile(props: HomepageSettings['fourRights']) 
             sticky: false,
             momentum: true,
           }}
-          className="!overflow-visible !px-3 md:!px-6.5"
+          className="!overflow-visible !px-4 md:!px-6.5"
           onSlideChange={(swiper) => handleSlideChange(swiper.activeIndex)}
         >
           {rights.map((right, index) => (
@@ -59,7 +59,7 @@ export default function FourRightsMobile(props: HomepageSettings['fourRights']) 
         </Swiper>
       </div>
       {detail && (
-        <div className="mt-6 px-3 md:px-6.5">
+        <div className="mt-6 px-4 md:px-6.5">
           <p className="w-80 text-cream text-body-large transition-all duration-500 ease-in-out md:w-1/2">
             {detail}
           </p>

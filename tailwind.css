@@ -152,4 +152,20 @@
   .corner-dark.corner-bottom-right {
     background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8" fill="none"><path d="M8 0C8 4.41828 4.41828 8 0 8H8V0Z" fill="%23024834"/></svg>');
   }
+
+  .wysiwyg {
+    @apply text-dark-green;
+  }
+
+  .wysiwyg p {
+    @apply min-h-px;
+  }
+
+  .wysiwyg p + p {
+    @apply mt-3 lg:mt-5.5;
+  }
+
+  .wysiwyg a {
+    @apply underline;
+  }
 }
