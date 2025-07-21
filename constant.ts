@@ -10,3 +10,5 @@ export const PAGE_REFERENCES = [
 export const MAX_CHARACTERS_LENGTH = 96
 
 export const DEBOUNCE_TIME = 100
+
+export const THROTTLE_TIME = 100

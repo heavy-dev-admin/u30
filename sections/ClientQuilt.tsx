@@ -4,7 +4,7 @@ import { Client, ClientsSectionSettings } from 'types/common'
 
 function ClientItem(client: Client) {
   return (
-    <div className="[.rfm-marquee_&]:w-40">
+    <div className="flex justify-center items-center [&>figure]:flex-1 [.rfm-marquee_&]:w-40">
       <SanityImage
         asset={client.logo}
         alt={client.logo?.alt || client.title}

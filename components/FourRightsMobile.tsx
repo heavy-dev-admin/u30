@@ -33,7 +33,7 @@ export default function FourRightsMobile(props: HomepageSettings['fourRights']) 
   }, DEBOUNCE_TIME)
 
   return (
-    <div className="lg:hidden">
+    <div className="pt-12 pb-30 bg-dark-green lg:hidden">
       <div className="px-3 md:px-6.5">
         <div className="text-button text-cream">{sectionSubtitle}</div>
         <h2 className="h3 text-cream font-black mt-13 w-65 md:w-1/2">{sectionTitle}</h2>

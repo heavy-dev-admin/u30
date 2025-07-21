@@ -1,15 +1,26 @@
 import { SanityImage } from 'components/SanityImage'
-import { ReactElement, useRef, useState } from 'react'
+import { THROTTLE_TIME } from 'constant'
+import { AnimatePresence, motion } from 'motion/react'
+import { ReactElement, useEffect, useRef, useState } from 'react'
 import { FourRightItem } from 'types/common'
 import type { HomepageSettings } from 'types/pages'
+import { throttle } from 'utils/common'
 
 export default function FourRightsDesktop(props: HomepageSettings['fourRights']) {
   const { sectionTitle, sectionSubtitle, rights } = props
 
-  const [activeIndex, setActiveIndex] = useState<number>(0)
-  const contentRef = useRef(null)
+  const SCROLL_PROGRESS_THRESHOLD = 0.6
+  const ANIMATED_INITIAL = { opacity: 0, y: -40 }
+  const ANIMATED_TARGET = { opacity: 1, y: 0 }
+  const ANIMATED_TRANSITION = { duration: 0.3 }
 
-  const renderBlock = (right: FourRightItem, index: number) => {
+  const [activeIndex, setActiveIndex] = useState<number>(0)
+
+  const containerRef = useRef(null)
+
+  const renderBlock = (right: FourRightItem, index: number): ReactElement | null => {
+    if (activeIndex < index) return null
+
     const { label, emblem, backgroundColor } = right
 
     const image = (
@@ -20,17 +31,31 @@ export default function FourRightsDesktop(props: HomepageSettings['fourRights'])
       />
     )
     const customStyle = { backgroundColor: backgroundColor?.hex || '#cee074' }
-    let block: ReactElement | null = null
 
     if (index === 0) {
-      block = (
-        <div className="relative w-full h-48 rounded-lg" style={customStyle} key={index}>
+      return (
+        <motion.div
+          initial={ANIMATED_INITIAL}
+          animate={ANIMATED_TARGET}
+          transition={ANIMATED_TRANSITION}
+          exit={ANIMATED_INITIAL}
+          className="relative w-full h-48 rounded-lg"
+          style={customStyle}
+          key={index}
+        >
           {image}
-        </div>
+        </motion.div>
       )
     } else if (index === 1) {
-      block = (
-        <div className="absolute bottom-24 -right-4 p-4 rounded-lg bg-dark-green z-1" key={index}>
+      return (
+        <motion.div
+          initial={ANIMATED_INITIAL}
+          animate={ANIMATED_TARGET}
+          transition={ANIMATED_TRANSITION}
+          exit={ANIMATED_INITIAL}
+          className="absolute bottom-24 -right-4 p-4 rounded-lg rounded-l-3xl bg-dark-green z-1"
+          key={index}
+        >
           <div className="relative w-44 h-32 rounded-lg bg-green" style={customStyle}>
             {image}
           </div>
@@ -38,54 +63,115 @@ export default function FourRightsDesktop(props: HomepageSettings['fourRights'])
           <div className="absolute -top-2 right-4 corner corner-dark corner-bottom-right"></div>
           <div className="absolute top-10 -left-2 corner corner-dark corner-bottom-right"></div>
           <div className="absolute -bottom-2 right-4 corner corner-dark corner-top-right"></div>
-        </div>
+        </motion.div>
       )
     } else if (index === 2) {
-      block = (
-        <div
+      return (
+        <motion.div
+          initial={ANIMATED_INITIAL}
+          animate={ANIMATED_TARGET}
+          transition={ANIMATED_TRANSITION}
+          exit={ANIMATED_INITIAL}
           className="absolute bottom-52 right-0 w-75 h-46 rounded-lg"
           style={customStyle}
           key={index}
         >
           {image}
-        </div>
+        </motion.div>
       )
-    } else {
-      block = (
-        <div
+    } else if (index === 3) {
+      return (
+        <motion.div
+          initial={ANIMATED_INITIAL}
+          animate={ANIMATED_TARGET}
+          transition={ANIMATED_TRANSITION}
+          exit={ANIMATED_INITIAL}
           className="absolute bottom-102 right-0 w-51 h-25 rounded-lg"
           style={customStyle}
           key={index}
         >
           {image}
-        </div>
+        </motion.div>
       )
     }
 
-    return block
+    return null
   }
+
+  useEffect(() => {
+    const section: HTMLElement | null = containerRef.current?.parentElement
+    if (!section) return
+
+    const updateSectionHeight = () => {
+      if (window.innerWidth >= 1024)
+        section.style.height = `${rights.length * containerRef.current.offsetHeight}px`
+      else section.style.height = 'auto'
+    }
+
+    const handleScroll = throttle(() => {
+      if (!containerRef.current) return
+
+      const sectionRect = section.getBoundingClientRect()
+
+      if (sectionRect.top <= 0 && sectionRect.bottom >= window.innerHeight) {
+        const scrollProgress: number = Math.abs(sectionRect.top) / sectionRect.height
+        const clampedProgress: number = Math.max(
+          0,
+          Math.min(SCROLL_PROGRESS_THRESHOLD, scrollProgress)
+        )
+        const contentIndex: number = Math.floor(
+          (clampedProgress * (rights.length - 1)) / SCROLL_PROGRESS_THRESHOLD
+        )
+
+        setActiveIndex(contentIndex)
+      }
+    }, THROTTLE_TIME)
+
+    handleScroll()
+    updateSectionHeight()
+
+    window.addEventListener('scroll', handleScroll)
+    window.addEventListener('resize', updateSectionHeight)
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+      window.removeEventListener('resize', updateSectionHeight)
+    }
+  }, [rights.length])
 
   return (
     <div
-      className="hidden justify-center items-center lg:gap-20 overflow-hidden lg:flex xl:gap-40"
-      ref={contentRef}
+      className={`hidden sticky top-0 justify-center items-center overflow-hidden bg-dark-green lg:gap-20 lg:py-[134px] lg:flex xl:gap-40`}
+      ref={containerRef}
     >
       <div className="relative flex flex-col justify-end w-97 min-h-127">
-        {rights.map(renderBlock)}
+        <AnimatePresence>{rights.map(renderBlock)}</AnimatePresence>
       </div>
       <div className="w-120 xl:w-147">
         <div className="text-button text-cream">{sectionSubtitle}</div>
         <h2 className="h1 text-cream font-black mt-6">
           {sectionTitle}
-          <span
+          <motion.span
+            key={activeIndex}
+            initial={ANIMATED_INITIAL}
+            animate={ANIMATED_TARGET}
+            transition={ANIMATED_TRANSITION}
             className="block"
             style={{ color: rights[activeIndex].backgroundColor?.hex || 'inherit' }}
           >
             {rights[activeIndex].label}
-          </span>
+          </motion.span>
         </h2>
         {rights[activeIndex].detail && (
-          <p className="w-109 mt-10 text-body-large text-cream">{rights[activeIndex].detail}</p>
+          <motion.p
+            key={activeIndex}
+            initial={ANIMATED_INITIAL}
+            animate={ANIMATED_TARGET}
+            transition={ANIMATED_TRANSITION}
+            className="w-109 min-h-28 mt-10 text-body-large text-cream"
+          >
+            {rights[activeIndex].detail}
+          </motion.p>
         )}
       </div>
     </div>

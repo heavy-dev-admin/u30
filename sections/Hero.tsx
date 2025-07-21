@@ -16,10 +16,11 @@ export default function Hero(props: HomepageSettings['hero']) {
         <div className="hidden rounded-full bg-pink size-55 xl:block"></div>
         <div className="w-full h-84 overflow-hidden md:h-120 lg:w-136 lg:h-[506px]">
           <div className="relative size-full aspect-square bg-light-green rounded-lg">
-            <div className="absolute -top-3 -left-3 p-3 bg-cream rounded-lg md:-top-4 md:-left-4 md:p-4">
+            <div className="absolute -top-3 -left-3 p-3 bg-cream rounded-lg rounded-br-3xl md:-top-4 md:-left-4 md:p-4">
               <SanityImage
                 asset={heroImage}
                 alt={heroImage.alt || title}
+                priority
                 className="w-54 aspect-[6/5] object-cover rounded-lg md:w-81"
               />
               <div className="absolute top-3 -right-2 corner corner-top-left md:top-4"></div>
