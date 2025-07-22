@@ -2,9 +2,11 @@ import { SanityImage } from 'components/SanityImage'
 import Marquee from 'react-fast-marquee'
 import { Client, ClientsSectionSettings } from 'types/common'
 
-function ClientItem(client: Client) {
+function ClientItem({ client, isMarquee = false }: { client: Client; isMarquee?: boolean }) {
   return (
-    <div className="flex justify-center items-center [&>figure]:flex-1 [.rfm-marquee_&]:w-40">
+    <div
+      className={`flex justify-center items-center [&>figure]:flex-1 ${isMarquee ? 'w-40' : 'w-auto'}`}
+    >
       <SanityImage
         asset={client.logo}
         alt={client.logo?.alt || client.title}
@@ -18,7 +20,7 @@ function ClientGrid({ clients }: { clients: Client[] }) {
   return (
     <div className="w-full max-w-264.5 mx-auto grid grid-cols-3 gap-x-4 gap-y-3.5 lg:grid-cols-6 lg:gap-x-6 lg:gap-y-0">
       {clients.map((client, index) => (
-        <ClientItem {...client} key={index} />
+        <ClientItem client={client} key={index} />
       ))}
     </div>
   )
@@ -28,7 +30,7 @@ function ClientMarquee({ clients }: { clients: Client[] }) {
   return (
     <Marquee autoFill>
       {clients.map((client, index) => (
-        <ClientItem {...client} key={index} />
+        <ClientItem client={client} isMarquee key={index} />
       ))}
     </Marquee>
   )

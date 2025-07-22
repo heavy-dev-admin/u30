@@ -37,7 +37,7 @@ export default function SimpleCta(props: SimpleCtaSectionSettings) {
           href={url}
           target={newWindow ? '_blank' : '_self'}
           title={title}
-          rel="noopener noreferrer"
+          rel={newWindow ? 'noopener noreferrer' : undefined}
         >
           {content}
         </a>

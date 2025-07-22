@@ -16,21 +16,27 @@ export default function Page(props: PageProps) {
     <div>
       <Hero {...hero} />
       <FourRights {...fourRights} />
-      <FlexibleSections {...flexibleSections} />
+      <FlexibleSections sections={flexibleSections} />
     </div>
   )
 }
 
 export const getStaticProps: GetStaticProps = async (ctx: GetStaticPropsContext<Query>) => {
-  const sharedProps = await getSharedStaticProps(ctx)
+  try {
+    const sharedProps = await getSharedStaticProps(ctx)
 
-  const client = getClient()
-  const homepageSettings = await getHomepageSettings(client)
+    const client = getClient()
+    const homepageSettings = await getHomepageSettings(client)
 
-  return {
-    props: {
-      ...sharedProps.props,
-      homepageSettings,
-    },
+    return {
+      props: {
+        ...sharedProps.props,
+        homepageSettings,
+      },
+    }
+  } catch (error) {
+    return {
+      notFound: true,
+    }
   }
 }

@@ -14,21 +14,27 @@ export default function About(props: PageProps) {
   return (
     <div>
       <HeroAbout {...hero} />
-      <FlexibleSections {...flexibleSections} />
+      <FlexibleSections sections={flexibleSections} />
     </div>
   )
 }
 
 export const getStaticProps: GetStaticProps = async (ctx: GetStaticPropsContext<Query>) => {
-  const sharedProps = await getSharedStaticProps(ctx)
+  try {
+    const sharedProps = await getSharedStaticProps(ctx)
 
-  const client = getClient()
-  const aboutSettings = await getAboutSettings(client)
+    const client = getClient()
+    const aboutSettings = await getAboutSettings(client)
 
-  return {
-    props: {
-      ...sharedProps.props,
-      aboutSettings,
-    },
+    return {
+      props: {
+        ...sharedProps.props,
+        aboutSettings,
+      },
+    }
+  } catch (error) {
+    return {
+      notFound: true,
+    }
   }
 }

@@ -20,7 +20,9 @@ export default function Footer({ settings }: { settings: Settings }) {
         <h3 className="text-body-large">{footerHeader}</h3>
         {contactUrl && footerContactButtonText && (
           <Link href={contactUrl}>
-            <button className="button-large w-full">{footerContactButtonText}</button>
+            <button type="button" className="button-large w-full">
+              {footerContactButtonText}
+            </button>
           </Link>
         )}
       </div>

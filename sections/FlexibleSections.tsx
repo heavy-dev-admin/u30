@@ -4,9 +4,7 @@ import ClientQuotes from 'sections/ClientQuotes'
 import SimpleCta from 'sections/SimpleCta'
 import { FlexibleSection } from 'types/common'
 
-export default function FlexibleSections(sectionData: FlexibleSection[]) {
-  const sections = Object.values(sectionData)
-
+export default function FlexibleSections({ sections }: { sections: FlexibleSection[] }) {
   const renderSection = (section: FlexibleSection) => {
     switch (section._type) {
       case 'clientQuotesSection': {
@@ -18,9 +16,9 @@ export default function FlexibleSections(sectionData: FlexibleSection[]) {
       case 'simpleCtaSection': {
         return <SimpleCta {...section} />
       }
+      default:
+        return null
     }
-
-    return null
   }
 
   return (

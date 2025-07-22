@@ -25,12 +25,12 @@ export default function HeroAbout(props: AboutSettings['hero']) {
         />
         {layout === 'secondary' && (
           <>
-            <div className="hidden bg-green rounded-lg lg:w-93 xl:block 2xl:w-[25vw]"></div>
+            <div className="hidden bg-green rounded-lg lg:w-93 xl:block 2xl:w-[25vw]" />
             <div className="relative w-full h-103 bg-light-green rounded-lg overflow-hidden lg:flex-1 lg:h-auto">
               <div className="absolute -bottom-4 -right-4 p-4 bg-cream rounded-lg rounded-tl-3xl">
-                <div className="w-39.5 h-53 bg-pink rounded-lg 2xl:w-60 2xl:h-80"></div>
-                <div className="absolute -top-2 right-4 corner corner-bottom-right"></div>
-                <div className="absolute bottom-4 -left-2 corner corner-bottom-right"></div>
+                <div className="w-39.5 h-53 bg-pink rounded-lg 2xl:w-60 2xl:h-80" />
+                <div className="absolute -top-2 right-4 corner corner-bottom-right" />
+                <div className="absolute bottom-4 -left-2 corner corner-bottom-right" />
               </div>
             </div>
           </>

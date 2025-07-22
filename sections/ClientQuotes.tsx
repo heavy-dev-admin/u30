@@ -23,8 +23,8 @@ function ClientQuoteItem(props: QuoteItem) {
           <h4 className="text-body">{attributor}</h4>
           <p className="text-body lg:mt-4">{title}</p>
         </div>
-        <div className="hidden absolute -top-2 left-4 corner corner-bottom-left lg:block"></div>
-        <div className="hidden absolute bottom-24.5 -right-2 corner corner-bottom-left lg:block"></div>
+        <div className="hidden absolute -top-2 left-4 corner corner-bottom-left lg:block" />
+        <div className="hidden absolute bottom-24.5 -right-2 corner corner-bottom-left lg:block" />
       </div>
     </div>
   )
@@ -46,7 +46,7 @@ export default function ClientQuotes(props: ClientQuoteSectionSettings) {
       >
         {quotes.map((quote, index) => (
           <SwiperSlide key={index}>
-            <ClientQuoteItem {...quote} key={index} />
+            <ClientQuoteItem {...quote} />
           </SwiperSlide>
         ))}
       </Swiper>

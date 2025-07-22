@@ -13,7 +13,7 @@ export default function Hero(props: HomepageSettings['hero']) {
         </p>
       </div>
       <div className="flex justify-end items-end gap-4">
-        <div className="hidden rounded-full bg-pink size-55 xl:block"></div>
+        <div className="hidden rounded-full bg-pink size-55 xl:block" />
         <div className="w-full h-84 overflow-hidden md:h-120 lg:w-136 lg:h-[506px]">
           <div className="relative size-full aspect-square bg-light-green rounded-lg">
             <div className="absolute -top-3 -left-3 p-3 bg-cream rounded-lg rounded-br-3xl md:-top-4 md:-left-4 md:p-4">
@@ -23,12 +23,12 @@ export default function Hero(props: HomepageSettings['hero']) {
                 priority
                 className="w-54 aspect-[6/5] object-cover rounded-lg md:w-81"
               />
-              <div className="absolute top-3 -right-2 corner corner-top-left md:top-4"></div>
+              <div className="absolute top-3 -right-2 corner corner-top-left md:top-4" />
             </div>
             <div className="absolute -bottom-3 -left-3 p-3 bg-cream rounded-lg h-[calc(100%-168px)] md:h-[calc(100%-254px)] md:-bottom-4 md:-left-4 md:p-4">
-              <div className="w-[118px] h-full bg-green rounded-lg md:w-43"></div>
-              <div className="absolute top-3 -right-2 corner corner-top-left md:top-4"></div>
-              <div className="absolute bottom-3 -right-2 corner corner-bottom-left md:bottom-4"></div>
+              <div className="w-[118px] h-full bg-green rounded-lg md:w-43" />
+              <div className="absolute top-3 -right-2 corner corner-top-left md:top-4" />
+              <div className="absolute bottom-3 -right-2 corner corner-bottom-left md:bottom-4" />
             </div>
           </div>
         </div>

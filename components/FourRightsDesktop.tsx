@@ -59,10 +59,10 @@ export default function FourRightsDesktop(props: HomepageSettings['fourRights'])
           <div className="relative w-44 h-32 rounded-lg bg-green" style={customStyle}>
             {image}
           </div>
-          <div className="absolute top-16 -left-2 corner corner-dark corner-top-right"></div>
-          <div className="absolute -top-2 right-4 corner corner-dark corner-bottom-right"></div>
-          <div className="absolute top-10 -left-2 corner corner-dark corner-bottom-right"></div>
-          <div className="absolute -bottom-2 right-4 corner corner-dark corner-top-right"></div>
+          <div className="absolute top-16 -left-2 corner corner-dark corner-top-right" />
+          <div className="absolute -top-2 right-4 corner corner-dark corner-bottom-right" />
+          <div className="absolute top-10 -left-2 corner corner-dark corner-bottom-right" />
+          <div className="absolute -bottom-2 right-4 corner corner-dark corner-top-right" />
         </motion.div>
       )
     } else if (index === 2) {
