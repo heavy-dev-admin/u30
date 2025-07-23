@@ -9,7 +9,7 @@ import { throttle } from 'utils/common'
 export default function FourRightsDesktop(props: HomepageSettings['fourRights']) {
   const { sectionTitle, sectionSubtitle, rights } = props
 
-  const SCROLL_PROGRESS_THRESHOLD = 0.6
+  const SCROLL_PROGRESS_THRESHOLD = 0.3
   const ANIMATED_INITIAL = { opacity: 0, y: -40 }
   const ANIMATED_TARGET = { opacity: 1, y: 0 }
   const ANIMATED_TRANSITION = { duration: 0.3 }
@@ -104,7 +104,7 @@ export default function FourRightsDesktop(props: HomepageSettings['fourRights'])
 
     const updateSectionHeight = () => {
       if (window.innerWidth >= 1024)
-        section.style.height = `${rights.length * containerRef.current.offsetHeight}px`
+        section.style.height = `${2 * containerRef.current.offsetHeight}px`
       else section.style.height = 'auto'
     }
 

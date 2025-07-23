@@ -74,12 +74,12 @@
 
   h4,
   .h4 {
-    @apply text-[22px] leading-6 -tracking-[0.44px] font-black lg:text-[34px] lg:leading-8.5 lg:-tracking-[0.68px];
+    @apply text-[22px] leading-6 -tracking-[0.44px] font-black md:text-[34px] md:leading-8.5 md:-tracking-[0.68px];
   }
 
   h5,
   .h5 {
-    @apply text-[22px] leading-6 -tracking-[0.44px] font-medium lg:text-[34px] lg:leading-8.5 lg:-tracking-[0.68px];
+    @apply text-[22px] leading-6 -tracking-[0.44px] font-medium md:text-[34px] md:leading-8.5 md:-tracking-[0.68px];
   }
 
   h6,

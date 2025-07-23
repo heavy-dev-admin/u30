@@ -34,7 +34,11 @@ export default function Header({ settings }: { settings: Settings }) {
       className={`sticky top-0 z-50 bg-cream p-4 relative transition-all duration-500 md:px-6.5 md:pt-6.5 md:pb-4 ${scrollDirection === 'up' ? 'translate-y-0' : '-translate-y-full'}`}
     >
       <div className="flex items-center justify-between w-full relative z-20">
-        <Link href="/" className="h-11 w-auto [&_img]:h-[43px] [&_img]:w-auto">
+        <Link
+          href="/"
+          className="h-11 w-auto [&_img]:h-[43px] [&_img]:w-auto"
+          onClick={() => setIsMenuOpen(false)}
+        >
           {logo && <SanityImage asset={logo.asset} alt={logo.alt || ''} />}
         </Link>
         <nav className="hidden md:flex" aria-label="Primary">

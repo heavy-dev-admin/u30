@@ -28,7 +28,9 @@ export default function FourRightsMobile(props: HomepageSettings['fourRights']) 
 
   const [detail, setDetail] = useState<string>(rights[0]?.detail || '')
 
-  const handleSlideChange = debounce((activeIndex: number) => {
+  const handleSlideChange = debounce((progess: number) => {
+    const activeIndex = Math.round(progess * (rights.length - 1))
+
     setDetail(rights[activeIndex]?.detail || '')
   }, DEBOUNCE_TIME)
 
@@ -46,10 +48,9 @@ export default function FourRightsMobile(props: HomepageSettings['fourRights']) 
           freeMode={{
             enabled: true,
             sticky: false,
-            momentum: true,
           }}
           className="!overflow-visible !px-4 md:!px-6.5"
-          onSlideChange={(swiper) => handleSlideChange(swiper.activeIndex)}
+          onSliderMove={(swiper) => handleSlideChange(swiper.progress)}
         >
           {rights.map((right, index) => (
             <SwiperSlide key={index} className="!w-80">

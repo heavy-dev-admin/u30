@@ -7,7 +7,7 @@ export default function HeroAbout(props: AboutSettings['hero']) {
 
   return (
     <section
-      className={`flex flex-col items-start gap-12 px-4 pt-8 pb-4 md:px-6.5 md:pt-10 ${layout === 'primary' ? 'lg:flex-row lg:justify-between' : ''}`}
+      className={`flex flex-col items-start gap-12 px-4 pt-8 pb-4 md:px-6.5 md:pt-10 lg:gap-5 ${layout === 'primary' ? 'lg:flex-row lg:justify-between' : ''}`}
     >
       <div className="w-full max-w-171">
         <h2 className="h1 text-dark-green lg:text-5xl lg:leading-11.5 lg:-tracking-[0.96px]">

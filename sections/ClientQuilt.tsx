@@ -18,7 +18,7 @@ function ClientItem({ client, isMarquee = false }: { client: Client; isMarquee?:
 
 function ClientGrid({ clients }: { clients: Client[] }) {
   return (
-    <div className="w-full max-w-264.5 mx-auto grid grid-cols-3 gap-x-4 gap-y-3.5 lg:grid-cols-6 lg:gap-x-6 lg:gap-y-0">
+    <div className="w-full max-w-264.5 mx-auto grid grid-cols-3 gap-x-4 gap-y-3.5 md:grid-cols-4 lg:grid-cols-6 lg:gap-x-6 lg:gap-y-0">
       {clients.map((client, index) => (
         <ClientItem client={client} key={index} />
       ))}
