@@ -17,6 +17,12 @@ export interface GeneralPageSettings {
   title?: string
   body?: PortableTextSimpleBlock[]
   flexibleSections?: FlexibleSection[]
+  seoPage?: {
+    title?: string
+    description?: PortableTextSimpleBlock[]
+    slug?: string
+    shareImage?: Image
+  }
 }
 
 export type HomepageSettings = GeneralPageSettings & {
