@@ -19,6 +19,7 @@ import flexibleSectionsField from 'schemas/fields/flexibleSections'
 import linkExternalField from 'schemas/fields/linkExternal'
 import linkInternalField from 'schemas/fields/linkInternal'
 import portableTextSimpleField from 'schemas/fields/portableTextSimple'
+import rightField from 'schemas/fields/right'
 import seoPageField from 'schemas/fields/seoPage'
 import workBlockField from 'schemas/fields/workBlock'
 import aboutType from 'schemas/pages/about'
@@ -47,6 +48,7 @@ export default defineConfig({
       linkInternalField,
       linkExternalField,
       workBlockField,
+      rightField,
       portableTextSimpleField,
       seoPageField,
       flexibleSectionsField,

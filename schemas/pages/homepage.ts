@@ -86,40 +86,8 @@ export default defineType({
         defineField({
           name: 'rights',
           type: 'array',
-          of: [
-            {
-              type: 'object',
-              name: 'right',
-              fields: [
-                defineField({
-                  type: 'string',
-                  name: 'label',
-                  title: 'Label',
-                  validation: (rule) => rule.required(),
-                }),
-                defineField({
-                  type: 'image',
-                  name: 'emblem',
-                  title: 'Emblem',
-                  fields: [
-                    {
-                      name: 'alt',
-                      type: 'string',
-                      title: 'Alternative text',
-                      description: 'Important for SEO and accessibility.',
-                    },
-                  ],
-                  validation: (rule) => rule.required(),
-                }),
-                defineField({
-                  type: 'text',
-                  name: 'detail',
-                  title: 'Detail',
-                }),
-              ],
-            },
-          ],
-          validation: (rule) => rule.required(),
+          of: [{ type: 'right' }],
+          validation: (rule) => rule.required().max(4),
         }),
       ],
     }),

@@ -52,12 +52,16 @@ export default defineField({
       name: 'backgroundColor',
       title: 'Background Color',
       type: 'color',
+      options: {
+        disableAlpha: true,
+      },
     }),
     defineField({
       name: 'image',
       title: 'Image',
       type: 'image',
       description: 'This image will be displayed when the block type is set to "Image".',
+      hidden: ({ parent }) => parent?.type !== 'image',
       fields: [
         {
           name: 'alt',

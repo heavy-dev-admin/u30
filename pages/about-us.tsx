@@ -1,21 +1,19 @@
-import { getClient, getHomepageSettings } from 'lib/sanity.client'
+import { getAboutSettings, getClient } from 'lib/sanity.client'
 import { getSharedStaticProps, Query, SharedPageProps } from 'lib/shared-props'
 import { GetStaticProps, GetStaticPropsContext } from 'next'
 import FlexibleSections from 'sections/FlexibleSections'
-import FourRights from 'sections/FourRights'
-import Hero from 'sections/Hero'
-import type { HomepageSettings } from 'types/pages'
+import HeroAbout from 'sections/HeroAbout'
+import type { AboutSettings } from 'types/pages'
 
-type PageProps = SharedPageProps & { homepageSettings: HomepageSettings }
+type PageProps = SharedPageProps & { aboutSettings: AboutSettings }
 
-export default function Page(props: PageProps) {
-  const { homepageSettings } = props
-  const { hero, fourRights, flexibleSections } = homepageSettings
+export default function About(props: PageProps) {
+  const { aboutSettings } = props
+  const { hero, flexibleSections } = aboutSettings
 
   return (
     <div>
-      <Hero {...hero} />
-      <FourRights {...fourRights} />
+      <HeroAbout {...hero} />
       <FlexibleSections sections={flexibleSections} />
     </div>
   )
@@ -26,12 +24,12 @@ export const getStaticProps: GetStaticProps = async (ctx: GetStaticPropsContext<
     const sharedProps = await getSharedStaticProps(ctx)
 
     const client = getClient()
-    const homepageSettings = await getHomepageSettings(client)
+    const aboutSettings = await getAboutSettings(client)
 
     return {
       props: {
         ...sharedProps.props,
-        homepageSettings,
+        aboutSettings,
       },
     }
   } catch (error) {

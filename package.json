@@ -13,6 +13,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@portabletext/react": "^3.2.1",
     "@sanity/client": "7.0.0",
     "@sanity/color-input": "^4.0.3",
     "@sanity/icons": "3.7.0",
@@ -25,15 +26,18 @@
     "date-fns": "4.1.0",
     "groq": "3.87.0",
     "intl-segmenter-polyfill": "0.4.4",
+    "motion": "^12.23.6",
     "next": "15.3.1",
     "next-sanity": "9.10.6",
     "next-sanity-image": "6.1.1",
     "react": "19.1.0",
     "react-dom": "19.1.0",
+    "react-fast-marquee": "^1.6.5",
     "sanity": "3.87.0",
     "sanity-plugin-asset-source-unsplash": "3.0.3",
     "sanity-plugin-iframe-pane": "3.2.1",
     "styled-components": "6.1.17",
+    "swiper": "^11.2.10",
     "swr": "2.3.3"
   },
   "devDependencies": {

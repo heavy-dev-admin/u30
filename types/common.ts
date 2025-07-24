@@ -74,6 +74,9 @@ export type RichTextSectionSettings = {
 export type SimpleCtaSectionSettings = {
   _type: 'simpleCtaSection'
   title: string
+  description: string
+  image: Image
+  layout: 'left' | 'right' | 'center'
   url: string
   newWindow: boolean
 }
@@ -98,7 +101,10 @@ export type FlexibleSection =
 export type FourRightItem = {
   label: string
   emblem: Image
-  detail: string
+  detail?: string
+  backgroundColor?: {
+    hex: string
+  }
 }
 
 export type IndustryItem = {
@@ -116,4 +122,9 @@ export type WorkBlockItem = {
   icon?: Image
   backgroundColor?: string
   image?: Image
+}
+
+export type RichText = {
+  content: PortableTextSimpleBlock[]
+  className?: string
 }

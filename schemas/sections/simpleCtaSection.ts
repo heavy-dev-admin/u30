@@ -12,10 +12,43 @@ export default defineType({
       validation: (rule) => rule.required(),
     }),
     defineField({
+      type: 'string',
+      name: 'description',
+      title: 'Description',
+    }),
+    defineField({
+      name: 'image',
+      title: 'Image',
+      type: 'image',
+      fields: [
+        {
+          name: 'alt',
+          type: 'string',
+          title: 'Alternative text',
+          description: 'Important for SEO and accessibility.',
+        },
+      ],
+    }),
+    defineField({
+      name: 'layout',
+      title: 'Layout',
+      type: 'string',
+      initialValue: 'center',
+      options: {
+        list: [
+          { title: 'Left', value: 'left' },
+          { title: 'Center', value: 'center' },
+          { title: 'Right', value: 'right' },
+        ],
+        layout: 'radio',
+        direction: 'horizontal',
+      },
+    }),
+    defineField({
       name: 'url',
       title: 'URL',
       type: 'url',
-      validation: (rule) => rule.required().uri({ scheme: ['http', 'https'] }),
+      validation: (rule) => rule.uri({ scheme: ['http', 'https'] }),
     }),
     defineField({
       title: 'Open in a new window?',
