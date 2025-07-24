@@ -43,6 +43,7 @@ export type PortableTextSimpleBlock = {
 }
 
 export type Client = {
+  _id: string
   title: string
   logo: Image
 }
@@ -108,6 +109,7 @@ export type FourRightItem = {
 }
 
 export type IndustryItem = {
+  _key: string
   title: string
   clients: Client[]
 }

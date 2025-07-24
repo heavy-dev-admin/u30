@@ -59,6 +59,12 @@ export const careerPageQuery = groq`*[_type == "career"][0]{
 
 export const industriesPageQuery = groq`*[_type == "industries"][0]{
   ...,
+  industries[] {
+    ...,
+    clients[]-> {
+    ...
+    }
+  },
   ${flexibleSectionsFragment}
 }`
 
