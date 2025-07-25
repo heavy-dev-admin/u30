@@ -1,3 +1,4 @@
+import clsx from 'clsx'
 import React from 'react'
 
 interface SectionProps {
@@ -8,7 +9,7 @@ interface SectionProps {
 }
 export default function Section({ className, id, style, children }: SectionProps) {
   return (
-    <section className={className} id={id} {...(style && { style })}>
+    <section className={clsx('p-4 md:px-6.5', className)} id={id} {...(style && { style })}>
       {children}
     </section>
   )

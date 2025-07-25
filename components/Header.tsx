@@ -6,6 +6,8 @@ import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { Settings } from 'types/settings'
 
+import Container from './Structure/Container'
+
 export default function Header({ settings }: { settings: Settings }) {
   const { logo, links: navItems, contactUrl, contactButtonText } = settings?.menu || {}
 
@@ -33,7 +35,7 @@ export default function Header({ settings }: { settings: Settings }) {
     <header
       className={`sticky top-0 z-50 bg-cream p-4 relative transition-all duration-500 md:px-6.5 md:pt-6.5 md:pb-4 ${scrollDirection === 'up' ? 'translate-y-0' : '-translate-y-full'}`}
     >
-      <div className="flex items-center justify-between w-full relative z-20">
+      <Container className="flex items-center justify-between w-full relative z-20">
         <Link
           href="/"
           className="h-11 w-auto [&_img]:h-[43px] [&_img]:w-auto"
@@ -67,7 +69,7 @@ export default function Header({ settings }: { settings: Settings }) {
             {isMenuOpen ? content.close : content.menu}
           </span>
         </button>
-      </div>
+      </Container>
       <div
         className={`absolute top-0 left-0 w-full h-dvh bg-cream z-10 p-4 transition-all duration-300 ease-in-out md:hidden ${isMenuOpen ? 'translate-x-0 pointer-events-auto' : '-translate-x-full pointer-events-none'}`}
       >

@@ -38,4 +38,15 @@ export default defineType({
       },
     }),
   ],
+  preview: {
+    select: {
+      title: 'title',
+      layout: 'layout',
+    },
+    prepare({ title = 'Untitled', layout = 'grid' }) {
+      return {
+        title: `${title} (${layout})`,
+      }
+    },
+  },
 })

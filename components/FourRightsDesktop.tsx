@@ -6,6 +6,8 @@ import { FourRightItem } from 'types/common'
 import type { HomepageSettings } from 'types/pages'
 import { throttle } from 'utils/common'
 
+import Section from './Structure/Section'
+
 export default function FourRightsDesktop(props: HomepageSettings['fourRights']) {
   const { sectionTitle, sectionSubtitle, rights } = props
 
@@ -141,7 +143,7 @@ export default function FourRightsDesktop(props: HomepageSettings['fourRights'])
 
   return (
     <div
-      className={`hidden sticky top-0 justify-center items-center overflow-hidden bg-dark-green lg:gap-20 lg:py-[134px] lg:flex xl:gap-40`}
+      className={`hidden h-screen sticky top-0 justify-center items-center overflow-hidden bg-dark-green lg:gap-20 lg:py-[134px] lg:flex xl:gap-40`}
       ref={containerRef}
     >
       <div className="relative flex flex-col justify-end w-97 min-h-127">
