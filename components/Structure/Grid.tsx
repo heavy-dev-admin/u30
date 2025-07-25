@@ -7,9 +7,9 @@ interface GridProps {
 }
 
 export default function Grid({ className, children }: GridProps) {
-  const baseClasses = `grid grid-cols-2 gap-x-[10px] global-margin`
+  const baseClasses = `grid grid-cols-2 gap-x-[10px]`
 
-  const desktopClasses = `lg:grid-cols-10 lg:col-gap-4`
+  const desktopClasses = `lg:grid-cols-10 lg:col-gap-4 max-content`
 
   return <div className={clsx(baseClasses, desktopClasses, className)}>{children}</div>
 }

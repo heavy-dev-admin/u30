@@ -34,6 +34,7 @@
   --color-beige: #eae2cc;
 
   --font-sans: 'GT Pressura', sans-serif;
+  --max-content-width: 1440px;
 }
 
 /*
@@ -105,6 +106,12 @@
 
   .text-display {
     @apply text-[52px] leading-13 -tracking-[1.04px] font-black lg:text-[88px] lg:leading-21.5 lg:-tracking-[1.76px];
+  }
+
+  .max-content {
+    max-width: var(--max-content-width);
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
