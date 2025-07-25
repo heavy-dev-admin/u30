@@ -2,7 +2,7 @@ import IndustryCard from 'components/IndustryCard'
 import { PortableTextParser } from 'components/PortableTextParser'
 import Grid from 'components/Structure/Grid'
 import Section from 'components/Structure/Section'
-import { getClient,getIndustriesSettings } from 'lib/sanity.client'
+import { getClient, getIndustriesSettings } from 'lib/sanity.client'
 import { getSharedStaticProps, Query, SharedPageProps } from 'lib/shared-props'
 import { GetStaticProps, GetStaticPropsContext } from 'next'
 import type { IndustriesSettings } from 'types/pages'
@@ -11,7 +11,6 @@ type PageProps = SharedPageProps & { industriesSettings: IndustriesSettings }
 
 export default function About(props: PageProps) {
   const { industriesSettings } = props
-  console.log(industriesSettings)
   const { hero, flexibleSections, industries, seoPage } = industriesSettings
 
   return (
