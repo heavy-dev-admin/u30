@@ -15,6 +15,9 @@ export interface GeneralPageSettings {
     shareImage?: Image
   }
   title?: string
+  slug?: {
+    current?: string
+  }
   body?: PortableTextSimpleBlock[]
   flexibleSections?: FlexibleSection[]
   seoPage?: {

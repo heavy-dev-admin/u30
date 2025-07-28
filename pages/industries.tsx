@@ -5,12 +5,14 @@ import Section from 'components/Structure/Section'
 import { getClient, getIndustriesSettings } from 'lib/sanity.client'
 import { getSharedStaticProps, Query, SharedPageProps } from 'lib/shared-props'
 import { GetStaticProps, GetStaticPropsContext } from 'next'
+import { useState } from 'react'
 import FlexibleSections from 'sections/FlexibleSections'
 import type { IndustriesSettings } from 'types/pages'
 
 type PageProps = SharedPageProps & { industriesSettings: IndustriesSettings }
 
-export default function About(props: PageProps) {
+export default function Industries(props: PageProps) {
+  const [open, setOpen] = useState<number>(0)
   const { industriesSettings } = props
   const { hero, flexibleSections, industries, seoPage } = industriesSettings
 
@@ -34,7 +36,13 @@ export default function About(props: PageProps) {
           {industries && Array.isArray(industries) && industries.length > 0 && (
             <div className="col-span-full lg:col-span-5">
               {industries.map((industry, i) => (
-                <IndustryCard key={industry._key} industry={industry} index={i} />
+                <IndustryCard
+                  key={industry._key}
+                  industry={industry}
+                  index={i}
+                  open={open}
+                  setOpen={setOpen}
+                />
               ))}
             </div>
           )}

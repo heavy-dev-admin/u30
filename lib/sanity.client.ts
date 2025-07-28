@@ -2,6 +2,7 @@ import { apiVersion, dataset, projectId, studioUrl, useCdn } from 'lib/sanity.ap
 import {
   aboutPageQuery,
   careerPageQuery,
+  generalPageQuery,
   homepageQuery,
   industriesPageQuery,
   settingsQuery,
@@ -11,6 +12,7 @@ import { createClient, type SanityClient } from 'next-sanity'
 import {
   AboutSettings,
   CareerSettings,
+  GeneralPageSettings,
   HomepageSettings,
   IndustriesSettings,
   WorkSettings,
@@ -67,4 +69,11 @@ export async function getIndustriesSettings(client: SanityClient): Promise<Indus
 
 export async function getWorkSettings(client: SanityClient): Promise<WorkSettings> {
   return await client.fetch(workPageQuery)
+}
+
+export async function getGeneralPageSettings(
+  client: SanityClient,
+  slug: string
+): Promise<GeneralPageSettings> {
+  return await client.fetch(generalPageQuery, { slug })
 }

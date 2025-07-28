@@ -20,6 +20,26 @@ const components: PortableTextComponents = {
       )
     },
   },
+  list: {
+    bullet: ({ children }) => (
+      <ul className="ml-2 mt-3 list-inside list-disc lg:mt-5.5 lg:mb-5">{children}</ul>
+    ),
+    number: ({ children }) => <ol className="list-inside list-decimal mb-5 lg:mb-5">{children}</ol>,
+  },
+  listItem: {
+    li: ({ children }) => <li className="mb-2 lg:mb-2">{children}</li>,
+  },
+  block: {
+    normal: ({ children }) => {
+      return <p className="text-body-small">{children}</p>
+    },
+    body: ({ children }) => {
+      return <p className="text-body">{children}</p>
+    },
+    bodyLarge: ({ children }) => {
+      return <p className="text-body-large">{children}</p>
+    },
+  },
 }
 
 export function PortableTextParser({

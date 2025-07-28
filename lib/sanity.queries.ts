@@ -72,3 +72,8 @@ export const workPageQuery = groq`*[_type == "work"][0]{
   ...,
   ${flexibleSectionsFragment}
 }`
+
+export const generalPageQuery = groq`*[_type == "page" && slug.current == $slug][0] {
+ ...,
+ ${flexibleSectionsFragment}
+}`
