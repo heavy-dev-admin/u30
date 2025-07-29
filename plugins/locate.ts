@@ -1,8 +1,5 @@
 import { map, Observable } from 'rxjs'
-import {
-  DocumentLocationResolver,
-  DocumentLocationsState,
-} from 'sanity/presentation'
+import { DocumentLocationResolver, DocumentLocationsState } from 'sanity/presentation'
 
 export const locate: DocumentLocationResolver = (params, context) => {
   if (params.type === 'settings') {
@@ -17,7 +14,7 @@ export const locate: DocumentLocationResolver = (params, context) => {
     const doc$ = context.documentStore.listenQuery(
       `*[_id == $id && defined(slug.current)][0]{slug,title}`,
       params,
-      { perspective: 'drafts' },
+      { perspective: 'drafts' }
     ) as Observable<{
       slug: { current: string }
       title: string | null
@@ -37,7 +34,7 @@ export const locate: DocumentLocationResolver = (params, context) => {
             },
           ],
         }
-      }),
+      })
     )
   }
 
@@ -46,7 +43,7 @@ export const locate: DocumentLocationResolver = (params, context) => {
     const doc$ = context.documentStore.listenQuery(
       `*[_type == "post" && references($id) && defined(slug.current)]{slug,title}`,
       params,
-      { perspective: 'drafts' },
+      { perspective: 'drafts' }
     ) as Observable<
       {
         slug: { current: string }
@@ -62,7 +59,7 @@ export const locate: DocumentLocationResolver = (params, context) => {
             href: `/posts/${doc?.slug?.current}`,
           })),
         }
-      }),
+      })
     )
   }
 

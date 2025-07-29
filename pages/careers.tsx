@@ -1,4 +1,4 @@
-import { getCareerSettings,getClient } from 'lib/sanity.client'
+import { getCareerSettings, getClient } from 'lib/sanity.client'
 import { getSharedStaticProps, Query, SharedPageProps } from 'lib/shared-props'
 import { GetStaticProps, GetStaticPropsContext } from 'next'
 import HeroSecondary from 'sections/HeroSecondary'

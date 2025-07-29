@@ -10,7 +10,7 @@ export default function IntroTemplate() {
   const mounted = useSyncExternalStore(
     subscribe,
     () => true,
-    () => false,
+    () => false
   )
   const studioURL = mounted ? `${window.location.origin}/studio` : null
   const createPostURL = mounted
@@ -47,15 +47,10 @@ export default function IntroTemplate() {
         </div>
 
         <div className="mx-6 md:mx-0 md:mr-24">
-          <h2 className="mb-8 text-xl font-bold tracking-wide md:text-5xl">
-            Next steps
-          </h2>
+          <h2 className="mb-8 text-xl font-bold tracking-wide md:text-5xl">Next steps</h2>
 
           {!hasEnvFile && (
-            <div
-              className="mb-6 rounded-lg bg-yellow-100 p-4 text-sm text-yellow-700"
-              role="alert"
-            >
+            <div className="mb-6 rounded-lg bg-yellow-100 p-4 text-sm text-yellow-700" role="alert">
               {`It looks like you haven't set up the local environment variables.`}
               <p>
                 <a
@@ -82,10 +77,7 @@ export default function IntroTemplate() {
                   </div>
                   <div className="text-xs text-gray-700">
                     Your Sanity Studio is deployed at
-                    <Link
-                      className="mx-1 underline hover:text-blue-800"
-                      href={studioURL}
-                    >
+                    <Link className="mx-1 underline hover:text-blue-800" href={studioURL}>
                       {studioURL}
                     </Link>
                   </div>
@@ -112,8 +104,7 @@ export default function IntroTemplate() {
 
                   {isLocalHost ? (
                     <div className="text-xs text-gray-700 text-pretty">
-                      Start editing your content structure by changing the post
-                      schema in
+                      Start editing your content structure by changing the post schema in
                       <div className="w-fit bg-slate-200 px-2">
                         <pre>schemas/post.ts</pre>
                       </div>
@@ -152,27 +143,16 @@ export default function IntroTemplate() {
               circleTitle="3"
               element={
                 <div>
-                  <div className="col-span-2 mb-3 mt-1 font-semibold">
-                    Learn more and get help
-                  </div>
+                  <div className="col-span-2 mb-3 mt-1 font-semibold">Learn more and get help</div>
                   <ul>
                     <li className="mb-2">
-                      <BlueLink
-                        href="https://www.sanity.io/docs"
-                        text="Documentation for Sanity"
-                      />
+                      <BlueLink href="https://www.sanity.io/docs" text="Documentation for Sanity" />
                     </li>
                     <li className="mb-2">
-                      <BlueLink
-                        href="https://nextjs.org/docs"
-                        text="Documentation for Next.js"
-                      />
+                      <BlueLink href="https://nextjs.org/docs" text="Documentation for Next.js" />
                     </li>
                     <li className="mb-2">
-                      <BlueLink
-                        href="https://slack.sanity.io/"
-                        text="Join the Sanity Community"
-                      />
+                      <BlueLink href="https://slack.sanity.io/" text="Join the Sanity Community" />
                     </li>
                   </ul>
                 </div>
@@ -188,13 +168,7 @@ export default function IntroTemplate() {
   )
 }
 
-function Box({
-  circleTitle,
-  element,
-}: {
-  circleTitle: string
-  element: React.JSX.Element
-}) {
+function Box({ circleTitle, element }: { circleTitle: string; element: React.JSX.Element }) {
   return (
     <li className="mt-2 grid grid-flow-col grid-rows-1 place-content-start gap-3">
       <div className="row-span-3 select-none">
@@ -221,12 +195,7 @@ function BlueLink({ href, text }: { href: string; text: string }) {
 }
 
 const RemoveBlock = ({ url }) => (
-  <a
-    className="hover:text-blue-800"
-    href={url}
-    target="_blank"
-    rel="noreferrer"
-  >
+  <a className="hover:text-blue-800" href={url} target="_blank" rel="noreferrer">
     How to remove this block?
   </a>
 )

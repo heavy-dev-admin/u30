@@ -1,7 +1,7 @@
 'use client'
 
 import clsx from 'clsx'
-import { useEffect,useState } from 'react'
+import { useEffect, useState } from 'react'
 import { IndustryItem } from 'types/common'
 
 import ChevronIcon from './ChevronIcon'

@@ -7,19 +7,18 @@ export const useCdn = false
 
 export const dataset = assertValue(
   process.env.NEXT_PUBLIC_SANITY_DATASET,
-  'Missing environment variable: NEXT_PUBLIC_SANITY_DATASET',
+  'Missing environment variable: NEXT_PUBLIC_SANITY_DATASET'
 )
 
 export const projectId = assertValue(
   process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
-  'Missing environment variable: NEXT_PUBLIC_SANITY_PROJECT_ID',
+  'Missing environment variable: NEXT_PUBLIC_SANITY_PROJECT_ID'
 )
 
 export const readToken = process.env.SANITY_API_READ_TOKEN || ''
 
 // see https://www.sanity.io/docs/api-versioning for how versioning works
-export const apiVersion =
-  process.env.NEXT_PUBLIC_SANITY_API_VERSION || '2025-02-27'
+export const apiVersion = process.env.NEXT_PUBLIC_SANITY_API_VERSION || '2025-02-27'
 
 // Used to generate URLs for previewing your content
 export const DRAFT_MODE_ROUTE = '/api/draft-mode/enable'

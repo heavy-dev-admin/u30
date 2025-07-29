@@ -12,9 +12,7 @@ export default defineField({
       title: 'Title',
       type: 'string',
       validation: (rule) =>
-        rule
-          .max(50)
-          .warning('Longer titles may be truncated by search engines'),
+        rule.max(50).warning('Longer titles may be truncated by search engines'),
     }),
     defineField({
       name: 'description',
