@@ -71,7 +71,6 @@ export const getStaticProps: GetStaticProps = async (ctx: GetStaticPropsContext<
         ...sharedProps.props,
         pageSettings,
       },
-      revalidate: 60,
     }
   } catch (error) {
     return {

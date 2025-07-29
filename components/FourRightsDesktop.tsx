@@ -6,8 +6,6 @@ import { FourRightItem } from 'types/common'
 import type { HomepageSettings } from 'types/pages'
 import { throttle } from 'utils/common'
 
-import Section from './Structure/Section'
-
 export default function FourRightsDesktop(props: HomepageSettings['fourRights']) {
   const { sectionTitle, sectionSubtitle, rights } = props
 
@@ -106,7 +104,7 @@ export default function FourRightsDesktop(props: HomepageSettings['fourRights'])
 
     const updateSectionHeight = () => {
       if (window.innerWidth >= 1024)
-        section.style.height = `${2 * containerRef.current.offsetHeight}px`
+        section.style.height = `${3 * containerRef.current.offsetHeight}px`
       else section.style.height = 'auto'
     }
 
