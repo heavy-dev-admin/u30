@@ -9,7 +9,7 @@ export default function LottieIntro({ onComplete }: { onComplete: () => void }) 
   useEffect(() => {
     const timer = setTimeout(() => {
       handleIntroEnd()
-    }, 100000)
+    }, 3000)
     return () => clearTimeout(timer)
     //eslint-disable-next-line
   }, [onComplete])

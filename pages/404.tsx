@@ -1,34 +1,35 @@
+import { getSharedStaticProps, Query, SharedPageProps } from 'lib/shared-props'
+import { GetStaticProps, GetStaticPropsContext } from 'next'
 import Head from 'next/head'
 import Link from 'next/link'
+import { Settings } from 'types/settings'
 
-export default function Custom404() {
+interface Custom404Props {
+  settings: Settings
+}
+export default function Custom404({ settings }: Custom404Props) {
   return (
     <>
       <Head>
         <title>404 - Page Not Found</title>
-        <meta name="description" content="The page youre looking for doesnt exist." />
+        {/* eslint-disable-next-line */}
+        <meta name="description" content="The page you&#39;re looking for doesn&#39;t exist." />
       </Head>
 
       <div className="min-h-screen flex items-center justify-center px-4 text-dark-green">
         <div className="text-center">
-          <h1 className="text-9xl font-bold mb-4">404</h1>
-          <h2 className="text-2xl font-semibold mb-6">Page Not Found</h2>
-          <p className="text-gray-600 mb-8 max-w-md mx-auto">
-            The page youre looking for doesnt exist or has been moved.
+          <h1 className="text-9xl mb-8">404</h1>
+          <h2 className="h3 mb-6">Page Not Found</h2>
+          <p className="mb-8 mx-auto">
+            The page you&#39;re looking for doesn&#39;t exist or has been moved.
           </p>
 
-          <div className="space-x-4">
-            <Link
-              href="/"
-              className="inline-block bg-black text-white px-6 py-3 rounded-lg hover:bg-gray-800 transition-colors"
-            >
+          <div className="flex justify-center space-x-4">
+            <Link href="/" className="button-small inline-block">
               Go Home
             </Link>
 
-            <button
-              onClick={() => window.history.back()}
-              className="inline-block border border-gray-300 text-gray-700 px-6 py-3 rounded-lg hover:bg-gray-50 transition-colors"
-            >
+            <button onClick={() => window.history.back()} className="button-small">
               Go Back
             </button>
           </div>
@@ -36,4 +37,20 @@ export default function Custom404() {
       </div>
     </>
   )
+}
+
+export const getStaticProps: GetStaticProps = async (ctx: GetStaticPropsContext<Query>) => {
+  try {
+    const sharedProps = await getSharedStaticProps(ctx)
+
+    return {
+      props: {
+        ...sharedProps.props,
+      },
+    }
+  } catch (error) {
+    return {
+      notFound: true,
+    }
+  }
 }
