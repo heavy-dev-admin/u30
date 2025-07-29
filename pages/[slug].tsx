@@ -3,7 +3,7 @@ import Grid from 'components/Structure/Grid'
 import Section from 'components/Structure/Section'
 import { getClient, getGeneralPageSettings } from 'lib/sanity.client'
 import { getSharedStaticProps, Query, SharedPageProps } from 'lib/shared-props'
-import { GetStaticPaths,GetStaticProps, GetStaticPropsContext } from 'next'
+import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from 'next'
 import FlexibleSections from 'sections/FlexibleSections'
 import type { GeneralPageSettings } from 'types/pages'
 
@@ -44,8 +44,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
     params: { slug: slug },
   }))
 
-  console.log(JSON.stringify(paths, null, 2))
-
   return {
     paths,
     fallback: 'blocking',
@@ -73,7 +71,6 @@ export const getStaticProps: GetStaticProps = async (ctx: GetStaticPropsContext<
         ...sharedProps.props,
         pageSettings,
       },
-      revalidate: 60,
     }
   } catch (error) {
     return {

@@ -33,7 +33,7 @@ export default function Header({ settings }: { settings: Settings }) {
 
   return (
     <header
-      className={`sticky top-0 z-50 bg-cream p-4 relative transition-all duration-500 md:px-6.5 md:pt-6.5 md:pb-4 ${scrollDirection === 'up' ? 'translate-y-0' : '-translate-y-full'}`}
+      className={`sticky top-0 z-40 bg-cream p-4 transition-all duration-500 md:px-6.5 md:pt-6.5 md:pb-4 ${scrollDirection === 'up' ? 'translate-y-0' : '-translate-y-full'}`}
     >
       <Container className="flex items-center justify-between w-full relative z-20">
         <Link

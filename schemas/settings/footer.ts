@@ -32,7 +32,7 @@ export default defineField({
       name: 'contactUrl',
       title: 'Contact URL',
       type: 'url',
-      validation: (rule) => rule.required().uri({ scheme: ['http', 'https'] }),
+      validation: (rule) => rule.required().uri({ scheme: ['http', 'https', 'mailto'] }),
     }),
     defineField({
       name: 'footerHeader',
