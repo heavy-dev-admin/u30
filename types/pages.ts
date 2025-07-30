@@ -11,7 +11,10 @@ export interface GeneralPageSettings {
   seo?: {
     title?: string
     description?: PortableTextSimpleBlock[]
-    slug?: string
+    slug?: {
+      _type: 'slug'
+      current: string
+    }
     shareImage?: Image
   }
   title?: string
@@ -23,7 +26,10 @@ export interface GeneralPageSettings {
   seoPage?: {
     title?: string
     description?: PortableTextSimpleBlock[]
-    slug?: string
+    slug?: {
+      _type: 'slug'
+      current: string
+    }
     shareImage?: Image
   }
 }

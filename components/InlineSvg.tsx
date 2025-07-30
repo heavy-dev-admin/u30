@@ -1,7 +1,7 @@
 'use client'
 
 import type { SanityImageSource } from '@sanity/image-url/lib/types/types'
-import { urlForImage } from 'lib/sanity.image' // update this to your own image builder
+import { urlForImage } from 'lib/sanity.image'
 import { useEffect, useState } from 'react'
 
 interface InlineSVGProps {

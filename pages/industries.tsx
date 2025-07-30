@@ -1,8 +1,10 @@
 import IndustryCard from 'components/IndustryCard'
 import { PortableTextParser } from 'components/PortableTextParser'
+import Seo from 'components/Seo'
 import Grid from 'components/Structure/Grid'
 import Section from 'components/Structure/Section'
 import { getClient, getIndustriesSettings } from 'lib/sanity.client'
+import { buildMetadata } from 'lib/seo'
 import { getSharedStaticProps, Query, SharedPageProps } from 'lib/shared-props'
 import { GetStaticProps, GetStaticPropsContext } from 'next'
 import { useState } from 'react'
@@ -13,11 +15,13 @@ type PageProps = SharedPageProps & { industriesSettings: IndustriesSettings }
 
 export default function Industries(props: PageProps) {
   const [open, setOpen] = useState<number>(0)
-  const { industriesSettings } = props
+  const { industriesSettings, settings } = props
   const { hero, flexibleSections, industries, seoPage } = industriesSettings
+  const meta = buildMetadata({ seoPage, globalSeo: settings.seo })
 
   return (
     <>
+      <Seo {...meta} />
       <Section className="pt-10">
         <Grid className="bg-cream relative">
           {hero && (

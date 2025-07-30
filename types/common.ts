@@ -11,13 +11,7 @@ export type LinkInternal = {
   _key: string
   _ref: string
   _type: 'linkInternal'
-  seoPage: {
-    title: string
-    slug: {
-      _type: 'slug'
-      current: string
-    }
-  }
+  seoPage: SeoPageType
 }
 
 export type LinkExternal = {
@@ -129,4 +123,21 @@ export type ServiceBlockItem = {
 export type RichText = {
   content: PortableTextSimpleBlock[]
   className?: string
+}
+
+export type SeoPageType = {
+  title?: string
+  description?: PortableTextSimpleBlock[]
+  slug?: {
+    _type: 'slug'
+    current: string
+  }
+  shareImage?: Image
+}
+
+export type GlobalSeoType = {
+  siteTitle?: string
+  description?: string
+  shareImage?: Image
+  favicon?: Image
 }

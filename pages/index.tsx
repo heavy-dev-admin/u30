@@ -1,4 +1,6 @@
+import Seo from 'components/Seo'
 import { getClient, getHomepageSettings } from 'lib/sanity.client'
+import { buildMetadata } from 'lib/seo'
 import { getSharedStaticProps, Query, SharedPageProps } from 'lib/shared-props'
 import { GetStaticProps, GetStaticPropsContext } from 'next'
 import FlexibleSections from 'sections/FlexibleSections'
@@ -9,15 +11,16 @@ import type { HomepageSettings } from 'types/pages'
 type PageProps = SharedPageProps & { homepageSettings: HomepageSettings }
 
 export default function Page(props: PageProps) {
-  const { homepageSettings } = props
-  const { hero, fourRights, flexibleSections } = homepageSettings
-
+  const { homepageSettings, settings } = props
+  const { hero, fourRights, flexibleSections, seoPage } = homepageSettings
+  const meta = buildMetadata({ seoPage, globalSeo: settings.seo })
   return (
-    <div>
+    <>
+      <Seo {...meta} />
       <Hero {...hero} />
       <FourRights {...fourRights} />
       <FlexibleSections sections={flexibleSections} />
-    </div>
+    </>
   )
 }
 

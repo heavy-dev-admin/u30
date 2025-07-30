@@ -11,10 +11,12 @@ import Section from './Structure/Section'
 export default function FourRightsDesktop(props: HomepageSettings['fourRights']) {
   const { sectionTitle, sectionSubtitle, rights } = props
 
-  const SCROLL_PROGRESS_THRESHOLD = 0.3
+  const SCROLL_PROGRESS_THRESHOLD = 0.6
   const ANIMATED_INITIAL = { opacity: 0, y: -40 }
+  const ANIMATED_INITIAL_ALT = { opacity: 0, y: 40 }
   const ANIMATED_TARGET = { opacity: 1, y: 0 }
   const ANIMATED_TRANSITION = { duration: 0.3 }
+  const ANIMATED_TRANSITION_ALT = { duration: 0.3, delay: 0.25 }
 
   const [activeIndex, setActiveIndex] = useState<number>(0)
 
@@ -106,7 +108,7 @@ export default function FourRightsDesktop(props: HomepageSettings['fourRights'])
 
     const updateSectionHeight = () => {
       if (window.innerWidth >= 1024)
-        section.style.height = `${2 * containerRef.current.offsetHeight}px`
+        section.style.height = `${3 * containerRef.current.offsetHeight}px`
       else section.style.height = 'auto'
     }
 
@@ -155,9 +157,9 @@ export default function FourRightsDesktop(props: HomepageSettings['fourRights'])
           {sectionTitle}
           <motion.span
             key={activeIndex}
-            initial={ANIMATED_INITIAL}
+            initial={ANIMATED_INITIAL_ALT}
             animate={ANIMATED_TARGET}
-            transition={ANIMATED_TRANSITION}
+            transition={ANIMATED_TRANSITION_ALT}
             className="block"
             style={{ color: rights[activeIndex].backgroundColor?.hex || 'inherit' }}
           >
@@ -167,9 +169,9 @@ export default function FourRightsDesktop(props: HomepageSettings['fourRights'])
         {rights[activeIndex].detail && (
           <motion.p
             key={activeIndex}
-            initial={ANIMATED_INITIAL}
+            initial={ANIMATED_INITIAL_ALT}
             animate={ANIMATED_TARGET}
-            transition={ANIMATED_TRANSITION}
+            transition={ANIMATED_TRANSITION_ALT}
             className="w-109 min-h-28 mt-10 text-body-large text-cream"
           >
             {rights[activeIndex].detail}

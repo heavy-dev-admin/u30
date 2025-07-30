@@ -1,7 +1,9 @@
 import { PortableTextParser } from 'components/PortableTextParser'
+import Seo from 'components/Seo'
 import Grid from 'components/Structure/Grid'
 import Section from 'components/Structure/Section'
 import { getClient, getGeneralPageSettings } from 'lib/sanity.client'
+import { buildMetadata } from 'lib/seo'
 import { getSharedStaticProps, Query, SharedPageProps } from 'lib/shared-props'
 import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from 'next'
 import FlexibleSections from 'sections/FlexibleSections'
@@ -10,11 +12,13 @@ import type { GeneralPageSettings } from 'types/pages'
 type PageProps = SharedPageProps & { pageSettings: GeneralPageSettings }
 
 export default function DynamicPage(props: PageProps) {
-  const { pageSettings } = props
+  const { pageSettings, settings } = props
   const { flexibleSections, seoPage, title, body } = pageSettings
+  const meta = buildMetadata({ seoPage, globalSeo: settings.seo })
 
   return (
     <>
+      <Seo {...meta} />
       <Section className="text-dark-green mb-21 lg:mb-25">
         <Grid>
           {title && (
