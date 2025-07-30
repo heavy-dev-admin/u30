@@ -21,12 +21,12 @@ import linkInternalField from 'schemas/fields/linkInternal'
 import portableTextSimpleField from 'schemas/fields/portableTextSimple'
 import rightField from 'schemas/fields/right'
 import seoPageField from 'schemas/fields/seoPage'
-import workBlockField from 'schemas/fields/workBlock'
+import serviceBlockField from 'schemas/fields/serviceBlock'
 import aboutType from 'schemas/pages/about'
-import careerType from 'schemas/pages/career'
+import careersType from 'schemas/pages/careers'
 import homepageType from 'schemas/pages/homepage'
 import industriesType from 'schemas/pages/industries'
-import workType from 'schemas/pages/work'
+import servicesType from 'schemas/pages/services'
 import clientQuotesSectionType from 'schemas/sections/clientQuotesSection'
 import clientsSectionType from 'schemas/sections/clientsSection'
 import richTextSectionType from 'schemas/sections/richTextSection'
@@ -47,7 +47,7 @@ export default defineConfig({
       // fields
       linkInternalField,
       linkExternalField,
-      workBlockField,
+      serviceBlockField,
       rightField,
       portableTextSimpleField,
       seoPageField,
@@ -66,8 +66,8 @@ export default defineConfig({
       // pages
       homepageType,
       aboutType,
-      careerType,
-      workType,
+      careersType,
+      servicesType,
       industriesType,
     ],
   },
@@ -75,7 +75,7 @@ export default defineConfig({
     structureTool({
       structure: settingsStructure(
         [settingsType],
-        [homepageType, careerType, workType, industriesType, aboutType],
+        [homepageType, careersType, servicesType, industriesType, aboutType],
         [clientType]
       ),
       // `defaultDocumentNode` is responsible for adding a “Preview” tab to the document pane

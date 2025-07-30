@@ -2,8 +2,8 @@ import { defineField } from 'sanity'
 import { validateSlug } from 'schemas/utils/validateSlug'
 
 export default defineField({
-  name: 'workBlock',
-  title: 'Work Block',
+  name: 'serviceBlock',
+  title: 'Service Block',
   type: 'object',
   fields: [
     defineField({
@@ -31,7 +31,7 @@ export default defineField({
       title: 'Slug',
       type: 'slug',
       options: {
-        source: 'workBlock.title',
+        source: 'serviceBlock.title',
       },
       validation: validateSlug,
     }),

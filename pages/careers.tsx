@@ -1,14 +1,14 @@
-import { getCareerSettings, getClient } from 'lib/sanity.client'
+import { getCareersSettings, getClient } from 'lib/sanity.client'
 import { getSharedStaticProps, Query, SharedPageProps } from 'lib/shared-props'
 import { GetStaticProps, GetStaticPropsContext } from 'next'
 import HeroSecondary from 'sections/HeroSecondary'
-import type { CareerSettings } from 'types/pages'
+import type { CareersSettings } from 'types/pages'
 
-type PageProps = SharedPageProps & { careerSettings: CareerSettings }
+type PageProps = SharedPageProps & { careersSettings: CareersSettings }
 
 export default function Careers(props: PageProps) {
-  const { careerSettings } = props
-  const { hero } = careerSettings
+  const { careersSettings } = props
+  const { hero } = careersSettings
   return <HeroSecondary {...hero} />
 }
 
@@ -17,12 +17,12 @@ export const getStaticProps: GetStaticProps = async (ctx: GetStaticPropsContext<
     const sharedProps = await getSharedStaticProps(ctx)
 
     const client = getClient()
-    const careerSettings = await getCareerSettings(client)
+    const careersSettings = await getCareersSettings(client)
 
     return {
       props: {
         ...sharedProps.props,
-        careerSettings,
+        careersSettings,
       },
     }
   } catch (error) {

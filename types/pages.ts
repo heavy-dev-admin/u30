@@ -4,7 +4,7 @@ import {
   Image,
   IndustryItem,
   PortableTextSimpleBlock,
-  WorkBlockItem,
+  ServiceBlockItem,
 } from 'types/common'
 
 export interface GeneralPageSettings {
@@ -41,7 +41,7 @@ export type HomepageSettings = GeneralPageSettings & {
   }
 }
 
-export type CareerSettings = GeneralPageSettings & {
+export type CareersSettings = GeneralPageSettings & {
   hero: {
     title: string
     description?: PortableTextSimpleBlock[]
@@ -66,10 +66,10 @@ export type IndustriesSettings = GeneralPageSettings & {
   industries: IndustryItem[]
 }
 
-export type WorkSettings = GeneralPageSettings & {
+export type ServicesSettings = GeneralPageSettings & {
   hero: {
     title: string
     description?: PortableTextSimpleBlock[]
-    workHeroBlocks: WorkBlockItem[]
+    serviceHeroBlocks: ServiceBlockItem[]
   }
 }

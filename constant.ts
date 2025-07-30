@@ -2,9 +2,9 @@ export const PAGE_REFERENCES = [
   { type: 'page' },
   { type: 'homepage' },
   { type: 'about' },
-  { type: 'career' },
+  { type: 'careers' },
   { type: 'industries' },
-  { type: 'work' },
+  { type: 'services' },
 ]
 
 export const MAX_CHARACTERS_LENGTH = 96

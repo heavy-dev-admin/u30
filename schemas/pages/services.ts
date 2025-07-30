@@ -4,13 +4,13 @@ import flexibleSectionsField from 'schemas/fields/flexibleSections'
 import seoPageField from 'schemas/fields/seoPage'
 
 export default defineType({
-  name: 'work',
-  title: 'Work',
+  name: 'services',
+  title: 'Services',
   type: 'document',
   preview: {
     prepare() {
       return {
-        title: 'Work',
+        title: 'Services',
       }
     },
   },
@@ -52,10 +52,10 @@ export default defineType({
           type: 'portableTextSimple',
         }),
         defineField({
-          name: 'workHeroBlocks',
-          title: 'Work Hero Blocks',
+          name: 'serviceHeroBlocks',
+          title: 'Service Hero Blocks',
           type: 'array',
-          of: [{ type: 'workBlock' }],
+          of: [{ type: 'serviceBlock' }],
         }),
       ],
     }),

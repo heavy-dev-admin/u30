@@ -52,7 +52,7 @@ export const aboutPageQuery = groq`*[_type == "about"][0]{
   ${flexibleSectionsFragment}
 }`
 
-export const careerPageQuery = groq`*[_type == "career"][0]{
+export const careersPageQuery = groq`*[_type == "careers"][0]{
   ...,
   ${flexibleSectionsFragment}
 }`
@@ -68,7 +68,7 @@ export const industriesPageQuery = groq`*[_type == "industries"][0]{
   ${flexibleSectionsFragment}
 }`
 
-export const workPageQuery = groq`*[_type == "work"][0]{
+export const servicesPageQuery = groq`*[_type == "services"][0]{
   ...,
   ${flexibleSectionsFragment}
 }`

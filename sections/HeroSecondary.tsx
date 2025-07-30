@@ -2,9 +2,9 @@ import { PortableTextParser } from 'components/PortableTextParser'
 import Container from 'components/Structure/Container'
 import Grid from 'components/Structure/Grid'
 import Section from 'components/Structure/Section'
-import type { CareerSettings } from 'types/pages'
+import type { CareersSettings } from 'types/pages'
 
-export default function HeroSecondary(props: CareerSettings['hero']) {
+export default function HeroSecondary(props: CareersSettings['hero']) {
   const { title, description, heroType } = props
 
   return (

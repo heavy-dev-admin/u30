@@ -114,7 +114,7 @@ export type IndustryItem = {
   clients: Client[]
 }
 
-export type WorkBlockItem = {
+export type ServiceBlockItem = {
   type: 'solid' | 'image'
   title?: string
   slug?: {

@@ -4,13 +4,13 @@ import flexibleSectionsField from 'schemas/fields/flexibleSections'
 import seoPageField from 'schemas/fields/seoPage'
 
 export default defineType({
-  name: 'career',
-  title: 'Career',
+  name: 'careers',
+  title: 'Careers',
   type: 'document',
   preview: {
     prepare() {
       return {
-        title: 'Career',
+        title: 'Careers',
       }
     },
   },
