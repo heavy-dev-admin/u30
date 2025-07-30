@@ -156,7 +156,7 @@ async function _queryAllRoutes(client: SanityClient): Promise<string[]> {
 async function queryAllRoutes(client: SanityClient): Promise<StaleRoute[]> {
   const slugs = await _queryAllRoutes(client)
 
-  const staticRoutes: StaleRoute[] = ['/', '/industries', '/about', '/careers', '/services']
+  const staticRoutes: StaleRoute[] = ['/', '/industries', '/about', '/careers', '/services', '/404']
 
   return Array.from(new Set([...staticRoutes, ...slugs.map((slug) => `/${slug}` as StaleRoute)]))
 }
