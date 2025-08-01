@@ -27,6 +27,7 @@ export default function SimpleCta(props: SimpleCtaSectionSettings) {
           <SanityImage
             asset={image}
             alt={image?.alt || title}
+            maxWidth={300}
             className="w-55 h-auto object-contain lg:w-72.5"
           />
         )}

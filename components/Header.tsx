@@ -41,7 +41,7 @@ export default function Header({ settings }: { settings: Settings }) {
           className="h-11 w-auto [&_img]:h-[43px] [&_img]:w-auto"
           onClick={() => setIsMenuOpen(false)}
         >
-          {logo && <SanityImage asset={logo.asset} alt={logo.alt || ''} />}
+          {logo && <SanityImage asset={logo.asset} alt={logo.alt || ''} maxWidth={90} />}
         </Link>
         <nav className="hidden md:flex" aria-label="Primary">
           {navItems?.map((item, index) => (

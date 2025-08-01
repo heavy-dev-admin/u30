@@ -6,13 +6,20 @@ import { useNextSanityImage } from 'next-sanity-image'
 interface Props {
   asset: SanityImageSource
   alt: string
-  caption?: string
   className?: string
   priority?: boolean
+  layoutSwitch?: number
+  maxWidth?: number
 }
 
-export const SanityImage = (props: Props) => {
-  const { asset, alt, caption, className, priority } = props
+export const SanityImage = ({
+  asset,
+  alt,
+  className,
+  priority,
+  layoutSwitch = 768,
+  maxWidth = 800,
+}: Props) => {
   const imageProps = useNextSanityImage(getSanityImageConfig(), asset)
 
   if (!imageProps) return null
@@ -22,15 +29,10 @@ export const SanityImage = (props: Props) => {
       <Image
         {...imageProps}
         alt={alt}
-        sizes="(max-width: 800px) 100vw, 800px"
+        sizes={`(max-width: ${layoutSwitch}px) 100vw, ${maxWidth}px`}
         className={className}
         priority={priority}
       />
-      {caption && (
-        <figcaption className="mt-2 text-center italic text-sm text-gray-500 dark:text-gray-400 text-pretty">
-          {caption}
-        </figcaption>
-      )}
     </figure>
   )
 }

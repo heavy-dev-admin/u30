@@ -20,7 +20,7 @@ export default function Footer({ settings }: { settings: Settings }) {
     <footer className="bg-dark-green text-cream px-4 md:px-6.5">
       <Container>
         <div className="flex flex-col gap-4 pt-10 pb-[71px] md:pt-8 md:pb-23.5 md:gap-6">
-          <h3 className="text-body-large">{footerHeader}</h3>
+          <h5 className="h3 text-body-large">{footerHeader}</h5>
           {contactUrl && footerContactButtonText && (
             <Link href={contactUrl}>
               <button type="button" className="button-large w-full">
@@ -32,7 +32,9 @@ export default function Footer({ settings }: { settings: Settings }) {
         <div className="flex flex-col gap-4 pb-4 md:pb-6.5 md:gap-6 md:flex-row md:justify-between md:items-end">
           <div className="w-full flex justify-between order-2 md:w-auto md:order-1">
             <Link href="/" className="h-11 w-auto [&_img]:h-[43px] [&_img]:w-auto">
-              {footerLogo && <SanityImage asset={footerLogo.asset} alt={footerLogo.alt || ''} />}
+              {footerLogo && (
+                <SanityImage asset={footerLogo.asset} alt={footerLogo.alt || ''} maxWidth={90} />
+              )}
             </Link>
             {footerEmailContact && (
               <div className="flex flex-col md:hidden">

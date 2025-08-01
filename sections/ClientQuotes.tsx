@@ -14,6 +14,7 @@ function ClientQuoteItem(props: QuoteItem) {
             asset={client.logo}
             alt={client?.logo?.alt || client.title}
             className="size-full object-contain"
+            maxWidth={160}
           />
         </div>
         <p className="text-body text-dark-green lg:text-[26px] lg:leading-8.5">{quote}</p>

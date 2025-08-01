@@ -11,6 +11,7 @@ function ClientItem({ client, isMarquee = false }: { client: Client; isMarquee?:
         asset={client.logo}
         alt={client.logo?.alt || client.title}
         className="size-full object-contain"
+        maxWidth={90}
       />
     </div>
   )

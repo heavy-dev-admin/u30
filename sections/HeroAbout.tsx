@@ -25,6 +25,7 @@ export default function HeroAbout(props: AboutSettings['hero']) {
               asset={image}
               alt={image?.alt || title}
               className="w-full object-cover rounded-lg aspect-[5/4] lg:w-[40vw] lg:aspect-[7/5] lg:max-w-[576px]"
+              maxWidth={576}
             />
             <div className="hidden bg-green rounded-lg lg:w-93 xl:block max-w-[373px]" />
             <div className="relative w-full h-103 bg-light-green rounded-lg overflow-hidden lg:flex-1 lg:h-auto">

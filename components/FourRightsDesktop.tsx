@@ -31,6 +31,7 @@ export default function FourRightsDesktop(props: HomepageSettings['fourRights'])
       <SanityImage
         asset={emblem}
         alt={emblem?.alt || label}
+        maxWidth={90}
         className="absolute top-0 left-0 object-contain w-22 h-20"
       />
     )

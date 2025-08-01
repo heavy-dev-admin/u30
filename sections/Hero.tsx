@@ -24,6 +24,7 @@ export default function Hero(props: HomepageSettings['hero']) {
                   asset={heroImage}
                   alt={heroImage.alt || title}
                   priority
+                  maxWidth={322}
                   className="w-54 aspect-[6/5] object-cover rounded-lg md:w-81"
                 />
                 <div className="absolute top-3 -right-2 corner corner-top-left md:top-4" />
