@@ -115,6 +115,7 @@ export type IndustryItem = {
 }
 
 export type WorkBlockItem = {
+  location: 'services' | 'services-2'
   type: 'solid' | 'image'
   title?: string
   slug?: {
@@ -122,8 +123,14 @@ export type WorkBlockItem = {
     current: string
   }
   icon?: Image
-  backgroundColor?: string
+  backgroundColor?: {
+    hex: string
+  }
+  textColor?: {
+    hex: string
+  }
   image?: Image
+  reference?: string
 }
 
 export type RichText = {
