@@ -2,6 +2,7 @@ import React from 'react'
 import ClientQuilt from 'sections/ClientQuilt'
 import ClientQuotes from 'sections/ClientQuotes'
 import SimpleCta from 'sections/SimpleCta'
+import TwoUp from 'sections/TwoUp'
 import { FlexibleSection } from 'types/common'
 
 export default function FlexibleSections({ sections }: { sections: FlexibleSection[] }) {
@@ -15,6 +16,9 @@ export default function FlexibleSections({ sections }: { sections: FlexibleSecti
       }
       case 'simpleCtaSection': {
         return <SimpleCta {...section} />
+      }
+      case 'twoUpSection': {
+        return <TwoUp {...section} />
       }
       default:
         return null

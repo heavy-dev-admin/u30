@@ -6,8 +6,6 @@ import { FourRightItem } from 'types/common'
 import type { HomepageSettings } from 'types/pages'
 import { throttle } from 'utils/common'
 
-import Section from './Structure/Section'
-
 export default function FourRightsDesktop(props: HomepageSettings['fourRights']) {
   const { sectionTitle, sectionSubtitle, rights } = props
 
