@@ -12,6 +12,20 @@ const config: NextConfig = {
     /// Set this to false if you want production builds to abort if there's lint errors
     ignoreDuringBuilds: process.env.VERCEL_ENV === 'production',
   },
+  async redirects() {
+    return [
+      {
+        source: '/studio',
+        destination: '/studio/production',
+        permanent: false,
+      },
+      {
+        source: '/studio/structure',
+        destination: '/studio/production',
+        permanent: false,
+      },
+    ]
+  },
 }
 
 export default config

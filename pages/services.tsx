@@ -1,11 +1,11 @@
-import { getClient, getWorkSettings } from 'lib/sanity.client'
+import { getClient, getServicesSettings } from 'lib/sanity.client'
 import { getSharedStaticProps, Query, SharedPageProps } from 'lib/shared-props'
 import { GetStaticProps, GetStaticPropsContext } from 'next'
 import FlexibleSections from 'sections/FlexibleSections'
 import HeroWork from 'sections/HeroWork'
-import type { WorkSettings } from 'types/pages'
+import type { ServicesSettings } from 'types/pages'
 
-type PageProps = SharedPageProps & { workSettings: WorkSettings }
+type PageProps = SharedPageProps & { workSettings: ServicesSettings }
 
 export default function About(props: PageProps) {
   const { workSettings } = props
@@ -24,7 +24,7 @@ export const getStaticProps: GetStaticProps = async (ctx: GetStaticPropsContext<
     const sharedProps = await getSharedStaticProps(ctx)
 
     const client = getClient()
-    const workSettings = await getWorkSettings(client)
+    const workSettings = await getServicesSettings(client)
 
     return {
       props: {

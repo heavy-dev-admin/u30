@@ -25,6 +25,8 @@ export default function FlexibleSections({ sections }: { sections: FlexibleSecti
     }
   }
 
+  if (!sections) return null
+
   return (
     <>
       {sections.map((section, index) => {

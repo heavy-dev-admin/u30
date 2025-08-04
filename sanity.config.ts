@@ -34,68 +34,79 @@ import simpleCtaSectionType from 'schemas/sections/simpleCtaSection'
 import twoUpSectionType from 'schemas/sections/twoUpSection'
 import settingsType from 'schemas/settings'
 
+// All your shared schema types and plugin imports remain the same...
+
+const schemaTypes = [
+  // fields
+  linkInternalField,
+  linkExternalField,
+  serviceBlockField,
+  rightField,
+  portableTextSimpleField,
+  seoPageField,
+  flexibleSectionsField,
+  // documents
+  clientType,
+  pageType,
+  // sections
+  clientsSectionType,
+  clientQuotesSectionType,
+  twoUpSectionType,
+  richTextSectionType,
+  simpleCtaSectionType,
+  // settings
+  settingsType,
+  // pages
+  homepageType,
+  aboutType,
+  careersType,
+  servicesType,
+  industriesType,
+]
+
+const sharedPlugins = [
+  structureTool({
+    structure: settingsStructure(
+      [settingsType],
+      [homepageType, careersType, servicesType, industriesType, aboutType],
+      [clientType]
+    ),
+    defaultDocumentNode: previewDocumentNode(),
+  }),
+  presentationTool({
+    locate,
+    previewUrl: {
+      previewMode: {
+        enable: DRAFT_MODE_ROUTE,
+      },
+    },
+  }),
+  settingsPlugin({ type: settingsType.name }),
+  unsplashImageAsset(),
+  colorInput(),
+  process.env.NODE_ENV !== 'production' && visionTool({ defaultApiVersion: apiVersion }),
+]
+
+const studioUrl = '/studio'
 const title = process.env.NEXT_PUBLIC_SANITY_PROJECT_TITLE || 'Next.js Blog with Sanity.io'
 
-export default defineConfig({
-  basePath: '/studio',
-  projectId,
-  dataset,
-  title,
-  schema: {
-    // If you want more content types, you can add them to this array
-    types: [
-      // fields
-      linkInternalField,
-      linkExternalField,
-      serviceBlockField,
-      rightField,
-      portableTextSimpleField,
-      seoPageField,
-      flexibleSectionsField,
-      // documents
-      clientType,
-      pageType,
-      // sections
-      clientsSectionType,
-      clientQuotesSectionType,
-      twoUpSectionType,
-      richTextSectionType,
-      simpleCtaSectionType,
-      // settings
-      settingsType,
-      // pages
-      homepageType,
-      aboutType,
-      careersType,
-      servicesType,
-      industriesType,
-    ],
+export default defineConfig([
+  {
+    name: 'production',
+    title: `${title} (Production)`,
+    basePath: `${studioUrl}/production`,
+    projectId,
+    dataset: 'production',
+    schema: { types: schemaTypes },
+    plugins: sharedPlugins,
   },
-  plugins: [
-    structureTool({
-      structure: settingsStructure(
-        [settingsType],
-        [homepageType, careersType, servicesType, industriesType, aboutType],
-        [clientType]
-      ),
-      // `defaultDocumentNode` is responsible for adding a “Preview” tab to the document pane
-      defaultDocumentNode: previewDocumentNode(),
-    }),
-    presentationTool({
-      locate,
-      previewUrl: {
-        previewMode: {
-          enable: DRAFT_MODE_ROUTE,
-        },
-      },
-    }),
-    // Configures the global "new document" button, and document actions, to suit the Settings document singleton
-    settingsPlugin({ type: settingsType.name }),
-    // Add an image asset source for Unsplash
-    unsplashImageAsset(),
-    colorInput(),
-    // Vision lets you query your content with GROQ in the studio
-    // https://www.sanity.io/docs/the-vision-plugin
-    process.env.NODE_ENV !== 'production' && visionTool({ defaultApiVersion: apiVersion }),
-  ],
-})
+  {
+    name: 'staging',
+    title: `${title} (Staging)`,
+    basePath: `${studioUrl}/staging`,
+    projectId,
+    dataset: 'staging',
+    schema: { types: schemaTypes },
+    plugins: sharedPlugins,
+  },
+])

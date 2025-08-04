@@ -24,6 +24,7 @@ export const SanityImage = ({
 
   if (!imageProps) return null
 
+  console.log({ asset })
   return (
     <figure>
       <Image

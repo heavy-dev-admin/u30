@@ -40,13 +40,17 @@ export default defineField({
       name: 'title',
       title: 'Title',
       type: 'string',
+      hidden: ({ parent }) => parent?.type === 'image',
     }),
     defineField({
       name: 'slug',
       title: 'Slug',
       type: 'slug',
       options: {
-        source: 'serviceBlock.title',
+        source: (doc, context) => {
+          const parent = context.parent as any
+          return parent?.title || ''
+        },
       },
       validation: validateSlug,
     }),
@@ -54,6 +58,7 @@ export default defineField({
       name: 'icon',
       title: 'Icon',
       type: 'image',
+      hidden: ({ parent }) => parent?.type === 'image',
       fields: [
         {
           name: 'alt',
