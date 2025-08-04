@@ -19,6 +19,7 @@ export default function HeroWorkSection(props: WorkSettings['hero']) {
   const useSwappableBlocks = (originals: WorkBlockItem[], modified: WorkBlockItem[]) => {
     const [blocks, setBlocks] = useState<WorkBlockItem[]>(originals)
     const blocksRef = useRef<WorkBlockItem[]>(originals)
+    const isModifiedPhaseRef = useRef(true)
 
     const modifiedMap = useMemo(() => {
       const map = new Map<string, WorkBlockItem>()
@@ -29,41 +30,65 @@ export default function HeroWorkSection(props: WorkSettings['hero']) {
       return map
     }, [modified])
 
+    const originalMap = useMemo(() => {
+      const map = new Map<string, WorkBlockItem>()
+      for (const orig of originals) {
+        const key = orig.slug?.current?.toLowerCase()
+        if (key) map.set(key, orig)
+      }
+      return map
+    }, [originals])
+
     useEffect(() => {
       blocksRef.current = blocks
     }, [blocks])
 
     useEffect(() => {
       const interval = setInterval(() => {
+        const current = blocksRef.current
         const candidates: number[] = []
 
-        blocksRef.current.forEach((block, index) => {
+        current.forEach((block, index) => {
           const key = block.slug?.current?.toLowerCase()
           const isModified = !!block.reference
-          if (!key || !modifiedMap.has(key) || isModified) return
-          candidates.push(index)
+
+          if (isModifiedPhaseRef.current) {
+            if (key && !isModified && modifiedMap.has(key)) {
+              candidates.push(index)
+            }
+          } else {
+            const refKey = block.reference?.toLowerCase()
+            if (isModified && refKey && originalMap.has(refKey)) {
+              candidates.push(index)
+            }
+          }
         })
 
         if (candidates.length === 0) {
-          clearInterval(interval)
+          isModifiedPhaseRef.current = !isModifiedPhaseRef.current
           return
         }
 
         const randomIndex = candidates[Math.floor(Math.random() * candidates.length)]
-        const key = blocksRef.current[randomIndex].slug?.current?.toLowerCase()
-        const mod = key ? modifiedMap.get(key) : null
+        const currentBlock = current[randomIndex]
 
-        if (!mod) return
+        const key = isModifiedPhaseRef.current
+          ? currentBlock.slug?.current?.toLowerCase()
+          : currentBlock.reference?.toLowerCase()
 
-        const newBlocks = [...blocksRef.current]
-        newBlocks[randomIndex] = mod
+        const nextBlock = isModifiedPhaseRef.current ? modifiedMap.get(key!) : originalMap.get(key!)
+
+        if (!nextBlock) return
+
+        const newBlocks = [...current]
+        newBlocks[randomIndex] = nextBlock
 
         blocksRef.current = newBlocks
         setBlocks(newBlocks)
       }, 3000)
 
       return () => clearInterval(interval)
-    }, [modifiedMap])
+    }, [modifiedMap, originalMap])
 
     return blocks
   }
@@ -77,7 +102,7 @@ export default function HeroWorkSection(props: WorkSettings['hero']) {
     return (
       <AnimatePresence mode="wait">
         <motion.div
-          key={`${block.slug?.current}-${block.reference}}`}
+          key={`${block.slug?.current}-${block.reference}`}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -167,7 +192,7 @@ export default function HeroWorkSection(props: WorkSettings['hero']) {
             {displayedBlocks?.[6] &&
               renderTextBlock({
                 block: displayedBlocks[6],
-                className: 'justify-end z-10 aspect-[361/511] lg:aspect-[405/511]',
+                className: 'justify-end z-10 aspect-[361/511] md:aspect-4/3 lg:aspect-[405/511]',
               })}
           </div>
         </div>
