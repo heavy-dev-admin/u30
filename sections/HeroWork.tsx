@@ -108,11 +108,16 @@ export default function HeroWorkSection(props: ServicesSettings['hero']) {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.6 }}
-          className={`flex flex-col gap-3 rounded-lg p-6 lg:p-4 xl:p-8 ${className}`}
+          className={`flex relative flex-col gap-3 rounded-lg p-6 lg:p-4 xl:p-8 ${className}`}
           style={style}
         >
           {block.icon && (
-            <SanityImage asset={block.icon} alt={block.title || block.slug?.current} />
+            <SanityImage
+              asset={block.icon}
+              alt={block.title || block.slug?.current}
+              maxWidth={80}
+              className="w-15"
+            />
           )}
           <h4 className="h4 text-inherit">{block.title}</h4>
         </motion.div>
@@ -136,6 +141,7 @@ export default function HeroWorkSection(props: ServicesSettings['hero']) {
             alt={block.title || block.slug?.current}
             className="size-full object-cover rounded-lg"
             priority
+            maxWidth={545}
           />
         </motion.div>
       </AnimatePresence>
@@ -146,7 +152,7 @@ export default function HeroWorkSection(props: ServicesSettings['hero']) {
 
   return (
     <Section className="flex flex-col items-start gap-12 px-4 pt-8 pb-4 md:px-6.5 md:pt-10 lg:gap-5">
-      <Container>
+      <Container className="w-full">
         <div className="w-full max-w-171 mb-12.5 lg:mb-17">
           <h2 className="h1 text-dark-green lg:text-5xl lg:leading-11.5 lg:-tracking-[0.96px]">
             {title}
@@ -185,8 +191,8 @@ export default function HeroWorkSection(props: ServicesSettings['hero']) {
               renderTextBlock({ block: displayedBlocks[4], className: 'lg:aspect-[405/183]' })}
             <div className="relative">
               {displayedBlocks?.[5] && (
-                <div className="absolute -top-3 -left-3 p-3 w-[67.87%] bg-cream rounded-lg z-20 lg:-top-4 lg:-left-4 lg:p-4">
-                  {renderTextBlock({ block: displayedBlocks[5], className: '' })}
+                <div className="absolute -top-3 -left-3 p-3 w-[67.87%] h-[35.4%] bg-cream rounded-lg z-20 lg:-top-4 lg:-left-4 lg:p-4">
+                  {renderTextBlock({ block: displayedBlocks[5], className: 'h-full' })}
                   <div className="absolute top-3 -right-2 corner corner-top-left lg:top-4 lg:-right-2"></div>
                   <div className="absolute -bottom-2 left-3 corner corner-top-left lg:-bottom-2 lg:left-4"></div>
                 </div>
@@ -194,7 +200,7 @@ export default function HeroWorkSection(props: ServicesSettings['hero']) {
               {displayedBlocks?.[6] &&
                 renderTextBlock({
                   block: displayedBlocks[6],
-                  className: 'justify-end z-10 aspect-[361/511] md:aspect-4/3 lg:aspect-[405/511]',
+                  className: 'justify-end z-10 [aspect-[361/511] md:aspect-4/3 lg:aspect-[405/511]',
                 })}
             </div>
           </div>

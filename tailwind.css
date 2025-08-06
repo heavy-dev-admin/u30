@@ -182,4 +182,41 @@
   .wysiwyg a {
     @apply underline;
   }
+
+  .two-up__svg-container {
+    @apply right-0 z-1;
+    bottom: -15%;
+    top: 0;
+    margin: auto;
+    right: -5%;
+    width: 1%;
+    height: 1px;
+  }
+
+  .two-up__rocket {
+    @apply -rotate-18 absolute hidden lg:block;
+    width: 80px;
+    right: -62px;
+    bottom: -24px;
+  }
+
+  .two-up__line--one {
+    @apply absolute -rotate-8 z-1 hidden lg:block;
+    width: min(21.5vw, 320px);
+    left: -20%;
+    bottom: -43%;
+  }
+
+  .two-up__line--two {
+    @apply absolute z-1 hidden lg:block;
+    width: min(21.5vw, 320px);
+    left: -40%;
+    top: -43%;
+  }
+
+  .two-up__line--three {
+    @apply absolute hidden lg:block;
+    width: min(21.5vw, 320px);
+    right: -4.5%;
+  }
 }
