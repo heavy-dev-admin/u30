@@ -1,3 +1,4 @@
+import clsx from 'clsx'
 import { PortableTextParser } from 'components/PortableTextParser'
 import { SanityImage } from 'components/SanityImage'
 import Container from 'components/Structure/Container'
@@ -9,6 +10,8 @@ import type { ServicesSettings } from 'types/pages'
 type WorkBlockProps = {
   block: ServiceBlockItem
   className?: string
+  minHeight?: number
+  textAlignment?: 'center' | 'bottom'
 }
 
 export default function HeroWorkSection(props: ServicesSettings['hero']) {
@@ -94,10 +97,16 @@ export default function HeroWorkSection(props: ServicesSettings['hero']) {
     return blocks
   }
 
-  const renderTextBlock = ({ block, className }: WorkBlockProps) => {
+  const renderTextBlock = ({
+    block,
+    className,
+    minHeight = 190,
+    textAlignment = 'center',
+  }: WorkBlockProps) => {
     const style = {
       backgroundColor: block.backgroundColor?.hex,
       color: block.textColor?.hex,
+      minHeight,
     }
 
     return (
@@ -108,18 +117,20 @@ export default function HeroWorkSection(props: ServicesSettings['hero']) {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.6 }}
-          className={`flex relative flex-col gap-3 rounded-lg p-6 lg:p-4 xl:p-8 ${className}`}
+          className={`flex relative flex-col rounded-lg p-6 lg:min-h-0 lg:p-4 xl:p-8 !justify-end ${className}`}
           style={style}
         >
-          {block.icon && (
-            <SanityImage
-              asset={block.icon}
-              alt={block.title || block.slug?.current}
-              maxWidth={80}
-              className="w-15"
-            />
-          )}
-          <h4 className="h4 text-inherit">{block.title}</h4>
+          <div className={clsx('lg:my-0', textAlignment === 'center' ? 'my-auto' : 'mt-auto')}>
+            {block.icon && (
+              <SanityImage
+                asset={block.icon}
+                alt={block.title || block.slug?.current}
+                maxWidth={80}
+                className="w-15 mb-3"
+              />
+            )}
+            <h3 className="h3h4 text-inherit">{block.title}</h3>
+          </div>
         </motion.div>
       </AnimatePresence>
     )
@@ -169,7 +180,7 @@ export default function HeroWorkSection(props: ServicesSettings['hero']) {
             {displayedBlocks?.[1] &&
               renderTextBlock({
                 block: displayedBlocks[1],
-                className: 'lg:aspect-[405/290] lg:justify-end',
+                className: 'lg:flex-1 lg:aspect-[405/290] lg:justify-end',
               })}
           </div>
 
@@ -177,12 +188,12 @@ export default function HeroWorkSection(props: ServicesSettings['hero']) {
             {displayedBlocks?.[2] &&
               renderTextBlock({
                 block: displayedBlocks[2],
-                className: 'lg:aspect-[545/272] lg:justify-end',
+                className: 'lg:flex-1 lg:aspect-[545/272] lg:justify-end',
               })}
             {displayedBlocks?.[3] &&
               renderImageOnlyBlock(
                 displayedBlocks[3],
-                'relative aspect-[361/280] lg:aspect-[545/422]'
+                'relative aspect-[361/280] lg:aspect-[545/422] lg:flex-1'
               )}
           </div>
 
@@ -191,8 +202,12 @@ export default function HeroWorkSection(props: ServicesSettings['hero']) {
               renderTextBlock({ block: displayedBlocks[4], className: 'lg:aspect-[405/183]' })}
             <div className="relative">
               {displayedBlocks?.[5] && (
-                <div className="absolute -top-3 -left-3 p-3 w-[67.87%] h-[35.4%] bg-cream rounded-lg z-20 lg:-top-4 lg:-left-4 lg:p-4">
-                  {renderTextBlock({ block: displayedBlocks[5], className: 'h-full' })}
+                <div className="absolute -top-3 -left-3 p-3 min-w-[67.87%] min-h-[35.4%] w-fit bg-cream rounded-lg z-20 lg:-top-4 lg:-left-4 lg:p-4 lg:w-aut">
+                  {renderTextBlock({
+                    block: displayedBlocks[5],
+                    className: 'lg:h-full min-h-0',
+                    minHeight: 165,
+                  })}
                   <div className="absolute top-3 -right-2 corner corner-top-left lg:top-4 lg:-right-2"></div>
                   <div className="absolute -bottom-2 left-3 corner corner-top-left lg:-bottom-2 lg:left-4"></div>
                 </div>
@@ -200,7 +215,9 @@ export default function HeroWorkSection(props: ServicesSettings['hero']) {
               {displayedBlocks?.[6] &&
                 renderTextBlock({
                   block: displayedBlocks[6],
-                  className: 'justify-end z-10 [aspect-[361/511] md:aspect-4/3 lg:aspect-[405/511]',
+                  className:
+                    'z-10 h-[511px] w-full [aspect-[361/511] lg:h-auto md:aspect-4/3 lg:aspect-[405/511]',
+                  textAlignment: 'bottom',
                 })}
             </div>
           </div>

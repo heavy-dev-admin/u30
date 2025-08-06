@@ -88,6 +88,10 @@
     @apply text-base leading-4 font-black;
   }
 
+  .h3h4 {
+    @apply text-[32px] leading-8.5 -tracking-[0.64px] font-black lg:text-[34px] lg:leading-8.5 lg:-tracking-[0.68px];
+  }
+
   .text-button {
     @apply text-sm leading-4 font-black uppercase;
   }
@@ -181,6 +185,9 @@
 
   .wysiwyg a {
     @apply underline;
+  }
+
+  .work-block__title {
   }
 
   .two-up__svg-container {

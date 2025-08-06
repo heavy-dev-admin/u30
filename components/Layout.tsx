@@ -39,10 +39,6 @@ export default function Layout({
 
   return (
     <div className="flex flex-col min-h-screen">
-      <Head>
-        <meta name="X-robots-tag" content="noindex, nofollow" />
-      </Head>
-
       {showIntro ? (
         <LottieIntro onComplete={() => setShowIntro(false)} />
       ) : (

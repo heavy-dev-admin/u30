@@ -9,9 +9,13 @@ type Props = {
 }
 
 export default function Seo({ title, description, openGraph }: Props) {
+  const pageTitle = title === 'U30' ? 'Home' : title
+
   return (
     <Head>
-      <title>{title}</title>
+      <title>{`U30 · ${pageTitle}`}</title>
+      {/* to do: remove before launch */}
+      <meta name="X-robots-tag" content="noindex, nofollow" />
       <meta name="description" content={description} />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
