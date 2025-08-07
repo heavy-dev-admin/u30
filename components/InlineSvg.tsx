@@ -8,9 +8,15 @@ interface InlineSVGProps {
   asset: SanityImageSource
   className?: string
   fill?: string
+  adjustedWidth?: number | undefined
 }
 
-export default function InlineSVG({ asset, className, fill = 'currentColor' }: InlineSVGProps) {
+export default function InlineSVG({
+  asset,
+  className,
+  fill = 'currentColor',
+  adjustedWidth = 100,
+}: InlineSVGProps) {
   const [svgContent, setSvgContent] = useState<string | null>(null)
 
   useEffect(() => {
@@ -22,6 +28,7 @@ export default function InlineSVG({ asset, className, fill = 'currentColor' }: I
       const sanitized = text
         .replace(/fill=".*?"/g, '')
         .replace(/<svg([^>]*)>/, `<svg$1 fill="${fill}">`)
+        .replace(/\s(width|height)="[^"]*"/g, '')
       setSvgContent(sanitized)
     }
 
@@ -37,13 +44,17 @@ export default function InlineSVG({ asset, className, fill = 'currentColor' }: I
     <>
       {isPatternedImage ? (
         //eslint-disable-next-line
-        <img src={urlForImage(asset).url()} alt="Fallback image" className={className} />
+        <div>
+          <img src={urlForImage(asset).url()} alt="Fallback image" className={className} />
+        </div>
       ) : (
-        <div
-          className={className}
-          style={{ color: fill }}
-          dangerouslySetInnerHTML={{ __html: svgContent }}
-        />
+        <div className="h-full flex justify-center items-center">
+          <div
+            className={className}
+            style={{ color: fill, width: `${adjustedWidth}%` }}
+            dangerouslySetInnerHTML={{ __html: svgContent }}
+          />
+        </div>
       )}
     </>
   )

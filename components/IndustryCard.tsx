@@ -90,7 +90,12 @@ export default function IndustryCard({ industry, index, open, setOpen }: Industr
         <div className="flex flex-wrap justify-center lg:gap-6">
           {industry.clients.map((client) => (
             <div key={client._id} className="py-2 w-[45%] lg:w-40">
-              <InlineSVG asset={client.logo.asset} className="w-full h-auto" fill={'#85c441'} />
+              <InlineSVG
+                asset={client.logo.asset}
+                className="w-full h-auto"
+                fill={'#85c441'}
+                adjustedWidth={client.logoSize}
+              />
             </div>
           ))}
         </div>
