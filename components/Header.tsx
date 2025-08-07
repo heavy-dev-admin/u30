@@ -1,8 +1,10 @@
 'use client'
+import clsx from 'clsx'
 import { SanityImage } from 'components/SanityImage'
 import content from 'content/text.json'
 import useScrollDirection from 'hooks/useScrollDirection'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { Settings } from 'types/settings'
 
@@ -12,8 +14,15 @@ export default function Header({ settings }: { settings: Settings }) {
   const { logo, links: navItems, contactUrl, contactButtonText } = settings?.menu || {}
 
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const pathname = usePathname()
 
   const scrollDirection = useScrollDirection()
+
+  const isActiveLink = (slug: string) => {
+    if (slug === '/' && pathname === '/') return true
+    if (slug !== '/' && pathname === `/${slug}`) return true
+    return false
+  }
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen)
@@ -43,16 +52,25 @@ export default function Header({ settings }: { settings: Settings }) {
         >
           {logo && <SanityImage asset={logo.asset} alt={logo.alt || ''} maxWidth={90} />}
         </Link>
-        <nav className="hidden md:flex" aria-label="Primary">
-          {navItems?.map((item, index) => (
-            <Link
-              key={index}
-              href={item.seoPage?.slug?.current || '/'}
-              className={`button bg-beige rounded-none capitalize px-2.5 text-base hover:bg-green ${index === 0 ? 'rounded-l-lg pl-4' : ''} ${index === navItems.length - 1 ? 'rounded-r-lg pr-4' : ''}`}
-            >
-              {item.seoPage?.title}
-            </Link>
-          ))}
+        <nav className="hidden md:flex cursor-pointer" aria-label="Primary">
+          {navItems?.map((item, index) => {
+            const href = item.seoPage?.slug?.current || '/'
+            const isActive = isActiveLink(href)
+
+            return (
+              <Link
+                key={index}
+                href={item.seoPage?.slug?.current || '/'}
+                className={`button rounded-none capitalize bg-beige px-2.5 text-base transition-colors ${
+                  isActive ? 'text-green' : 'text-dark-green hover:bg-cream'
+                } ${index === 0 ? 'rounded-l-lg pl-4' : ''} ${
+                  index === navItems.length - 1 ? 'rounded-r-lg pr-4' : ''
+                }`}
+              >
+                {item.seoPage?.title}
+              </Link>
+            )
+          })}
           {contactUrl && (
             <Link href={contactUrl} className="button ml-4">
               {contactButtonText}
@@ -75,16 +93,24 @@ export default function Header({ settings }: { settings: Settings }) {
       >
         <div className="flex flex-col h-full">
           <div className="flex flex-col justify-center items-center gap-11 flex-1">
-            {navItems?.map((item, index) => (
-              <Link
-                key={index}
-                href={item.seoPage?.slug?.current || '/'}
-                className="text-display text-dark-green"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {item.seoPage?.title}
-              </Link>
-            ))}
+            {navItems?.map((item, index) => {
+              const href = item.seoPage?.slug?.current || '/'
+              const isActive = isActiveLink(href)
+
+              return (
+                <Link
+                  key={index}
+                  href={item.seoPage?.slug?.current || '/'}
+                  className={clsx(
+                    'text-display text-dark-green',
+                    isActive ? 'text-green' : 'text-dark-gren'
+                  )}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {item.seoPage?.title}
+                </Link>
+              )
+            })}
           </div>
           {contactUrl && (
             <Link href={contactUrl} className="button mt-auto" onClick={() => setIsMenuOpen(false)}>

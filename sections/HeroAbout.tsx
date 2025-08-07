@@ -14,7 +14,7 @@ export default function HeroAbout(props: AboutSettings['hero']) {
     >
       <Grid>
         <div className="col-span-full lg:col-span-5">
-          <h1 className="h1 text-dark-green mb-6 lg:mb-8">{title}</h1>
+          <h1 className="h3 text-dark-green mb-6 lg:mb-8 border">{title}</h1>
           {description && <PortableTextParser content={description} className="text-body" />}
         </div>
       </Grid>

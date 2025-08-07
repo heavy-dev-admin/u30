@@ -1,10 +1,8 @@
 import { SanityImage } from 'components/SanityImage'
-import { THROTTLE_TIME } from 'constant'
-import { AnimatePresence, motion, useMotionValueEvent,useScroll, useTransform } from 'motion/react'
+import { AnimatePresence, motion, useMotionValueEvent, useScroll, useTransform } from 'motion/react'
 import { ReactElement, useEffect, useRef, useState } from 'react'
 import { FourRightItem } from 'types/common'
 import type { HomepageSettings } from 'types/pages'
-import { throttle } from 'utils/common'
 
 export default function FourRightsDesktop(props: HomepageSettings['fourRights']) {
   const { sectionTitle, sectionSubtitle, rights } = props
@@ -14,7 +12,6 @@ export default function FourRightsDesktop(props: HomepageSettings['fourRights'])
   const ANIMATED_INITIAL = { opacity: 0, y: -150 }
   const ANIMATED_INITIAL_ALT = { opacity: 0, y: 10 }
   const ANIMATED_TARGET = { opacity: 1, y: 0 }
-  const ANIMATED_EXIT = { opacity: 0, y: -30 }
 
   const ANIMATED_TRANSITION = {
     duration: 0.6,
@@ -60,11 +57,13 @@ export default function FourRightsDesktop(props: HomepageSettings['fourRights'])
           animate={ANIMATED_TARGET}
           transition={ANIMATED_TRANSITION}
           exit={ANIMATED_INITIAL}
-          className="relative w-full h-48 rounded-lg"
+          className="four-rights__first relative w-full h-48 rounded-lg"
           style={customStyle}
           key={index}
         >
           {image}
+          <div className="absolute top-2 bottom-0 my-auto right-0 corner corner-dark corner-top-right bg-light-green" />
+          <div className="absolute top-0 right-1 left-0 mx-auto corner corner-dark corner-top-right bg-light-green" />
         </motion.div>
       )
     } else if (index === 1) {
@@ -74,7 +73,7 @@ export default function FourRightsDesktop(props: HomepageSettings['fourRights'])
           animate={ANIMATED_TARGET}
           transition={ANIMATED_TRANSITION}
           exit={ANIMATED_INITIAL}
-          className="absolute bottom-24 -right-4 p-4 rounded-lg rounded-l-3xl bg-dark-green z-1"
+          className=" absolute bottom-24 -right-4 p-4 rounded-lg rounded-l-3xl bg-dark-green z-1"
           key={index}
         >
           <div className="relative w-44 h-32 rounded-lg bg-green" style={customStyle}>
@@ -93,11 +92,13 @@ export default function FourRightsDesktop(props: HomepageSettings['fourRights'])
           animate={ANIMATED_TARGET}
           transition={ANIMATED_TRANSITION}
           exit={ANIMATED_INITIAL}
-          className="absolute bottom-52 right-0 w-75 h-46 rounded-lg"
+          className="four-rights__third absolute bottom-52 right-0 w-75 h-46 rounded-lg"
           style={customStyle}
           key={index}
         >
           {image}
+          <div className="absolute top-0 -bottom-20 my-auto right-0 corner corner-dark corner-bottom-right bg-pink" />
+          <div className="absolute bottom-0 z-1 right-[64%] corner corner-dark corner-bottom-right bg-pink" />
         </motion.div>
       )
     } else if (index === 3) {

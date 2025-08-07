@@ -226,4 +226,32 @@
     width: min(21.5vw, 320px);
     right: -4.5%;
   }
+
+  .four-rights__first,
+  .four-rights__third {
+    position: relative;
+  }
+
+  .four-rights__first::after,
+  .four-rights__third::after {
+    content: '';
+    position: absolute;
+    right: 0;
+  }
+
+  .four-rights__first::after {
+    width: 49.5%;
+    top: 0;
+    height: 50%;
+    background-color: var(--color-dark-green);
+    border-bottom-left-radius: var(--radius-2xl);
+  }
+
+  .four-rights__third::after {
+    width: 64%;
+    bottom: 0;
+    height: 26%;
+    background-color: var(--color-dark-green);
+    border-top-left-radius: var(--radius-2xl);
+  }
 }
