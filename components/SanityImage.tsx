@@ -10,6 +10,7 @@ interface Props {
   priority?: boolean
   layoutSwitch?: number
   maxWidth?: number
+  style?: React.CSSProperties
 }
 
 export const SanityImage = ({
@@ -19,20 +20,20 @@ export const SanityImage = ({
   priority,
   layoutSwitch = 768,
   maxWidth = 800,
+  style,
 }: Props) => {
   const imageProps = useNextSanityImage(getSanityImageConfig(), asset)
 
   if (!imageProps) return null
 
   return (
-    <figure>
-      <Image
-        {...imageProps}
-        alt={alt}
-        sizes={`(max-width: ${layoutSwitch}px) 100vw, ${maxWidth}px`}
-        className={className}
-        priority={priority}
-      />
-    </figure>
+    <Image
+      {...imageProps}
+      alt={alt}
+      sizes={`(max-width: ${layoutSwitch}px) 100vw, ${maxWidth}px`}
+      className={className}
+      priority={priority}
+      {...(style ? { style } : {})}
+    />
   )
 }

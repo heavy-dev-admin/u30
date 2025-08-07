@@ -40,6 +40,7 @@ export type Client = {
   _id: string
   title: string
   logo: Image
+  logoSize?: number
 }
 
 export type QuoteItem = {

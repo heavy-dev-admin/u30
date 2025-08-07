@@ -3,6 +3,10 @@ import Marquee from 'react-fast-marquee'
 import { Client, ClientsSectionSettings } from 'types/common'
 
 function ClientItem({ client, isMarquee = false }: { client: Client; isMarquee?: boolean }) {
+  let { logoSize } = client
+  const baseSize = 100
+  if (logoSize == undefined) logoSize = baseSize
+
   return (
     <div
       className={`flex justify-center items-center [&>figure]:flex-1 ${isMarquee ? 'w-40' : 'w-auto'}`}
@@ -11,7 +15,11 @@ function ClientItem({ client, isMarquee = false }: { client: Client; isMarquee?:
         asset={client.logo}
         alt={client.logo?.alt || client.title}
         className="size-full object-contain"
-        maxWidth={90}
+        maxWidth={900}
+        style={{
+          width: `${logoSize}%`,
+          margin: 'auto',
+        }}
       />
     </div>
   )
