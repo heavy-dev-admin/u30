@@ -1,3 +1,4 @@
+import SizeSlider from 'components/Sanity/SizeSlider'
 import { defineField } from 'sanity'
 import { validateSlug } from 'schemas/utils/validateSlug'
 
@@ -69,6 +70,20 @@ export default defineField({
       ],
     }),
     defineField({
+      name: 'logoSize',
+      title: 'Logo Width',
+      type: 'number',
+      initialValue: 100,
+      hidden: ({ parent }) => parent?.type !== 'solid',
+      // validation: (Rule) =>
+      //   Rule.min(0)
+      //     .max(100)
+      //     .custom((val) => (val % 10 === 0 ? true : 'Must be in increments of 10')),
+      components: {
+        input: SizeSlider,
+      },
+    }),
+    defineField({
       name: 'textColor',
       title: 'Text Color',
       type: 'color',
@@ -109,4 +124,26 @@ export default defineField({
       hidden: ({ parent }) => parent?.location !== 'services-2',
     }),
   ],
+  preview: {
+    select: {
+      type: 'type',
+      title: 'title',
+      image: 'image',
+      imageAlt: 'image.alt',
+      icon: 'icon',
+      iconAlt: 'icon.alt',
+    },
+    prepare({ type, title, image, imageAlt, icon, iconAlt }) {
+      if (type === 'image' && image) {
+        return {
+          title: imageAlt || 'Image',
+          media: image,
+        }
+      }
+      return {
+        title,
+        media: icon,
+      }
+    },
+  },
 })

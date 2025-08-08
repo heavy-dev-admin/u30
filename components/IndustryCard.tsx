@@ -72,7 +72,7 @@ export default function IndustryCard({ industry, index, open, setOpen }: Industr
       aria-expanded={isOpen}
       className={clsx(
         isOpen ? 'bg-dark-green text-green' : `${classes.bg} text-dark-green`,
-        'px-6 py-5 relative rounded-lg transition-all mb-4 cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-green'
+        'px-6 py-5 relative rounded-lg transition-all mb-4 last:mb-0 cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-green'
       )}
     >
       <div className="absolute right-6 top-3.5">

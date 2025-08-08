@@ -1,5 +1,13 @@
 import { SanityImage } from 'components/SanityImage'
-import { AnimatePresence, motion, useMotionValueEvent, useScroll, useTransform } from 'motion/react'
+import {
+  animate,
+  AnimatePresence,
+  motion,
+  useMotionValue,
+  useMotionValueEvent,
+  useScroll,
+  useTransform,
+} from 'motion/react'
 import { ReactElement, useEffect, useRef, useState } from 'react'
 import { FourRightItem } from 'types/common'
 import type { HomepageSettings } from 'types/pages'
@@ -125,7 +133,7 @@ export default function FourRightsDesktop(props: HomepageSettings['fourRights'])
     if (!scrollContainer) return
 
     const updateScrollHeight = () => {
-      if (window.innerWidth >= 1024) {
+      if (window.innerWidth >= 768) {
         scrollContainer.style.height = '300vh'
       } else {
         scrollContainer.style.height = 'auto'
@@ -153,50 +161,75 @@ export default function FourRightsDesktop(props: HomepageSettings['fourRights'])
     return Math.max(0, Math.min(rights.length - 1, i))
   })
 
+  const contentY = useMotionValue(-100)
+
+  useMotionValueEvent(scrollYProgress, 'change', (v) => {
+    if (v > 0 && contentY.get() !== 0) {
+      animate(contentY, 0, {
+        duration: 0.4,
+        ease: 'easeOut',
+      })
+    } else if (v <= 0 && contentY.get() !== -100) {
+      animate(contentY, -100, {
+        duration: 0.4,
+        ease: 'easeOut',
+      })
+    }
+  })
+
   useMotionValueEvent(indexFromScroll, 'change', (latest) => {
     setActiveIndex(latest)
   })
 
   return (
-    <div ref={scrollContainerRef} className="relative hidden lg:block">
+    <div ref={scrollContainerRef} className="relative hidden md:block mb-12">
       <div
-        className="hidden h-screen sticky top-0 justify-center items-center overflow-hidden bg-dark-green lg:gap-20 lg:py-[134px] lg:flex xl:gap-40"
+        className="hidden h-screen sticky top-0 justify-center items-center overflow-hidden bg-dark-green md:gap-4 lg:gap-20 md:py-[134px] md:flex xl:gap-40"
         ref={containerRef}
       >
-        <div className="relative flex flex-col justify-end w-97 min-h-127">
+        <div className="relative flex flex-col justify-end w-1/2 ml-4 lg:ml-0 lg:w-97 min-h-127">
           <AnimatePresence>{rights.map(renderBlock)}</AnimatePresence>
         </div>
-        <div className="w-120 xl:w-147">
-          <div className="text-button text-cream">{sectionSubtitle}</div>
-          <h2 className="h1 text-cream font-black mt-6">
-            {sectionTitle}
-            <motion.span
-              key={activeIndex}
-              initial={ANIMATED_INITIAL_ALT}
-              animate={ANIMATED_TARGET}
-              transition={ANIMATED_TRANSITION_TITLE}
-              className="block mb-10"
-              style={{
-                color: rights[activeIndex]?.backgroundColor?.hex || 'inherit',
-                minHeight: '1em',
-              }}
-            >
-              {rights[activeIndex]?.label}
-            </motion.span>
-          </h2>
-          <div className="min-h-28">
-            {rights[activeIndex]?.detail && (
-              <motion.p
+        <div className="h-full flex items-center w-1/2 mr-4 lg:mr-0 lg:w-auto">
+          {/* Animated container that moves from top to center based on scroll */}
+          <motion.div
+            className="lg:w-120 xl:w-147"
+            style={{
+              y: contentY,
+            }}
+            transition={{ type: 'spring', stiffness: 100, damping: 30 }}
+          >
+            <div className="text-button text-cream">{sectionSubtitle}</div>
+            <h2 className="h1 text-cream font-black mt-6">
+              {sectionTitle}
+              <motion.span
                 key={activeIndex}
                 initial={ANIMATED_INITIAL_ALT}
                 animate={ANIMATED_TARGET}
-                transition={ANIMATED_TRANSITION_COPY}
-                className="w-109 text-body-large text-cream"
+                transition={ANIMATED_TRANSITION_TITLE}
+                className="block mb-10"
+                style={{
+                  color: rights[activeIndex]?.backgroundColor?.hex || 'inherit',
+                  minHeight: '1em',
+                }}
               >
-                {rights[activeIndex]?.detail}
-              </motion.p>
-            )}
-          </div>
+                {rights[activeIndex]?.label}
+              </motion.span>
+            </h2>
+            <div className="min-h-28">
+              {rights[activeIndex]?.detail && (
+                <motion.p
+                  key={activeIndex}
+                  initial={ANIMATED_INITIAL_ALT}
+                  animate={ANIMATED_TARGET}
+                  transition={ANIMATED_TRANSITION_COPY}
+                  className="lg:w-109 text-body-large text-cream"
+                >
+                  {rights[activeIndex]?.detail}
+                </motion.p>
+              )}
+            </div>
+          </motion.div>
         </div>
       </div>
     </div>

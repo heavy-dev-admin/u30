@@ -2,7 +2,7 @@ import { Label, Stack, Text } from '@sanity/ui'
 import React from 'react'
 import { set, unset } from 'sanity'
 
-export default function LogoSizeSlider({ value, onChange, schemaType, elementProps }) {
+export default function SizeSlider({ value, onChange, schemaType, elementProps }) {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const val = parseInt(e.target.value, 10)
     onChange(val ? set(val) : unset())

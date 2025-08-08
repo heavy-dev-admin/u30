@@ -61,11 +61,10 @@ export default function Header({ settings }: { settings: Settings }) {
               <Link
                 key={index}
                 href={item.seoPage?.slug?.current || '/'}
-                className={`button rounded-none capitalize bg-beige px-2.5 text-base transition-colors ${
-                  isActive ? 'text-green' : 'text-dark-green hover:bg-cream'
-                } ${index === 0 ? 'rounded-l-lg pl-4' : ''} ${
-                  index === navItems.length - 1 ? 'rounded-r-lg pr-4' : ''
-                }`}
+                className={clsx(
+                  'button capitalize rounded-lg bg-cream px-2.5 text-base transition-colors hover:bg-beige',
+                  isActive ? 'text-green' : 'text-dark-green'
+                )}
               >
                 {item.seoPage?.title}
               </Link>

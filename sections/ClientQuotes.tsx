@@ -17,12 +17,15 @@ function ClientQuoteItem(props: QuoteItem) {
             maxWidth={160}
           />
         </div>
-        <p className="text-body text-dark-green lg:text-[26px] lg:leading-8.5">{quote}</p>
+        <p className="text-body -indent-2.5 text-dark-green lg:text-[26px] lg:leading-8.5">
+          &ldquo;{quote}&rdquo;
+        </p>
       </div>
       <div className="w-full mt-3.5 bg-cream rounded-lg rounded-tr-3xl lg:w-fit lg:absolute lg:-bottom-24.5 lg:-left-4 lg:mt-0 lg:p-4">
-        <div className="w-full p-6.5 bg-beige rounded-lg text-dark-green lg:w-82 lg:h-35 lg:mt-0 lg:px-9.5 lg:py-8.5">
-          <h4 className="text-body">{attributor}</h4>
-          <p className="text-body lg:mt-4">{title}</p>
+        <div className="w-full p-6.5 bg-beige rounded-lg text-dark-green lg:w-82 lg:h-fit lg:mt-0 lg:px-9.5 lg:py-8.5">
+          <h4 className="text-body lg:mb-4">{attributor}</h4>
+          <p className="text-body lg:mb-1">{title},</p>
+          <p className="text-body">{client.title}</p>
         </div>
         <div className="hidden absolute -top-2 left-4 corner corner-bottom-left lg:block" />
         <div className="hidden absolute bottom-24.5 -right-2 corner corner-bottom-left lg:block" />

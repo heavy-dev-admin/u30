@@ -1,4 +1,4 @@
-import { DottedLineOne, DottedLineThree,DottedLineTwo, RocketShip } from 'components/Icons'
+import { DottedLineOne, DottedLineThree, DottedLineTwo, RocketShip } from 'components/Icons'
 import { SanityImage } from 'components/SanityImage'
 import Container from 'components/Structure/Container'
 import Section from 'components/Structure/Section'
@@ -8,7 +8,7 @@ export default function TwoUp(props: TwoUpSectionSettings) {
   const { title, subtitle, imageLeft, imageRight, textBubbleLeft, textBubbleRight } = props
 
   return (
-    <Section className="w-full mt-14 mb-12 px-4 md:px-6.5 md:mt-17 md:mb-16">
+    <Section className="w-full mb-12 px-4 md:px-6.5 md:mb-16">
       <Container>
         <h3 className="h3 text-left text-dark-green max-w-206.5 md:text-center md:mx-auto">
           {title}

@@ -25,16 +25,18 @@ export default function Industries(props: PageProps) {
       <Section className="pt-10">
         <Grid className="bg-cream relative">
           {hero && (
-            <div className="col-span-full text-dark-green mb-14 lg:mb-0 lg:col-span-5 lg:pr-30 ">
-              {hero.title && <h1 className="h3">{hero.title}</h1>}
-              {hero.description && (
-                <h2 className="text-body">
-                  <PortableTextParser
-                    content={hero.description}
-                    className="mt-6 text-body md:mt-8"
-                  />
-                </h2>
-              )}
+            <div className="col-span-full text-dark-green mb-14 lg:mb-0 lg:col-span-5 lg:pr-30">
+              <div className="lg:sticky top-31">
+                {hero.title && <h1 className="h3">{hero.title}</h1>}
+                {hero.description && (
+                  <h2 className="text-body">
+                    <PortableTextParser
+                      content={hero.description}
+                      className="mt-6 text-body md:mt-8"
+                    />
+                  </h2>
+                )}
+              </div>
             </div>
           )}
           {industries && Array.isArray(industries) && industries.length > 0 && (
@@ -52,11 +54,7 @@ export default function Industries(props: PageProps) {
           )}
         </Grid>
       </Section>
-      {flexibleSections && (
-        <Section>
-          <FlexibleSections sections={flexibleSections} />
-        </Section>
-      )}
+      {flexibleSections && <FlexibleSections sections={flexibleSections} />}
     </>
   )
 }

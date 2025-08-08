@@ -45,7 +45,7 @@ export default function Footer({ settings }: { settings: Settings }) {
               </div>
             )}
           </div>
-          <div className="flex-1 flex flex-col gap-7 mb-[71px] order-1 md:order-2 md:gap-8 md:flex-row md:justify-center md:mb-0">
+          <div className="flex-1 flex flex-col gap-5 mb-[71px] order-1 md:order-2 md:gap-8 md:flex-row md:justify-center md:mb-0">
             {footerMenu?.map((item, index) => (
               <Link
                 href={item.seoPage?.slug?.current || '/'}

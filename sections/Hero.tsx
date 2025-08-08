@@ -8,7 +8,7 @@ export default function Hero(props: HomepageSettings['hero']) {
 
   return (
     <Section>
-      <Grid className="mx-auto w-full flex flex-col py-10 bg-cream gap-12.5 lg:flex-row lg:justify-between lg:items-center lg:gap-[66px] lg:pt-0 lg:pb-6.5">
+      <Grid className="mx-auto w-full flex flex-col pt-10 pb-3.5 bg-cream gap-12.5 lg:flex-row lg:justify-between lg:items-center lg:gap-[66px] lg:pt-10 lg:pb-16">
         <div className="col-span-full lg:col-span-4">
           <h2 className="h1 font-black text-dark-green">{title}</h2>
           <p className="mt-4 text-body font-medium text-dark-green lg:mt-10 lg:text-[26px] lg:leading-8.5">

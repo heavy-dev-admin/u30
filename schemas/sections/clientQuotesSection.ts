@@ -33,6 +33,8 @@ export default defineType({
               type: 'text',
               name: 'quote',
               title: 'Quote content',
+              description:
+                'Please do not include quatation marks. They will be added with code for formatting consistency.',
               validation: (rule) => rule.required(),
             }),
             defineField({

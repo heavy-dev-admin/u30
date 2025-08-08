@@ -126,6 +126,7 @@ export type ServiceBlockItem = {
   }
   image?: Image
   reference?: string
+  logoSize?: number
 }
 
 export type RichText = {

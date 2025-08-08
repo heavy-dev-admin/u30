@@ -10,12 +10,12 @@ export default function HeroAbout(props: AboutSettings['hero']) {
 
   return (
     <Section
-      className={`flex flex-col items-start gap-12 pt-8 pb-4 md:pt-10 lg:gap-5 ${layout === 'primary' ? 'lg:flex-row lg:justify-between' : ''}`}
+      className={`flex flex-col items-start mb-4 gap-12 pt-8 md:pt-10 lg:gap-18 ${layout === 'primary' ? 'lg:flex-row lg:justify-between' : ''}`}
     >
       <Grid>
         <div className="col-span-full lg:col-span-5">
-          <h1 className="h3 text-dark-green mb-6 lg:mb-8 border">{title}</h1>
-          {description && <PortableTextParser content={description} className="text-body" />}
+          <h1 className="h3 text-dark-green mb-6 lg:mb-8">{title}</h1>
+          {description && <PortableTextParser content={description} className="" />}
         </div>
       </Grid>
       <Container className="w-full h-auto flex flex-col gap-4 lg:flex-row lg:items-stretch lg:justify-end">

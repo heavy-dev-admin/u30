@@ -68,7 +68,7 @@ const sharedPlugins = [
   structureTool({
     structure: settingsStructure(
       [settingsType],
-      [homepageType, careersType, servicesType, industriesType, aboutType],
+      [homepageType, aboutType, servicesType, industriesType, careersType],
       [clientType]
     ),
     defaultDocumentNode: previewDocumentNode(),

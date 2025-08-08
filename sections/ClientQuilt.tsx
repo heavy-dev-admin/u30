@@ -1,4 +1,6 @@
+import clsx from 'clsx'
 import { SanityImage } from 'components/SanityImage'
+import Container from 'components/Structure/Container'
 import Marquee from 'react-fast-marquee'
 import { Client, ClientsSectionSettings } from 'types/common'
 
@@ -49,7 +51,12 @@ export default function ClientQuilt(props: ClientsSectionSettings) {
   const { title, layout, clients } = props
 
   return (
-    <section className="w-full px-8 py-10 bg-cream overflow-hidden md:px-6.5 lg:pt-20 lg:pb-15">
+    <section
+      className={clsx(
+        'w-full py-10 bg-cream overflow-hidden lg:pt-20 lg:pb-15',
+        layout === 'grid' ? 'px-8 md:px-6.5' : 'px-0'
+      )}
+    >
       <h2 className="h4 mb-6 text-dark-green text-center lg:mb-4">{title}</h2>
       {layout === 'grid' ? <ClientGrid clients={clients} /> : <ClientMarquee clients={clients} />}
     </section>

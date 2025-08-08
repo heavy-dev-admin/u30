@@ -14,10 +14,16 @@ function RightCard(props: FourRightItem) {
 
   return (
     <div
-      className="flex flex-col gap-2 w-80 h-50 px-4 py-4.5 rounded-lg bg-light-green"
+      className="flex flex-col justify-end gap-0 w-full h-40 px-4 py-4.5 rounded-lg bg-light-green"
       style={customStyle}
     >
-      <SanityImage asset={emblem} alt={emblem?.alt || label} className="size-13 object-contain" />
+      <div className="relative size-20">
+        <SanityImage
+          asset={emblem}
+          alt={emblem?.alt || label}
+          className="absolute object-contain -left-4 -bottom-1"
+        />
+      </div>
       <h3 className="h3 text-dark-green font-black">{label}</h3>
     </div>
   )
@@ -35,10 +41,10 @@ export default function FourRightsMobile(props: HomepageSettings['fourRights']) 
   }, DEBOUNCE_TIME)
 
   return (
-    <div className="pt-12 pb-30 bg-dark-green lg:hidden">
+    <section className="pt-20 pb-30 bg-dark-green block mb-12 md:hidden min-h-[637px]">
       <div className="px-4 md:px-6.5">
         <div className="text-button text-cream">{sectionSubtitle}</div>
-        <h2 className="h3 text-cream font-black mt-13 w-65 md:w-1/2">{sectionTitle}</h2>
+        <h2 className="h3 text-cream font-black mt-13 w-3/4 md:w-1/2">{sectionTitle}</h2>
       </div>
       <div className="mt-4 overflow-hidden">
         <Swiper
@@ -46,26 +52,32 @@ export default function FourRightsMobile(props: HomepageSettings['fourRights']) 
           spaceBetween={12}
           slidesPerView="auto"
           freeMode={{
-            enabled: true,
+            enabled: false,
             sticky: false,
           }}
           className="!overflow-visible !px-4 md:!px-6.5"
           onSliderMove={(swiper) => handleSlideChange(swiper.progress)}
         >
           {rights.map((right, index) => (
-            <SwiperSlide key={index} className="!w-80">
+            <SwiperSlide
+              key={index}
+              className={`!w-[86.4%] !max-w-300px ${index === rights.length - 1 ? 'mr-[calc(100%-86.4%)]' : ''}`}
+            >
               <RightCard {...right} />
             </SwiperSlide>
           ))}
         </Swiper>
       </div>
       {detail && (
-        <div className="mt-6 px-4 md:px-6.5">
-          <p className="w-80 text-cream text-body-large transition-all duration-500 ease-in-out md:w-1/2">
+        <div className="relative w-full mt-6 px-4 md:px-6.5">
+          <p
+            key={detail}
+            className="absolute text-cream text-body-large animate-in fade-in duration-500 ease-in-out md:w-1/2"
+          >
             {detail}
           </p>
         </div>
       )}
-    </div>
+    </section>
   )
 }
